@@ -1,4 +1,3 @@
-```yaml
 name: Deploy Slides to Subdirectory
 
 on:
@@ -39,4 +38,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./courseware/dist 
           destination_dir: courseware    # 在线链接 /courseware/
-```
+
