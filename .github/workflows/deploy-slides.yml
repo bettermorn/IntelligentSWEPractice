@@ -73,7 +73,7 @@ jobs:
 
       - name: Export PDF 📄
         # 导出 PDF 并放入打包目录，这样在线网页上也能直接下载 PDF 
-        run: pnpm slidev export --output dist/courseware/slides.pdf
+        run: pnpm slidev export --output dist/courseware/ISWEP.pdf
         working-directory: courseware
 
       - name: Setup Pages
