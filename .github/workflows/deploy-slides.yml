@@ -1,9 +1,9 @@
-name: Deploy Slides
+name: Deploy Slides to Subdirectory
 
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
+    branches:
+      - main
 
 permissions:
   contents: read
@@ -11,35 +11,70 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: courseware
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'npm'
-          cache-dependency-path: courseware/package-lock.json
-      - run: npm ci
-      - run: npm run build -- --base=/${{ github.event.repository.name }}/
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: courseware/dist
+          # 临时移除 cache 避免因 lock 文件不存在而报错，确保首次通过
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
+      # 容错安装：如果存在 package-lock.json 则用 npm ci，否则用 npm install
+      - name: Install Dependencies
+        run: |
+          cd courseware
+          if [ -f package-lock.json ]; then
+            echo "Found package-lock.json, using npm ci"
+            npm ci
+          else
+            echo "package-lock.json not found, using npm install"
+            npm install
+          fi
+
+      - name: Build Slides
+        run: |
+          cd courseware
+          npm run build
+
+      # 诊断步骤：打印打包后的目录结构，防止路径写错
+      - name: Diagnose Build Output
+        run: |
+          echo "=== Checking courseware directory ==="
+          ls -la courseware/
+          if [ -d "courseware/dist" ]; then
+            echo "=== dist directory exists ==="
+            ls -la courseware/dist/
+          else
+            echo "=== ERROR: courseware/dist directory NOT found ==="
+          fi
+
+      # 容错复制：安全地创建目录并复制，避免通配符 * 出错
+      - name: Prepare subfolder for deployment
+        run: |
+          mkdir -p _site/courseware
+          if [ -d "courseware/dist" ]; then
+            cp -R courseware/dist/. _site/courseware/
+            echo "Successfully prepared _site/courseware"
+          else
+            echo "Error: dist directory does not exist. Deployment failed."
+            exit 1
+          fi
+
+      # 上传构建产物
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './_site'
+
+      # 执行部署
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
