@@ -64,7 +64,7 @@ jobs:
         
       # ======= 🌟 新增：Playwright & PDF 导出步骤 =======
       - name: Install Playwright Dependency ⚙️
-        run: pnpm add -D playwright-chromium
+        run: pnpm add -D playwright-chromium --ignore-scripts
         working-directory: courseware
 
       - name: Install Chromium Browser 🌐
