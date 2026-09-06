@@ -22,6 +22,13 @@ transition: slide-left
 comark: true
 # duration of the presentation
 duration: 35min
+
+
+# 🌟 在这里配置字体，优先使用系统自带的高级无衬线中文字体
+fonts:
+  sans: 'Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif'
+  mono: 'Fira Code, Consolas, Monaco, monospace'
+
 ---
 
 # Welcome to Slidev
@@ -47,9 +54,12 @@ Presentation slides for developers
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
 
+       <target="_blank" 
+     class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-medium no-underline transition-all shadow-md" >下载 [智能时代的软件开发方法与实践课程](http://bettermorn.github.io/IntelligentSWEPractice/ISWEP.pdf)</>
 
-欢迎学习智能软件工程实践
-📥 下载 PDF 离线版本
+
+ 
+
 
 
 
