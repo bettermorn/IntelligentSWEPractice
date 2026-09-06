@@ -1,0 +1,42 @@
+```yaml
+name: Deploy Slides to Subdirectory
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # 1. 进入 courseware 目录安装
+      - name: Install Dependencies
+        run: |
+          cd courseware
+          npm install
+
+      # 2. 进入 courseware 目录打包
+      - name: Build Slides
+        run: |
+          cd courseware
+          npm run build
+
+      # 3. 部署目录
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./courseware/dist # 改为 courseware/dist
+          destination_dir: courseware    # 关键：改为 courseware，这样在线链接就会变成 /courseware/
+```
