@@ -1,62 +1,45 @@
-name: Deploy Slides to Subdirectory
+name: Deploy Slides
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch:
 
-# 必须显式声明这些权限，否则官方部署 API 会拒绝执行
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# 保证同一时间只有一个部署任务，避免冲突
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}courseware/ # 部署成功后在 Actions 页面展示的链接
+  build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: courseware
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
-          cache-dependency-path: 'courseware/package-lock.json' # 缓存 node_modules 提升后续构建速度
-
-      - name: Install Dependencies
-        run: |
-          cd courseware
-          npm ci
-
-      - name: Build Slides
-        run: |
-          cd courseware
-          npm run build
-
-      # 在根目录创建 _site/courseware 结构，并将打包好的 dist 内容复制进去
-      # 这样部署后，访问链接就是 https://.github.io//courseware/
-      - name: Prepare subfolder for deployment
-        run: |
-          mkdir -p _site/courseware
-          cp -r courseware/dist/* _site/courseware/
-
-      # 上传构建产物（注意：此步骤会读取根目录下的 _site 文件夹）
-      - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v3
+          cache-dependency-path: courseware/package-lock.json
+      - run: npm ci
+      - run: npm run build -- --base=/${{ github.event.repository.name }}/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
-          path: './_site'
+          path: courseware/dist
 
-      # 执行部署
-      - name: Deploy to GitHub Pages
-        id: deployment
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
         uses: actions/deploy-pages@v4
