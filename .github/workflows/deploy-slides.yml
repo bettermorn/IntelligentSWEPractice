@@ -5,25 +5,23 @@ on:
     branches:
       - main
 
-# 现代部署方式所需的权限
+# 必须显式声明这些权限，否则官方部署 API 会拒绝执行
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# 保证同一时间只有一个部署任务，避免冲突
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}courseware/ # 部署成功后在 Actions 页面显示的链接
+      url: ${{ steps.deployment.outputs.page_url }}courseware/ # 部署成功后在 Actions 页面展示的链接
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./courseware
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,27 +31,32 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
-          cache-dependency-path: './courseware/package-lock.json'
+          cache-dependency-path: 'courseware/package-lock.json' # 缓存 node_modules 提升后续构建速度
 
       - name: Install Dependencies
-        run: npm ci
+        run: |
+          cd courseware
+          npm ci
 
       - name: Build Slides
-        run: npm run build
+        run: |
+          cd courseware
+          npm run build
 
-      # 为了将内容部署到子目录 courseware，我们需要在打包上传前，重构一下目录结构
+      # 在根目录创建 _site/courseware 结构，并将打包好的 dist 内容复制进去
+      # 这样部署后，访问链接就是 https://.github.io//courseware/
       - name: Prepare subfolder for deployment
         run: |
-          mkdir -p ../_site/courseware
-          cp -r dist/* ../_site/courseware/
+          mkdir -p _site/courseware
+          cp -r courseware/dist/* _site/courseware/
 
-      # 上传构建产物
+      # 上传构建产物（注意：此步骤会读取根目录下的 _site 文件夹）
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site # 上传刚才准备好的整站目录
+          path: './_site'
 
-      # 部署到 GitHub Pages
+      # 执行部署
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
