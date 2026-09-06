@@ -26,6 +26,8 @@ duration: 35min
 
 # Welcome to Slidev
 
+
+
 Presentation slides for developers
 
 <div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
@@ -44,6 +46,12 @@ Presentation slides for developers
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
+
+
+欢迎学习智能软件工程实践
+📥 下载 PDF 离线版本
+
+
 
 ---
 transition: fade-out
