@@ -3,7 +3,7 @@
 name: Deploy pages
 
 on:
-  workflow_dispatch:
+  #workflow_dispatch:
   push:
     branches: [main, master]
     paths:
@@ -43,12 +43,12 @@ jobs:
 
       - name: Install dependencies
       # ni 此时会自动调用 pnpm install
-        run: ni
+        run: pnpm install
         working-directory: courseware
 
-      - name: Build
+      - name: Build Slidev
       # 在 courseware 目录下构建，并输出到 dist/courseware
-        run: nr build --base /${{github.event.repository.name}}/courseware/ --out dist/courseware
+        run: pnpm slidev --base /${{github.event.repository.name}}/courseware/ --out dist/courseware
         working-directory: courseware
 
       - name: Setup Pages
