@@ -37,6 +37,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./courseware/dist # 改为 courseware/dist
-          destination_dir: courseware    # 关键：改为 courseware，这样在线链接就会变成 /courseware/
+          publish_dir: ./courseware/dist 
+          destination_dir: courseware    # 在线链接 /courseware/
 ```
