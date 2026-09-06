@@ -61,8 +61,13 @@ jobs:
       # 在 courseware 目录下构建，并输出到 dist/courseware
         run: pnpm slidev build --base /${{github.event.repository.name}}/courseware/ --out dist/courseware
         working-directory: courseware
+        
+      # ======= 🌟 新增：Playwright & PDF 导出步骤 =======
+      - name: Install Playwright Dependency ⚙️
+        run: pnpm add -D playwright-chromium
+        working-directory: courseware
 
-      - name: Install Playwright Chromium (for exporting) ⚙️
+      - name: Install Chromium Browser 🌐
         run: pnpm exec playwright install chromium
         working-directory: courseware
 
