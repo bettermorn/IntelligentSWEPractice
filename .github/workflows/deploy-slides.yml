@@ -1,89 +1,61 @@
-name: Build and Deploy Slides
+name: Deploy pages
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - "courseware/**"
-      - ".github/workflows/deploy_slides.yml"
-
   workflow_dispatch:
+  push:
+    branches: [main, master]
+    paths:
+      - 'courseware/**'
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. 拉取当前课件仓库
-      - name: Checkout source repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # 2. 配置 Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: pnpm
-          cache-dependency-path: courseware/pnpm-lock.yaml
+          node-version: 'lts/*'
+          cache: 'npm' # 开启缓存加快构建
 
-      # 3. 启用 pnpm
-      - name: Enable pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
+      - name: Setup @antfu/ni
+        run: npm i -g @antfu/ni
 
-      # 4. 安装依赖
       - name: Install dependencies
+        run: nci
         working-directory: courseware
-        run: pnpm install --frozen-lockfile
 
-      # 5. 检查代码片段文件是否存在
-      - name: Check required snippet files
+      - name: Build
+        run: nr build --base /${{github.event.repository.name}}/courseware/ --out dist/courseware
         working-directory: courseware
-        run: |
-          if [ ! -f "snippets/external.ts" ]; then
-            echo "::error::Missing file: courseware/snippets/external.ts"
-            exit 1
-          fi
 
-      # 6. 构建 Slidev
-      - name: Build slides
-        working-directory: courseware
-        run: pnpm exec slidev build slides.md --out dist
-
-      # 7. 拉取目标仓库
-      - name: Checkout target repository
-        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
         with:
-          repository: your-org/your-slides-repository
-          token: ${{ secrets.SLIDES_DEPLOY_TOKEN }}
-          path: target-repository
-          ref: main
+          enablement: true
 
-      # 8. 将构建结果复制到目标仓库的 deploy_slides 目录
-      - name: Copy built slides
-        run: |
-          rm -rf target-repository/deploy_slides
-          mkdir -p target-repository/deploy_slides
-          cp -R courseware/dist/. target-repository/deploy_slides/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: courseware/dist
 
-      # 9. 提交并推送到目标仓库
-      - name: Commit and push changes
-        working-directory: target-repository
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add deploy_slides
-
-          if git diff --cached --quiet; then
-            echo "No changes to deploy."
-            exit 0
-          fi
-
-          git commit -m "deploy: update slides"
-          git push origin main
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
