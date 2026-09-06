@@ -48,7 +48,7 @@ Presentation slides for developers
   <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
     <carbon:logo-github />
   </a>
-  <target="_blank" download href="http://bettermorn.github.io/IntelligentSWEPractice/ISWEP.pdf" class="download-button" />下载智能时代的软件开发方法与实践课程
+  <target="_blank" download href="http://bettermorn.github.io/IntelligentSWEPractice/ISWEP.pdf" class="download-button" />下载智能软件工程实践
 </div>
 
 <!--
