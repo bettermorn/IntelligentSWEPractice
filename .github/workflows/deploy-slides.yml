@@ -45,6 +45,17 @@ jobs:
       # ni 此时会自动调用 pnpm install
         run: pnpm install
         working-directory: courseware
+      # 新增步骤：自动检测并创建缺失的 snippets/external.ts 占位文件，防止打包报错
+      - name: Create Mock Snippets if missing
+        run: |
+          mkdir -p snippets
+          if [ ! -f snippets/external.ts ]; then
+            echo "// Temp placeholder for build" > snippets/external.ts
+            echo "console.log('Hello Slidev');" >> snippets/external.ts
+            echo "Created missing snippets/external.ts placeholder."
+          fi
+        working-directory: courseware
+        
 
       - name: Build Slidev
       # 在 courseware 目录下构建，并输出到 dist/courseware
