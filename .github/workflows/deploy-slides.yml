@@ -71,6 +71,12 @@ jobs:
         run: pnpm exec playwright install chromium
         working-directory: courseware
 
+    # 安装中文字体，防止导出的 PDF 中文变成乱码/方块
+      - name: Install Chinese Fonts 🇨🇳
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+
       - name: Export PDF 📄
         # 导出 PDF 并放入打包目录，这样在线网页上也能直接下载 PDF 
         run: pnpm slidev export --output dist/courseware/ISWEP.pdf
@@ -80,8 +86,9 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
-
-      - uses: actions/upload-pages-artifact@v3
+          
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: courseware/dist
 
