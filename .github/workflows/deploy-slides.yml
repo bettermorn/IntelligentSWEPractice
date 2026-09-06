@@ -5,37 +5,55 @@ on:
     branches:
       - main
 
+# 现代部署方式所需的权限
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}courseware/ # 部署成功后在 Actions 页面显示的链接
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./courseware
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'npm'
+          cache-dependency-path: './courseware/package-lock.json'
 
-      # 1. 进入 courseware 目录安装
       - name: Install Dependencies
-        run: |
-          cd courseware
-          npm install
+        run: npm ci
 
-      # 2. 进入 courseware 目录打包
       - name: Build Slides
+        run: npm run build
+
+      # 为了将内容部署到子目录 courseware，我们需要在打包上传前，重构一下目录结构
+      - name: Prepare subfolder for deployment
         run: |
-          cd courseware
-          npm run build
+          mkdir -p ../_site/courseware
+          cp -r dist/* ../_site/courseware/
 
-      # 3. 部署目录
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      # 上传构建产物
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./courseware/dist 
-          destination_dir: courseware    # 在线链接 /courseware/
+          path: ./_site # 上传刚才准备好的整站目录
 
+      # 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
