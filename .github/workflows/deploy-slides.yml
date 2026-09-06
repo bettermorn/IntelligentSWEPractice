@@ -27,12 +27,13 @@ jobs:
         with:
           node-version: 'lts/*'
           cache: 'npm' # 开启缓存加快构建
+          cache-dependency-path: 'courseware/pnpm-lock.yaml' 
 
       - name: Setup @antfu/ni
         run: npm i -g @antfu/ni
 
       - name: Install dependencies
-        run: nci
+        run: ni
         working-directory: courseware
 
       - name: Build
