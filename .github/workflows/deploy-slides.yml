@@ -1,3 +1,5 @@
+# source : https://sli.dev/guide/hosting
+
 name: Deploy pages
 
 on:
@@ -22,21 +24,30 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
+ # 🌟 步骤 1：安装 pnpm (必须在 setup-node 之前)
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest # 你可以使用 8 或 9，或者 'latest'
+          run_install: false
+          
+# 🌟 步骤 2：设置 Node.js，并开启 pnpm 缓存机制
       - uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-          cache: 'npm' # 开启缓存加快构建
+          cache: 'pnpm' 
           cache-dependency-path: 'courseware/pnpm-lock.yaml' 
 
       - name: Setup @antfu/ni
         run: npm i -g @antfu/ni
 
       - name: Install dependencies
+      # ni 此时会自动调用 pnpm install
         run: ni
         working-directory: courseware
 
       - name: Build
+      # 在 courseware 目录下构建，并输出到 dist/courseware
         run: nr build --base /${{github.event.repository.name}}/courseware/ --out dist/courseware
         working-directory: courseware
 
