@@ -59,7 +59,7 @@ jobs:
 
       - name: Build Slidev
       # 在 courseware 目录下构建，并输出到 dist/courseware
-        run: pnpm slidev build iswep.md --base /${{github.event.repository.name}}/courseware/ --out dist/courseware
+        run: pnpm slidev build -- --base /${{github.event.repository.name}}/courseware/ --out dist/courseware
         working-directory: courseware
         
       # ======= 🌟 新增：Playwright & PDF 导出步骤 =======
@@ -79,7 +79,7 @@ jobs:
 
       - name: Export PDF 📄
         # 导出 PDF 并放入打包目录，这样在线网页上也能直接下载 PDF 
-        run: pnpm slidev export --output dist/courseware/ISWEP.pdf --timeout 180000
+        run: pnpm slidev export -- --output dist/courseware/ISWEP.pdf --timeout 180000
         working-directory: courseware
 
       - name: Setup Pages
