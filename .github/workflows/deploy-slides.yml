@@ -3,11 +3,11 @@
 name: Deploy pages
 
 on:
-  workflow_dispatch:
   push:
     branches: [main, master]
     paths:
       - 'courseware/**'
+  workflow_dispatch:  
 
 permissions:
   contents: read
