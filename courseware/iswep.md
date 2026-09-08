@@ -63,7 +63,7 @@ background: '#1e3a5f'
 
 # 课程进度总览
 
-\`\`\`mermaid
+```mermaid
 gantt
     title 智能软件工程课程周期
     dateFormat  W
@@ -81,7 +81,7 @@ gantt
     测试用例与执行     :11, 3w
     section 发布
     部署迭代答辩       :14, 4w
-\`\`\`
+```
 
 
 # 第一部分
@@ -94,14 +94,188 @@ gantt
 layout: two-cols
 ---
 
-# 第1周：理论
+# 第1周：基于模型的系统工程与工业软件定义
 
-- 基于模型的系统工程（MBSE）与 NASA 系统工程
-- 什么是工业软件
-- 定义工程问题的方法
-- 如何完成技术或实践创新
+- NASA 系统工程引擎 (NASA Systems Engineering Engine)
+- 基于模型的系统工程 (MBSE) 核心思想
+- 工业软件的本质、分类与技术壁垒
+- 如何科学地定义工程问题与技术创新
+- **实践指南**：协同仓库构建与问题定义
 
 ::right::
+
+---
+layout: two-cols
+---
+
+# NASA 系统工程引擎
+### NASA Systems Engineering Engine
+
+NASA SP-2016-6105 标准定义了一个高度结构化的系统工程流程：
+
+1. **系统设计流程 (System Design)**:
+   - 利益相关者需求定义 (Stakeholder Expectations)
+   - 技术需求定义 (Technical Requirements)
+   - 逻辑分解 (Logical Decomposition)
+   - 设计解决方案定义 (Design Solution)
+2. **产品实现流程 (Product Realization)**:
+   - 转换、集成、验证、确认与运行 (Transition, Integration, Verification, Validation, Operations)
+3. **技术管理流程 (Technical Management)**:
+   - 决策分析、技术规划、需求管理、风险管理等
+
+::right::
+
+
+
+```mermaid
+graph TD
+    A[Stakeholder Needs] --> B(Technical Requirements)
+    B --> C(Logical Decomposition)
+    C --> D(Design Solution)
+    D --> E(Product Realization)
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style E fill:#bbf,stroke:#333,stroke-width:2px
+```
+
+
+核心思想：
+系统工程不是单一线性过程，而是递归 (Recursive) 和 迭代 (Iterative) 的过程。每一次物理分解都伴随着需求的下发与验证。
+
+
+
+---
+
+# 基于模型的系统工程 (MBSE)
+### Model-Based Systems Engineering (MBSE)
+
+传统的系统工程基于**文档 (Document-Centric)**，而现代系统工程转向**基于模型 (Model-Centric)**。
+
+```mermaid
+graph LR
+    subgraph Document-Centric System Engineering
+    Doc1[PDF/Word Spec] <-->|Manual Sync| Doc2[Excel Test Cases]
+    Doc2 <-->|Manual Sync| Doc3[CAD/Simulink Files]
+    end
+
+    subgraph MBSE (Single Source of Truth)
+    Model((Central System Model 
+ SysML/SysML v2))
+    Model --> View1[Structure Diagram]
+    Model --> View2[Behavior Diagram]
+    Model --> View3[Requirements Traceability]
+    end
+```
+
+* **SysML (System Modeling Language)**：MBSE 的事实标准，涵盖四根支柱：**结构 (Structure)**、**行为 (Behavior)**、**需求 (Requirements)** 和 **参数 (Parametrics)**。
+* **优势**：消除歧义、保持设计一致性、支持早期仿真与验证。
+
+---
+layout: two-cols
+---
+
+# 什么是工业软件？
+### What is Industrial Software?
+
+工业软件是工业知识的**数字化、模型化与软件化**载体。
+
+* **分类**：
+  * **CAD** (计算机辅助设计)：几何建模内核、拓扑关系。
+  * **CAE** (计算机辅助工程)：偏微分方程求解、网格剖分。
+  * **CAM** (计算机辅助制造)：数控轨迹规划。
+  * **MES/PLM**：流程与生命周期管理。
+
+* **技术壁垒**：
+  * 数值计算的精度与稳定性（如：Double precision 溢出控制）。
+  * 实时性与高并发事务处理。
+  * 领域知识（物理、材料、力学）的深度融合。
+
+::right::
+
+
+
+```cpp
+// 示例：工业级网格剖分(Mesh)中的
+// 经典拓扑检查伪代码
+struct HalfEdge {
+    int origin;
+    int next;
+    int twin;
+    int face;
+};
+
+// 判断流形 (Manifold) 结构
+bool isManifold(const std::vector& edges) {
+    // 工业CAD内核中极其苛刻的几何拓扑校验
+    // 任何非流形结构将导致有限元分析(FEA)不收敛
+    for(const auto& edge : edges) {
+        if (edge.twin == -1) return false; // 存在开边界
+    }
+    return true;
+}
+```
+
+
+---
+
+# 科学地定义工程问题：5W1H 与 痛点映射
+### How to Define an Engineering Problem
+
+研究生阶段的创新应避免“造轮子”，而应致力于“解决真实痛点”。
+
+| 维度 (5W1H) | 核心追问 | 本质分析 |
+|---|---|---|
+| **What (什么问题)** | 这个工程瓶颈的核心现象是什么？ | 识别物理现象、数据瓶颈或算力边界。 |
+| **Why (为什么解决)** | 现有的开源软件或商业软件为什么做不好？ | 找到现有方案的技术限制（如高复杂度、高延迟）。 |
+| **Who (谁受影响)** | 谁是这个软件系统的最终用户？ | 定义用户画像 (User Persona) 和操作环境。 |
+| **Where (在哪里发生)** | 该问题发生在生命周期的哪个阶段？ | 确定是运行期、设计期还是部署期。 |
+| **When (何时发生)** | 在什么边界条件/极值场景下会触发？ | 定义极限输入、高并发或边缘设备限制。 |
+| **How (如何度量)** | 如何定量评估“问题被成功解决”？ | **关键指标 (KPI)**：吞吐量提高30%，内存降低50%等。 |
+
+---
+
+# 技术的创新路径：颠覆性 vs 渐进式
+### Research and Engineering Innovation Paths
+
+```mermaid
+grid
+```
+
+
+1. 理论创新 (Theoretical / Algorithmic)
+
+
+引入新的数学模型、算法或物理引擎。
+
+  
+例如：在流体仿真中引入算子分裂法，将时间复杂度从 O(N^2) 降至 O(N log N)。
+
+  
+在工业控制中引入强化学习实现自适应调节。
+
+
+
+
+2. 架构/工程创新 (Architectural / Engineering)
+
+
+重构系统拓扑结构，提升吞吐、容错或可扩展性。
+
+
+
+  
+例如：将单体桌面版 CAD 重构为基于 WebGPU 的云原生协同 CAD 架构。
+
+  
+利用 C++ 与 WebAssembly 混合编译，实现浏览器端百万级网格渲染。
+
+
+
+
+
+
+💡 给研究生的建议： 硕士阶段更推荐“场景驱动的工程架构创新”或“先进算法在垂直工业领域的应用创新”，既有学术发表度，又有工程落地性。
+
 
 # 第1周：实践
 
@@ -112,6 +286,32 @@ layout: two-cols
 
 📋 检查：确认学生定义的工程问题
 
+# 第 1 周实践：定义你的工程项目与仓库构建
+### Practice: Repository Setup & Problem Definition
+
+各小组需要在协作平台（GitHub / GitLab）上建立项目，并提交规范的 `README.md`。
+
+```bash
+# 1. 初始化项目仓库结构
+mkdir smart-industrial-app && cd smart-industrial-app
+git init
+
+# 2. 规范的分支管理策略
+git checkout -b main      # 生产分支
+git checkout -b develop   # 开发主分支
+
+# 3. 规范的项目目录结构
+mkdir -p docs/{architecture,requirements} \
+         src/{backend,frontend,core_engine} \
+         tests/{unit,integration} \
+         .github/workflows
+```
+
+* **任务要求**：在 `docs/requirements/problem_definition.md` 中编写 5W1H 报告。
+* **检查点**：第一周结束前，各组向助教提交仓库链接，通过 GitHub Issues 获得第一轮反馈。
+
+
+
 
 ---
 layout: two-cols
@@ -119,9 +319,10 @@ layout: two-cols
 
 # 第2周：理论
 
-- 如何定义软件的功能？
-- 面向对象分析与设计
-- 敏捷开发方法
+- 软件功能的科学定义：功能性与非功能性需求
+- 面向对象分析与设计 (OOAD) 核心：从领域模型到高内聚低耦合
+- 敏捷方法论在学术/工业研发中的应用 (Scrum, Kanban)
+- **实践指南**：编写高质量的需求规范书与 UML 设计
 
 ::right::
 
@@ -131,6 +332,129 @@ layout: two-cols
 
 
 📋 检查：确认软件作品的功能
+
+
+# 软件功能定义：从愿景到系统需求
+### Software Functional Definition
+
+需求分析是软件工程中最容易导致失败的环节。我们必须将含糊的用户期望转化为精确的系统需求。
+
+```mermaid
+graph TD
+    UserVision[用户愿景: 想要一个快速的三维查看器] -->|精细化分析| FunctionalReq[功能需求: 支持 STEP 格式解析与 60FPS 帧率渲染]
+    UserVision -->|约束性分析| NonFunctionalReq[非功能需求: 运行内存限制在 512MB 内]
+```
+
+* **功能需求 (FRs)**：系统**必须做什么**（输入、处理、输出）。
+* **非功能需求 (NFRs)**：系统必须**如何表现**（URPS：可用性 Usability, 可靠性 Reliability, 性能 Performance, 支持性 Supportability）。
+
+
+坏的需求样例： "系统界面要好看，速度要快。"
+
+好的需求样例 (可测量的)： "系统在加载 100MB 以上的 CAD 模型时，首屏渲染时间（LCP）需小于 3.0s，且 CPU 利用率不高于 60%。"
+
+
+---
+layout: two-cols
+---
+
+# 面向对象分析与设计 (OOAD)
+### Object-Oriented Analysis & Design
+
+OOAD 的核心在于**控制复杂度**。
+
+1. **OOA (分析)**：在问题域中寻找对象，构建**领域模型 (Domain Model)**。
+2. **OOD (设计)**：将分析模型转化为设计类，应用**设计原则 (SOLID)** 和**设计模式**。
+
+**关键原则：SOLID**
+* **S**ingle Responsibility (单一职责)
+* **O**pen/Closed (开闭原则)
+* **L**iskov Substitution (里氏替换)
+* **I**nterface Segregation (接口隔离)
+* **D**ependency Inversion (依赖倒置)
+
+::right::
+
+
+
+```mermaid
+classDiagram
+    class CADDocument {
+        -String documentId
+        -List~Geometry~ geometries
+        +load(path: String) void
+        +render(canvas: Canvas) void
+    }
+    class Geometry {
+        <>
+        -Color color
+        +draw() void*
+    }
+    class StepParser {
+        +parse(file: File) List~Geometry~
+    }
+    CADDocument --> Geometry
+    CADDocument ..> StepParser : uses
+    Geometry <|-- Circle
+    Geometry <|-- Polygon
+```
+
+
+设计说明： CADDocument 与 Geometry 之间是聚合关系。渲染引擎只依赖抽象的 Geometry 基类，符合开闭原则（OCP）。
+
+
+
+---
+
+# 敏捷开发方法 (Agile Methodology)
+### 针对科学研究与不确定性项目的轻量级管理
+
+研究生的项目往往面临“高学术不确定性”，传统的瀑布模型无法适应，推荐使用 **Scrum / Kanban**。
+
+```mermaid
+gantt
+    title 一个典型的 2 周 Sprint (冲刺) 流程
+    dateFormat  YYYY-MM-DD
+    section 敏捷活动
+    Sprint 计划会           :milestone, active, 2023-10-01, 1d
+    每日站会 (15 mins)       :active, 2023-10-02, 10d
+    Sprint 评审会 (Demo)    :milestone, 2023-10-12, 1d
+    Sprint 回顾会           :milestone, 2023-10-13, 1d
+    section 研发任务
+    骨架代码搭建             :2023-10-02, 4d
+    核心算法实现             :2023-10-06, 5d
+```
+
+* **Product Backlog**：所有想做的功能池。
+* **Sprint Backlog**：本周期（通常2周）承诺完成的任务。
+* **定义完成 (Definition of Done, DoD)**：例如“代码通过单元测试，分支合并入 `develop` 且文档已更新”才算完成。
+
+
+# 第 2 周实践：软件功能规范书撰写
+### Practice: Functional Specification & UML Domain Modeling
+
+本周各组必须在协作仓库中提交 `docs/requirements/functional_spec.md`。
+
+```markdown
+# 软件系统功能规格说明书 (示例模板)
+
+## 1. 系统角色 (Actor)
+* **工业分析师**：执行数据导入、算法配置与结果可视化。
+* **系统管理员**：执行用户授权与配置审计。
+
+## 2. 功能树 (Feature Tree)
+* 模型导入模块
+  * FR-1.1: 支持 STEP 物理数据包解析
+  * FR-1.2: 异常文件鲁棒性容错与日志上报
+* 求解器模块
+  * FR-2.1: 并行化有限元方程组求解 (支持 OpenMP)
+
+## 3. 领域模型 (Domain Model UML)
+[在此处插入 Mermaid 类图]
+```
+
+* **汇报要求**：第二周课上，每组用 3 分钟展示其领域类图与功能分解，教师确认后方能进入系统原型设计。
+
 
 
 ---
@@ -152,6 +476,10 @@ layout: two-cols
 # 第3周：理论
 
 - 智能软件工程的研究与实践
+- 什么是智能软件工程 (Smart Software Engineering / AI4SE)？
+- 大语言模型 (LLM) 在需求、代码生成与重构中的应用
+- 如何编写符合 INVEST 原则的用户故事 (User Stories)
+- **实践指南**：利用 AI 辅助设计（v0.dev / Figma / React）构建高保真原型
 
 ::right::
 
@@ -165,7 +493,179 @@ layout: two-cols
 📋 检查：确认软件作品原型设计
 
 
+# 智能软件工程 (Smart Software Engineering)
+### 当软件工程遇到大语言模型 (AI4SE)
+
+学术界与工业界正经历从传统的“人写代码”向“人机协同 (Human-in-the-loop AI Coding)”的范式转变。
+
+```mermaid
+graph TD
+    Idea[需求设想] -->|Natural Language Prompt| LLM[LLM / Agent]
+    LLM -->|Code Generation| Dev[人机交互式重构与微调]
+    Dev -->|Automated Test Suite| QA[智能测试用例生成]
+    QA -->|Continuous Delivery| Deploy[自动部署监控]
+```
+
+* **研究热点**：基于 Agent 的软件工程自治、静态代码分析大模型、代码大模型对齐（RLHF for coding）。
+* **核心生产力**：不仅是 Copilot 自动补全，更是在架构生成、单元测试生成方面的突破。
+
 ---
+layout: two-cols
+---
+
+# 编写高质量的用户故事
+### Writing INVEST User Stories
+
+用户故事是敏捷开发中描述功能需求的核心工具。
+
+**标准模板：**
+> 作为一名 `[角色]`，
+> 我想要 `[某种功能]`，
+> 以便能够 `[实现某种价值]`。
+
+#### INVEST 原则：
+* **I**ndependent（独立的）
+* **N**egotiable（可协商的）
+* **V**aluable（有价值的）
+* **E**stimable（可估算的）
+* **S**mall（小巧的）
+* **T**estable（可测试的）
+
+::right::
+
+
+
+#### 用户故事与验收标准实例：
+
+```yaml
+用户故事:
+  角色: 作为一名结构工程师
+  功能: 我想要一键导入 STEP 格式的文件
+  价值: 从而避免手动转换格式造成的精度损失。
+
+验收标准 (Acceptance Criteria - Gherkin 语法):
+  场景: 导入一个有效的 STEP 模型
+    Given 用户在主界面并点击了"导入"按钮
+    When 用户选择了一个标准的 50MB "engine.step" 文件
+    Then 系统应在 5.0 秒内完成解析并无损渲染
+    And 系统状态栏应显示 "导入成功，包含 1420 个面"
+```
+
+
+
+---
+
+# AI 辅助原型设计：从自然语言到交互式代码
+### AI-Assisted Prototyping
+
+在进行大规模开发前，利用 AI 生成工具快速完成**高保真交互原型 (Interactive Prototype)**，能够极大降低需求偏离的风险。
+
+* **工具推荐**：
+  * **v0.dev / Bolt.new** (前端 UI 的自然语言生成)
+  * **Figma AI** (组件化交互设计)
+  * **Uizard** (手绘草图转换为高保真 UI)
+
+
+给 AI 的 Prompt 示例：
+
+"Generate a responsive Tailwind React dashboard for a Scientific Simulation Control System. It should contain an interactive 3D canvas placeholder (using Three.js icons), a left sidebar showing the simulation parameters (density, gravity, step size), a bottom panel showing a live-updated charting log for error rates, and a clear run/pause control cluster."
+
+
+---
+
+# 示例代码：一个简易的三维渲染原型组件 (React)
+### Example Code: Prototype Component for Three.js Viewport
+
+```tsx
+// src/components/SimulationViewport.tsx
+import React, { useState } from 'react';
+
+export const SimulationViewport: React.FC = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [params, setParams] = useState({ density: 1.2, viscosity: 0.01 });
+
+  return (
+    
+
+      
+
+        
+3D Simulation Space
+
+        
+
+          
+
+          {isPlaying ? 'Status: Solving Navier-Stokes...' : 'Status: Idle'}
+        
+
+      
+
+      
+
+        
+
+          
+Control Panel
+
+          Density: {params.density}
+          
+ setParams({ ...params, density: parseFloat(e.target.value) })} className="w-full mb-4" />
+        
+
+         setIsPlaying(!isPlaying)} className={`w-full py-2 rounded text-white font-semibold ${isPlaying ? 'bg-rose-600 hover:bg-rose-500' : 'bg-emerald-600 hover:bg-emerald-500'}`}>
+          {isPlaying ? 'Pause Simulation' : 'Run Simulation'}
+        
+
+      
+
+    
+
+  );
+};
+```
+---
+
+# 第 3 周实践：用户故事地图与技术方案调研
+### Practice: User Story Mapping & Tech Stack Investigation
+
+本周各组要将前期的软件定义转化为具体的研发路线，并完成原型设计。
+
+
+# 第 3 周汇报要求：
+
+1. **用户故事清单 (docs/requirements/user_stories.md)**：
+   * 至少编写 5 个符合 INVEST 规范的用户故事。
+   * 每个故事需配有详细的 验收条件 (Acceptance Criteria)。
+
+2. **原型展示**：
+   * 提交利用 AI (如 v0.dev / Figma) 生成的交互式原型页面，上台 Demo 交互流程。
+
+3. **技术方案调研报告 (docs/architecture/tech_stack.md)**：
+   * 论证核心技术选型。例如：为什么选用 WebAssembly 还是 C++ 原生运行？
+   * 列出团队在未来 2 周内需要学习的新技术（制定自学计划与 Milestone）。
+```
+
+* **检查点**：助教和导师将严格评估**原型的可行性**以及**技术选型的科学性**，确认后方可进入系统开发（第四阶段）。
+
+---
+layout: center
+class: text-center
+---
+
+# 课后思考与阅读建议
+### Academic Papers for Next Week (Week 4 PREVIEW)
+
+为第4周学术文献阅读汇报做准备，各组需在以下领域选择一篇 IEEE/ACM 顶级会议/期刊论文进行研读：
+
+1. **大语言模型赋能代码生成**：*“Is Your Code Generated by ChatGPT Reliable?”*
+2. **基于大模型的自动软件缺陷定位**：*“Automated Program Repair in the Era of LLMs”*
+3. **软件协同系统**：研究现代协作设计工具（如 Figma / WebAssembly CAD）的协同冲突消解算法（OT 或 CRDT）。
+
+
+期待在下周的文献汇报中，听到各位从研究生科研视角带来的深刻洞见！
+
+
 
 # 第4周
 
