@@ -117,17 +117,30 @@ NASA SP-2016-6105 标准定义了一个高度结构化的系统工程流程：
 
 ::right::
 
-
 ```mermaid
-graph TD
-    A[Stakeholder Needs] --> B(Technical Requirements)
-    B --> C(Logical Decomposition)
-    C --> D(Design Solution)
-    D --> E(Product Realization)
-    
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style E fill:#bbf,stroke:#333,stroke-width:2px
+flowchart TD
+    A[利益相关者需求
+Stakeholder Needs] --> B[技术需求
+Technical Requirements]
+    B --> C[逻辑分解
+Logical Decomposition]
+    C --> D[设计解决方案
+Design Solution]
+    D --> E[产品实现
+Product Realization]
+    E --> F[验证、确认与运行
+Verification, Validation & Operations]
+    F -. 反馈与迭代 .-> A
+
+    classDef start fill:#f9d5f9,stroke:#8c3c8c,stroke-width:2px;
+    classDef process fill:#e8f1ff,stroke:#2864c7,stroke-width:1px;
+    classDef end fill:#d9e2ff,stroke:#405a9b,stroke-width:2px;
+
+    class A start;
+    class B,C,D process;
+    class E,F end;
 ```
+
 
 
 核心思想：
@@ -141,19 +154,31 @@ graph TD
 传统的系统工程基于**文档 (Document-Centric)**，而现代系统工程转向**基于模型 (Model-Centric)**。
 
 ```mermaid
-graph LR
-    subgraph Document-Centric System Engineering
-    Doc1[PDF/Word Spec] <-->|Manual Sync| Doc2[Excel Test Cases]
-    Doc2 <-->|Manual Sync| Doc3[CAD/Simulink Files]
+flowchart LR
+    subgraph D[文档中心的系统工程
+Document-Centric Systems Engineering]
+        Doc1[PDF / Word 规格说明]
+        Doc2[Excel 测试用例]
+        Doc3[CAD / Simulink 文件]
+
+        Doc1 <-->|人工同步| Doc2
+        Doc2 <-->|人工同步| Doc3
     end
 
-    subgraph MBSE (Single Source of Truth)
-    Model((Central System Model 
- SysML/SysML v2))
-    Model --> View1[Structure Diagram]
-    Model --> View2[Behavior Diagram]
-    Model --> View3[Requirements Traceability]
+    subgraph M[基于模型的系统工程
+MBSE]
+        Model((中央系统模型
+SysML / SysML v2))
+        Model --> View1[结构视图]
+        Model --> View2[行为视图]
+        Model --> View3[需求追踪视图]
+        Model --> View4[参数与约束视图]
     end
+
+    classDef document fill:#fff1f1,stroke:#cc5555,stroke-width:1px;
+    classDef model fill:#eef5ff,stroke:#3377cc,stroke-width:2px;
+    class Doc1,Doc2,Doc3 document;
+    class Model,View1,View2,View3,View4 model;
 ```
 
 * **SysML (System Modeling Language)**：MBSE 的事实标准，涵盖四根支柱：**结构 (Structure)**、**行为 (Behavior)**、**需求 (Requirements)** 和 **参数 (Parametrics)**。
@@ -183,22 +208,25 @@ layout: two-cols
 
 
 ```cpp
-// 示例：工业级网格剖分(Mesh)中的
-// 经典拓扑检查伪代码
+#include 
+
 struct HalfEdge {
-    int origin;
-    int next;
-    int twin;
-    int face;
+    int origin = -1;
+    int next = -1;
+    int twin = -1;
+    int face = -1;
 };
 
-// 判断流形 (Manifold) 结构
+// 判断网格是否为封闭流形结构
 bool isManifold(const std::vector& edges) {
-    // 工业CAD内核中极其苛刻的几何拓扑校验
-    // 任何非流形结构将导致有限元分析(FEA)不收敛
-    for(const auto& edge : edges) {
-        if (edge.twin == -1) return false; // 存在开边界
+    // 工业 CAD 内核通常还需要进行更复杂的几何与拓扑校验。
+    // 这里仅检查每条半边是否存在对应的孪生半边。
+    for (const auto& edge : edges) {
+        if (edge.twin < 0) {
+            return false; // 存在开边界
+        }
     }
+
     return true;
 }
 ```
@@ -224,7 +252,28 @@ bool isManifold(const std::vector& edges) {
 ### Research and Engineering Innovation Paths
 
 ```mermaid
-grid
+flowchart LR
+    A[理论创新
+Theoretical / Algorithmic] --> A1[新的数学模型
+算法或物理引擎]
+    A1 --> A2[示例：算子分裂法
+将复杂度从 O(N²) 降至 O(N log N)]
+    A1 --> A3[示例：强化学习
+实现工业控制自适应调节]
+
+    B[架构与工程创新
+Architectural / Engineering] --> B1[重构系统拓扑结构]
+    B1 --> B2[提升吞吐量、容错能力
+与系统可扩展性]
+    B1 --> B3[示例：单体 CAD
+重构为 WebGPU 云原生架构]
+    B1 --> B4[示例：C++ + WebAssembly
+实现浏览器端百万级网格渲染]
+
+    classDef theory fill:#e8f1ff,stroke:#2864c7,stroke-width:2px;
+    classDef engineering fill:#fff1df,stroke:#d47b00,stroke-width:2px;
+    class A,A1,A2,A3 theory;
+    class B,B1,B2,B3,B4 engineering;
 ```
 
 
@@ -243,18 +292,10 @@ grid
 
 重构系统拓扑结构，提升吞吐、容错或可扩展性。
 
-
-
   
 例如：将单体桌面版 CAD 重构为基于 WebGPU 的云原生协同 CAD 架构。
-
   
 利用 C++ 与 WebAssembly 混合编译，实现浏览器端百万级网格渲染。
-
-
-
-
-
 
 💡 给研究生的建议： 硕士阶段更推荐“场景驱动的工程架构创新”或“先进算法在垂直工业领域的应用创新”，既有学术发表度，又有工程落地性。
 
@@ -314,7 +355,9 @@ layout: two-cols
 
 📋 检查：确认软件作品的功能
 
-
+---
+layout: default
+---
 # 软件功能定义：从愿景到系统需求
 ### Software Functional Definition
 
@@ -366,22 +409,33 @@ classDiagram
         +load(path: String) void
         +render(canvas: Canvas) void
     }
+
     class Geometry {
         <>
         -Color color
-        +draw() void*
+        +draw() void
     }
+
+    class Circle {
+        +draw() void
+    }
+
+    class Polygon {
+        +draw() void
+    }
+
     class StepParser {
         +parse(file: File) List~Geometry~
     }
-    CADDocument --> Geometry
+
+    CADDocument o-- "1..*" Geometry : contains
     CADDocument ..> StepParser : uses
     Geometry <|-- Circle
     Geometry <|-- Polygon
 ```
 
 
-设计说明： CADDocument 与 Geometry 之间是聚合关系。渲染引擎只依赖抽象的 Geometry 基类，符合开闭原则（OCP）。
+设计说明：`CADDocument` 与 `Geometry` 之间是聚合关系。渲染引擎只依赖抽象的 `Geometry` 类型，新增几何类型时不需要修改 `CADDocument`，符合开闭原则（OCP）。
 
 
 
@@ -394,16 +448,20 @@ classDiagram
 
 ```mermaid
 gantt
-    title 一个典型的 2 周 Sprint (冲刺) 流程
-    dateFormat  YYYY-MM-DD
+    title 一个典型的两周 Sprint（冲刺）流程
+    dateFormat YYYY-MM-DD
+    axisFormat %m/%d
+
     section 敏捷活动
-    Sprint 计划会           :milestone, active, 2023-10-01, 1d
-    每日站会 (15 mins)       :active, 2023-10-02, 10d
-    Sprint 评审会 (Demo)    :milestone, 2023-10-12, 1d
-    Sprint 回顾会           :milestone, 2023-10-13, 1d
+    Sprint 计划会 :milestone, plan, 2026-10-08, 0d
+    每日站会 :daily, 2026-10-09, 10d
+    Sprint 评审会 Demo :milestone, review, 2026-10-20, 0d
+    Sprint 回顾会 :milestone, retrospective, 2026-10-21, 0d
+
     section 研发任务
-    骨架代码搭建             :2023-10-02, 4d
-    核心算法实现             :2023-10-06, 5d
+    骨架代码搭建 :skeleton, 2026-10-09, 4d
+    核心算法实现 :algorithm, 2026-10-13, 5d
+    测试与文档完善 :testing, 2026-10-18, 3d
 ```
 
 * **Product Backlog**：所有想做的功能池。
@@ -468,15 +526,32 @@ layout: two-cols
 
 📋 检查：确认软件作品原型设计
 
+---
+
 # 智能软件工程 (Smart Software Engineering)
 ### 当软件工程遇到大语言模型 (AI4SE)
 学术界与工业界正经历从传统的“人写代码”向“人机协同 (Human-in-the-loop AI Coding)”的范式转变。
 ```mermaid
-graph TD
-    Idea[需求设想] -->|Natural Language Prompt| LLM[LLM / Agent]
-    LLM -->|Code Generation| Dev[人机交互式重构与微调]
-    Dev -->|Automated Test Suite| QA[智能测试用例生成]
-    QA -->|Continuous Delivery| Deploy[自动部署监控]
+flowchart LR
+    Idea[需求设想] -->|自然语言提示词
+Natural Language Prompt| LLM[LLM / Agent]
+    LLM -->|代码生成
+Code Generation| Dev[人工审查、重构与微调]
+    Dev -->|自动化测试
+Automated Test Suite| QA[智能测试用例生成]
+    QA -->|持续交付
+Continuous Delivery| Deploy[自动部署与监控]
+    Deploy -. 反馈 .-> Idea
+
+    classDef input fill:#fff1d6,stroke:#c77b00,stroke-width:2px;
+    classDef ai fill:#e8ddff,stroke:#714bc4,stroke-width:2px;
+    classDef human fill:#dff5e5,stroke:#3c8c55,stroke-width:2px;
+    classDef delivery fill:#dcecff,stroke:#3c6ea8,stroke-width:2px;
+
+    class Idea input;
+    class LLM ai;
+    class Dev,QA human;
+    class Deploy delivery;
 ```
 * **研究热点**：基于 Agent 的软件工程自治、静态代码分析大模型、代码大模型对齐（RLHF for coding）。
 * **核心生产力**：不仅是 Copilot 自动补全，更是在架构生成、单元测试生成方面的突破。
@@ -543,26 +618,124 @@ layout: two-cols
 // src/components/SimulationViewport.tsx
 import React, { useState } from 'react';
 
+type SimulationParams = {
+  density: number;
+  viscosity: number;
+};
+
 export const SimulationViewport: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [params, setParams] = useState({ density: 1.2, viscosity: 0.01 });
+  const [params, setParams] = useState({
+    density: 1.2,
+    viscosity: 0.01,
+  });
+
+  const updateParam = (
+    key: keyof SimulationParams,
+    value: number,
+  ) => {
+    setParams((current) => ({
+      ...current,
+      [key]: value,
+    }));
+  };
 
   return (
+    
+
+      
 
         
-3D Simulation Space
 
-          {isPlaying ? 'Status: Solving Navier-Stokes...' : 'Status: Idle'}
-        
           
-Control Panel
 
-          Density: {params.density}
+            3D Simulation Space
           
- setParams({ ...params, density: parseFloat(e.target.value) })} className="w-full mb-4" />
+
+
+                      className={
+              isPlaying
+                ? 'text-emerald-400'
+                : 'text-slate-400'
+            }
+          >
+            {isPlaying
+              ? 'Status: Solving Navier–Stokes...'
+              : 'Status: Idle'}
+          
         
-         setIsPlaying(!isPlaying)} className={`w-full py-2 rounded text-white font-semibold ${isPlaying ? 'bg-rose-600 hover:bg-rose-500' : 'bg-emerald-600 hover:bg-emerald-500'}`}>
-          {isPlaying ? 'Pause Simulation' : 'Run Simulation'}
+
+
+        
+
+          
+            Three.js / WebGPU Viewport
+          
+        
+
+      
+
+
+      
+
+        
+
+          Control Panel
+        
+
+
+        
+          Density: {params.density.toFixed(2)}
+        
+
+                  type="range"
+          min="0.1"
+          max="5"
+          step="0.1"
+          value={params.density}
+          onChange={(event) =>
+            updateParam(
+              'density',
+              Number.parseFloat(event.target.value),
+            )
+          }
+          className="mb-4 w-full"
+        />
+
+        
+          Viscosity: {params.viscosity.toFixed(3)}
+        
+
+                  type="range"
+          min="0"
+          max="1"
+          step="0.001"
+          value={params.viscosity}
+          onChange={(event) =>
+            updateParam(
+              'viscosity',
+              Number.parseFloat(event.target.value),
+            )
+          }
+          className="mb-6 w-full"
+        />
+
+                  type="button"
+          onClick={() => setIsPlaying((current) => !current)}
+          className={`w-full rounded py-2 font-semibold text-white ${
+            isPlaying
+              ? 'bg-rose-600 hover:bg-rose-500'
+              : 'bg-emerald-600 hover:bg-emerald-500'
+          }`}
+        >
+          {isPlaying
+            ? 'Pause Simulation'
+            : 'Run Simulation'}
+        
+      
+
+    
+
   );
 };
 ```
@@ -584,7 +757,7 @@ Control Panel
 3. **技术方案调研报告 (docs/architecture/tech_stack.md)**：
    * 论证核心技术选型。例如：为什么选用 WebAssembly 还是 C++ 原生运行？
    * 列出团队在未来 2 周内需要学习的新技术（制定自学计划与 Milestone）。
-```
+
 
 * **检查点**：助教和导师将严格评估**原型的可行性**以及**技术选型的科学性**，确认后方可进入系统开发（第四阶段）。
 
@@ -604,6 +777,7 @@ class: text-center
 
 期待在下周的文献汇报中，听到各位从研究生科研视角带来的深刻洞见！
 
+---
 
 # 第4周
 
@@ -675,22 +849,31 @@ layout: two-cols
 # AI 在软件全生命周期中的应用
 
 ```mermaid
-graph LR
+flowchart LR
     A[需求分析] -->|AI 辅助| A1[需求澄清
 用户故事生成]
-    B[设计] -->|AI 辅助| B1[架构建议
+    B[系统设计] -->|AI 辅助| B1[架构建议
 接口设计]
-    C[编码] -->|AI 辅助| C1[代码补全
+    C[编码实现] -->|AI 辅助| C1[代码补全
 自动生成]
-    D[测试] -->|AI 辅助| D1[测试用例生成
+    D[系统测试] -->|AI 辅助| D1[测试用例生成
 缺陷预测]
-    E[维护] -->|AI 辅助| E1[缺陷定位
+    E[系统维护] -->|AI 辅助| E1[缺陷定位
 重构建议]
-    A1 --> F[效率提升]
+
+    A1 --> F[效率提升与质量改进]
     B1 --> F
     C1 --> F
     D1 --> F
     E1 --> F
+
+    classDef phase fill:#eef5ff,stroke:#3973b9,stroke-width:1px;
+    classDef capability fill:#e9f8ee,stroke:#3f9560,stroke-width:1px;
+    classDef result fill:#fff1d8,stroke:#ca8016,stroke-width:2px;
+
+    class A,B,C,D,E phase;
+    class A1,B1,C1,D1,E1 capability;
+    class F result;
 ```
 
 ---
