@@ -3,9 +3,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build --base /IntelligentSWEPractice/courseware/",
-    "dev": "slidev --open",
-    "export": "slidev export"
+    "build": "slidev build iswep.md --base /IntelligentSWEPractice/courseware/",
+    "dev": "slidev iswep.md --open",
+    "export": "slidev export iswep.md"
   },
   "dependencies": {
     "@slidev/cli": "^52.19.1",
