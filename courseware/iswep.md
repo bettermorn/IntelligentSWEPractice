@@ -13,13 +13,11 @@ transition: slide-left
 title: 智能软件工程课程
 mdc: true
 
-
 # 在这里配置字体，优先使用系统自带的高级无衬线中文字体
 fonts:
   sans: 'Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif'
   mono: 'Fira Code, Consolas, Monaco, monospace'
 ---
-
 # 智能软件工程
 
   系统分析 · 设计 · 开发 · 测试 · 发布
@@ -29,17 +27,13 @@ fonts:
 
 [下载智能软件工程实践幻灯片](https://bettermorn.github.io/IntelligentSWEPractice/courseware/ISWEP.pdf)
 
-
 ---
 layout: default
 ---
-
 # 课程总览
-
 ---
 layout: section
 ---
-
 # 课程大纲一览
 
 | 部分 | 周次 | 主题 |
@@ -49,13 +43,11 @@ layout: section
 | 第三部分 系统开发 | 7-10 | 开发方法、代码质量 |
 | 第四部分 系统测试 | 11-13 | 测试方法、交叉测试 |
 | 第五部分 发布 | 14-17 | 部署、迭代、答辩 |
-
 ---
 layout: cover
 class: text-center
 background: '#1e3a5f'
 ---
-
 # 课程进度总览
 
 ```mermaid
@@ -64,7 +56,6 @@ gantt
     dateFormat  YYYY-MM-DD
     axisFormat %m/%d
     tickInterval 1week
-    
     section 系统分析
     工程问题定义      :2026-09-24, 1w
     功能定义          :2026-10-01, 1w
@@ -84,7 +75,7 @@ gantt
     section 发布
     部署迭代答辩       :2026-12-24, 4w
 ```
-
+---
 
 # 第一部分
 ## 系统分析
@@ -213,8 +204,6 @@ bool isManifold(const std::vector& edges) {
     return true;
 }
 ```
-
-
 ---
 
 # 科学地定义工程问题：5W1H 与 痛点映射
@@ -454,8 +443,6 @@ gantt
 
 * **汇报要求**：第二周课上，每组用 3 分钟展示其领域类图与功能分解，教师确认后方能进入系统原型设计。
 
-
-
 ---
 layout: cover
 class: text-center
@@ -466,8 +453,6 @@ background: '#3a1e5f'
 ## 系统设计
 
 第 3-6 周
-
-
 ---
 layout: two-cols
 ---
@@ -488,15 +473,11 @@ layout: two-cols
 - 使用 AI 工具及原型设计工具设计软件作品原型
 - 调研技术方案
 
-
 📋 检查：确认软件作品原型设计
-
 
 # 智能软件工程 (Smart Software Engineering)
 ### 当软件工程遇到大语言模型 (AI4SE)
-
 学术界与工业界正经历从传统的“人写代码”向“人机协同 (Human-in-the-loop AI Coding)”的范式转变。
-
 ```mermaid
 graph TD
     Idea[需求设想] -->|Natural Language Prompt| LLM[LLM / Agent]
@@ -504,19 +485,15 @@ graph TD
     Dev -->|Automated Test Suite| QA[智能测试用例生成]
     QA -->|Continuous Delivery| Deploy[自动部署监控]
 ```
-
 * **研究热点**：基于 Agent 的软件工程自治、静态代码分析大模型、代码大模型对齐（RLHF for coding）。
 * **核心生产力**：不仅是 Copilot 自动补全，更是在架构生成、单元测试生成方面的突破。
 
 ---
 layout: two-cols
 ---
-
 # 编写高质量的用户故事
 ### Writing INVEST User Stories
-
 用户故事是敏捷开发中描述功能需求的核心工具。
-
 **标准模板：**
 > 作为一名 `[角色]`，
 > 我想要 `[某种功能]`，
@@ -529,10 +506,7 @@ layout: two-cols
 * **E**stimable（可估算的）
 * **S**mall（小巧的）
 * **T**estable（可测试的）
-
 ::right::
-
-
 
 #### 用户故事与验收标准实例：
 
@@ -549,8 +523,6 @@ layout: two-cols
     Then 系统应在 5.0 秒内完成解析并无损渲染
     And 系统状态栏应显示 "导入成功，包含 1420 个面"
 ```
-
-
 
 ---
 
@@ -569,7 +541,6 @@ layout: two-cols
 
 "Generate a responsive Tailwind React dashboard for a Scientific Simulation Control System. It should contain an interactive 3D canvas placeholder (using Three.js icons), a left sidebar showing the simulation parameters (density, gravity, step size), a bottom panel showing a live-updated charting log for error rates, and a clear run/pause control cluster."
 
-
 ---
 
 # 示例代码：一个简易的三维渲染原型组件 (React)
@@ -584,26 +555,12 @@ export const SimulationViewport: React.FC = () => {
   const [params, setParams] = useState({ density: 1.2, viscosity: 0.01 });
 
   return (
-    
-
-      
 
         
 3D Simulation Space
 
-        
-
-          
-
           {isPlaying ? 'Status: Solving Navier-Stokes...' : 'Status: Idle'}
         
-
-      
-
-      
-
-        
-
           
 Control Panel
 
@@ -611,15 +568,8 @@ Control Panel
           
  setParams({ ...params, density: parseFloat(e.target.value) })} className="w-full mb-4" />
         
-
          setIsPlaying(!isPlaying)} className={`w-full py-2 rounded text-white font-semibold ${isPlaying ? 'bg-rose-600 hover:bg-rose-500' : 'bg-emerald-600 hover:bg-emerald-500'}`}>
           {isPlaying ? 'Pause Simulation' : 'Run Simulation'}
-        
-
-      
-
-    
-
   );
 };
 ```
@@ -627,9 +577,7 @@ Control Panel
 
 # 第 3 周实践：用户故事地图与技术方案调研
 ### Practice: User Story Mapping & Tech Stack Investigation
-
 本周各组要将前期的软件定义转化为具体的研发路线，并完成原型设计。
-
 
 # 第 3 周汇报要求：
 
@@ -661,9 +609,7 @@ class: text-center
 2. **基于大模型的自动软件缺陷定位**：*“Automated Program Repair in the Era of LLMs”*
 3. **软件协同系统**：研究现代协作设计工具（如 Figma / WebAssembly CAD）的协同冲突消解算法（OT 或 CRDT）。
 
-
 期待在下周的文献汇报中，听到各位从研究生科研视角带来的深刻洞见！
-
 
 
 # 第4周
@@ -671,11 +617,7 @@ class: text-center
 ## 理论
 AI 与软件工程的相互影响
 
-
 🎤 汇报：智能软件工程文献阅读
-
-
-
 
 ---
 layout: cover
