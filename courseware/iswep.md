@@ -12,6 +12,12 @@ drawings:
 transition: slide-left
 title: 智能软件工程课程
 mdc: true
+
+
+# 在这里配置字体，优先使用系统自带的高级无衬线中文字体
+fonts:
+  sans: 'Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif'
+  mono: 'Fira Code, Consolas, Monaco, monospace'
 ---
 
 # 智能软件工程
