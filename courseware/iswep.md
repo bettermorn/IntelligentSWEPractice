@@ -118,7 +118,6 @@ NASA SP-2016-6105 标准定义了一个高度结构化的系统工程流程：
 ::right::
 
 
-
 ```mermaid
 graph TD
     A[Stakeholder Needs] --> B(Technical Requirements)
@@ -183,7 +182,6 @@ layout: two-cols
 ::right::
 
 
-
 ```cpp
 // 示例：工业级网格剖分(Mesh)中的
 // 经典拓扑检查伪代码
@@ -232,16 +230,12 @@ grid
 
 1. 理论创新 (Theoretical / Algorithmic)
 
-
 引入新的数学模型、算法或物理引擎。
 
-  
 例如：在流体仿真中引入算子分裂法，将时间复杂度从 O(N^2) 降至 O(N log N)。
 
   
 在工业控制中引入强化学习实现自适应调节。
-
-
 
 
 2. 架构/工程创新 (Architectural / Engineering)
@@ -264,7 +258,7 @@ grid
 
 💡 给研究生的建议： 硕士阶段更推荐“场景驱动的工程架构创新”或“先进算法在垂直工业领域的应用创新”，既有学术发表度，又有工程落地性。
 
-
+---
 # 第1周：实践
 
 - 分组
@@ -273,6 +267,8 @@ grid
 
 
 📋 检查：确认学生定义的工程问题
+
+---
 
 # 第 1 周实践：定义你的工程项目与仓库构建
 ### Practice: Repository Setup & Problem Definition
@@ -297,9 +293,6 @@ mkdir -p docs/{architecture,requirements} \
 
 * **任务要求**：在 `docs/requirements/problem_definition.md` 中编写 5W1H 报告。
 * **检查点**：第一周结束前，各组向助教提交仓库链接，通过 GitHub Issues 获得第一轮反馈。
-
-
-
 
 ---
 layout: two-cols
