@@ -19,6 +19,7 @@ fonts:
   mono: 'Fira Code, Consolas, Monaco, monospace'
 ---
 
+---
 src: ./pages/cover.md
 ---
 
