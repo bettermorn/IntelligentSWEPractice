@@ -1,8 +1,4 @@
 ---
-layout: default
----
-# 课程总览
----
 layout: section
 ---
 # 课程大纲一览
