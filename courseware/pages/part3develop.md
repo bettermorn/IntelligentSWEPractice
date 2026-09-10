@@ -29,6 +29,13 @@ layout: two-cols
 
 
 ---
+#
+
+---
+#
+---
+
+
 
 # 第8周
 
@@ -56,6 +63,9 @@ layout: two-cols
 
 ::right::
 
+# 第9周：实践
+- 使用软件代码质量工具检查代码质量，并修改代码
+🛠️ 检查：代码质量
 
 ---
 layout: cover
@@ -63,21 +73,14 @@ class: text-center
 background: '#1e5f3a'
 ---
 
-# 第9周
-## 如何编写卓越的代码
-### 软件代码质量
-
----
-
-# 本周学习目标
+# 第9周 如何编写卓越的代码：软件代码质量
+## 本周学习目标
 
 - 理解代码质量的**可度量维度**：可读性、可维护性、复杂度、重复度、安全性
 - 掌握 **SOLID 原则**及常见反例
 - 学会使用静态分析工具：**SonarQube / ESLint / Checkstyle / PMD**
 - 学会看懂**圈复杂度（Cyclomatic Complexity）**和**代码坏味道（Code Smell）**
 - 完成一次真实的"代码质量检查 → 重构"闭环
-
-
 
 ---
 layout: two-cols
