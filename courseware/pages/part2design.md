@@ -111,14 +111,14 @@ layout: two-cols
 
 给 AI 的 Prompt 示例：
 
-"Generate a responsive Tailwind React dashboard for a Scientific Simulation Control System. It should contain an interactive 3D canvas placeholder (using Three.js icons), a left sidebar showing the simulation parameters (density, gravity, step size), a bottom panel showing a live-updated charting log for error rates, and a clear run/pause control cluster."
+"Generate a responsive Tailwind React dashboard for a Scientific Simulation Control System. It should contain an interactive 3D canvas placeholder (using Three.js icons), a left sidebar showing the simulation parameters (density, gravity, step size), a bottom panel showing a live-updated charting log for error rates, and a clear run/pause control cluster."为一个科学仿真控制系统生成一个响应式的 Tailwind React 仪表盘。该仪表盘应包含一个交互式 3D 画布占位符（使用 Three.js 图标）、一个显示仿真参数（密度、重力、步长）的左侧边栏、一个显示实时更新的误差率图表日志的底部面板，以及一个清晰的运行/暂停控制组件。
 
 ---
 
 # 示例代码：一个简易的三维渲染原型组件 (React)
 ### Example Code: Prototype Component for Three.js Viewport
 
-```tsx
+```tsx{scale: 0.4}
 // src/components/SimulationViewport.tsx
 import React, { useState } from 'react';
 
@@ -249,7 +249,7 @@ export const SimulationViewport: React.FC = () => {
 ### Practice: User Story Mapping & Tech Stack Investigation
 本周各组要将前期的软件定义转化为具体的研发路线，并完成原型设计。
 
-# 第 3 周汇报要求：
+### 第 3 周汇报要求：
 
 1. **用户故事清单 (docs/requirements/user_stories.md)**：
    * 至少编写 5 个符合 INVEST 规范的用户故事。
@@ -266,10 +266,6 @@ export const SimulationViewport: React.FC = () => {
 * **检查点**：助教和导师将严格评估**原型的可行性**以及**技术选型的科学性**，确认后方可进入系统开发（第四阶段）。
 
 ---
-layout: center
-class: text-center
----
-
 # 课后思考与阅读建议
 ### Academic Papers for Next Week (Week 4 PREVIEW)
 
@@ -291,10 +287,7 @@ class: text-center
 🎤 汇报：智能软件工程文献阅读
 
 ---
-layout: cover
-class: text-center
-background: '#3a1e5f'
----
+
 
 # 本周学习目标
 
@@ -307,10 +300,7 @@ background: '#3a1e5f'
 ---
 layout: two-cols
 ---
-
-# 一个核心区分
-
-### AI 辅助开发（AI for SE）
+# AI 辅助开发（AI for SE）
 把 AI 当工具，**提升软件工程的效率**
 
 - AI 写代码、生成测试、修 Bug
@@ -319,14 +309,12 @@ layout: two-cols
 
 ::right::
 
-### AI 原生软件（SE for AI）
+# AI 原生软件（SE for AI）
 把 AI **嵌入软件本身**，成为产品能力
 
 - 智能推荐、对话式交互
 - 代码里跑着大模型
 - 工程问题转为"如何可靠地使用AI"
-
-
 
 
 💡 对你们的项目：你们既在用 AI 辅助开发（第3周已用AI工具做原型），又在考虑把 AI 算法模型作为作品功能（第6周技术方案）——这正是两者的结合
@@ -336,7 +324,7 @@ layout: two-cols
 
 # AI 在软件全生命周期中的应用
 
-```mermaid
+```mermaid{scale:0.6}
 flowchart LR
     A[需求分析] -->|AI 辅助| A1[需求澄清
 用户故事生成]
@@ -366,7 +354,7 @@ flowchart LR
 
 ---
 
-# 主流 AI 编码工具一览
+# 国际主流 AI 编码工具一览
 
 | 工具 | 定位 | 典型能力 |
 |---|---|---|
@@ -379,14 +367,34 @@ flowchart LR
 | **GitHub Copilot / CodeRabbit** | 代码评审 | 自动 PR 审查、找 Bug |
 
 ---
+# 中文主流 AI 编码工具一览
 
+| 工具 | 定位 | 典型能力 |
+|---|---|---|
+| **通义灵码（Tongyi Lingma）** | IDE 插件 / 行内补全 | 代码补全、单元测试生成、代码解释，支持主流 IDE（阿里云） |
+| **CodeGeeX** | 开源代码大模型 | 多语言代码生成/补全，支持 VS Code、IntelliJ 插件（智谱 & 清华） |
+| **文心快码（Baidu Comate）** | AI 编程助手 | 智能补全、代码生成、单测生成、代码解释（百度文心大模型） |
+| **DeepSeek Coder / DeepSeek-V3** | 开源代码大模型 | 代码生成、补全、调试，性能对标国际主流模型（DeepSeek） |
+| **MarsCode** | AI 编程助手 | 代码补全、Bug 修复、代码解释，集成于 IDE（字节跳动） |
+| **CodeFuse** | 企业级代码大模型 | 代码生成、代码评审、知识库问答，开源生态（蚂蚁集团） |
+| **腾讯云 AI 代码助手** | IDE 插件 | 代码补全、代码解释、注释生成，集成腾讯云开发环境（腾讯） |
+| **讯飞星火代码助手** | 编程辅助工具 | 代码生成、解释、调试建议，基于星火大模型（科大讯飞） |
+| **Kimi（Moonshot AI）** | 通用对话/长文本 | 代码解释、长上下文代码分析、文档生成（月之暗面） |
+
+**补充说明：**
+
+- **通义灵码**、**文心快码**、**MarsCode** 等属于国内大厂推出的“行内补全类”工具，功能上与 GitHub Copilot 类似，且深度适配国内开发者常用工具链（如飞书、钉钉集成、Gitee 等）。
+- **CodeGeeX**、**DeepSeek Coder** 属于**开源代码大模型**，可自部署或通过 API 调用，在国际评测榜（如 HumanEval、MBPP）中表现优异，是中国开源社区的重要贡献。
+- **CodeFuse** 更偏向企业级场景，强调代码知识库检索和内部研发效能提升。
+- 这些工具大多具备**中文语境优化**优势，例如更好理解中文注释、中文需求描述转代码等，在本土化开发场景中体验更佳。
+
+---
 # 能力边界：AI 能做什么，不能做什么
+---
+layout: two-cols
+---
 
-
-
-
-
-### ✅ AI 擅长
+# ✅ AI 擅长
 
 - 生成**样板代码**（CRUD、配置、DTO）
 - 补全重复性高、有明确模式的内容
@@ -395,10 +403,10 @@ flowchart LR
 - 快速搭出一个可运行的原型
 
 
+::right::
 
 
-
-### ❌ AI 的局限
+# ❌ AI 的局限
 
 - **不理解业务语义**——它不知道"为什么这样设计"
 - 生成看似正确实则**隐藏 Bug** 的代码
@@ -406,8 +414,6 @@ flowchart LR
 - 不会主动质疑不合理的需求
 - 处理**大型复杂系统**的全局一致性能力有限
 - 无法替你拍板架构决策
-
-
 
 
 ---
@@ -467,9 +473,9 @@ layout: two-cols
 
 ::right::
 
-### 给你们的启示
+# 启示
 
-你们的项目里：
+在项目里：
 
 - 哪些工作 AI 能做（让 AI 做）
 - 哪些工作只能人来判断（业务决策、架构取舍）
@@ -500,18 +506,94 @@ layout: two-cols
 
 # 第5周：实践
 
-- 制定项目管理的沟通计划和风险管理计划
+- 制定项目管理的沟通管理计划和风险管理计划
 
 🎤 汇报：智能软件工程文献阅读
+
+
 ---
-layout: cover
-class: text-center
-background: '#3a1e5f'
+# 项目管理的沟通管理
+
+- 沟通:交换信息
+- 项目经理会与团队成员和其他项目相关方沟通，包括来自组织内部（组织的各个层级和组织外部的人员。不同相关方可能有不同的文化和组织背景，以及不同的专业水平、观点和兴趣，有效的沟通可以建立起桥梁。
+
+
+
+---
+layout: two-cols
 ---
 
+# 制定沟通管理计划
+
+
+| 沟通内容  | 沟通频度  |  沟通方式 |  产出物 |
+| ------------ | ------------ | ------------ | ------------ |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+
+::right::
+
+# 注意事项：
+- 条目的顺序可根据生命周期：分析、设计、开发、测试、发布、运行维护
+- 沟通内容的粒度不能太粗，也不能太细，可写出每个生命周期需要沟通的主题
+- 沟通频度：即时、每天、每周、每月等
+- 沟通方式包括：邮件、电话、即时通信工具、视频会议、面对面交流、项目协作平台（项目仓库）
+- 产出物包括文档（含产品设计、技术设计方案、开发测试维护中常见问题原因和解决方法等）、代码、达成一致的工作方式等。
+
+
+---
+# 项目管理的风险管理
+- 理解 什么是风险？
+> - 风险是指存在不确定的问题。 
+> - 单个风险：一旦发生，会对一个或多个项目目标产生正面或负面影响的不确定事件或条件。 
+> - 整体项目风险：不确定性对项目整体的影响，是相关方面临的项目结果正面和负面变异区间。它源于包括单个风险在内的所有不确定性。
+- 规划风险管理、识别风险、开展风险分析、规划风险应对、实施风险应对和监督风险的各个过程；
+- 提高正面风险的概率和或影响，降低负面风险的概率和或影响，提高项目成功的可能性；
+
+
+---
+layout: two-cols
+---
+# 风险管理:识别风险
+- 资源：软件、材料、人力（人员变动）
+- 项目管理 ：估计（任务、工期）、规划和安全（包括信息安全等）
+- 外部因素：客户依赖（客户需求变化）、供应商（第三方软件）
+- 技术：配置管理（项目协作仓库）、设计、需求、技术
+- 进度：进度约束
+::right::
+
+# 风险分析的外部依赖案例
+
+1. 项目是否依赖外部组织或独立项目的投入、决策或批准？
+2. 项目所需的输入文件（系统概述、测试用例）是否可用和充足？
+3. 是否高度依赖供应商/分包商？
+  
+---
+
+# 制定风险管理计划
+
+| 风险名称  |所属维度（如资源、项目管理、外部因素、技术、进度）   |  风险说明 | 影响程度（重要性）  | 对工作量的影响（高、中、低）  | 对进度和成本的影响（高、中、低）  | 优先权（紧急程度）  | 跟踪频率  |
+| ------------ | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
+|   |   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |   |
+|   |   |   |   |   |   |   |   |
+
+---
 # 第6周：理论
-## 领域驱动设计方法
-### Domain-Driven Design (DDD)
+- 领域驱动设计方法 Domain-Driven Design (DDD)
+
+::right::
+
+# 第6周：实践
+
+- 确认技术方案（语言、平台、框架、架构图；数据分析技术、人工智能算法模型、区块链、虚拟现实技术等）
+- 规划新技术学习
+
+📋 检查：确认软件作品原型设计
 
 ---
 
@@ -580,6 +662,8 @@ graph TD
 ```
 
 ---
+layout: two-cols
+---
 
 # 1. 通用语言（Ubiquitous Language）
 
@@ -594,9 +678,9 @@ graph TD
 | 逾期 | `Overdue` |
 | 续借 | `Renew` |
 
+::right::
 
-
-
+# 参考代码
 
 ```java
 // ✅ 代码直接使用业务语言，无需注释解释
@@ -694,14 +778,10 @@ public class PaymentAntiCorruptionLayer {
 ```
 
 ---
+layout: two-cols
+---
 
-# 4. 实体 vs 值对象
-
-
-
-
-
-### 实体 Entity
+# 实体 Entity
 - 有唯一标识（ID）
 - 有生命周期，属性可变
 - 两个实体即使属性相同，ID 不同也不相等
@@ -720,12 +800,9 @@ public class Reader {
     }
 }
 ```
+::right::
 
-
-
-
-
-### 值对象 Value Object
+# 值对象 Value Object
 - 没有标识，只有属性
 - **不可变**（Immutable）
 - 属性相同即相等
@@ -759,16 +836,14 @@ public final class Money {
 
 
 ---
-
+layout: two-cols
+---
 # 5. 聚合与聚合根（Aggregate Root）
 
 **聚合** = 一组相关对象的集合，对外只暴露**聚合根**，保证一致性边界
 
 
-
-
-
-```java
+```java{scale:0.6}
 // Order 是聚合根，OrderItem 是内部实体
 public class Order {
     private OrderId id;
@@ -800,11 +875,10 @@ public class Order {
 }
 ```
 
+::right::
 
 
-
-
-**设计原则**：
+# 设计原则
 
 - 一个事务只修改**一个聚合**
 - 聚合内部保证不变量（invariant）：
@@ -816,16 +890,10 @@ public class Order {
 🎯 课堂练习：在你们的系统中找出 2-3 个聚合根，画出聚合边界图
 
 
-
-
-
 ---
-
+layout: two-cols
+---
 # 6. 领域服务 & 仓储
-
-
-
-
 
 ### 领域服务（Domain Service）
 当一个操作**不自然属于**某个实体或值对象时使用
@@ -840,11 +908,7 @@ public class TransferService {
     }
 }
 ```
-
-
-
-
-
+::right::
 ### 仓储（Repository）
 封装持久化细节，让领域层不关心数据库
 
@@ -865,9 +929,6 @@ public class JpaOrderRepository
     }
 }
 ```
-
-
-
 
 ---
 layout: two-cols
@@ -922,23 +983,13 @@ layout: center
 
 # 本周实践任务
 
-
-
 1. 与组员一起提炼项目的**通用语言表**（至少10个术语）
 2. 画出项目的**限界上下文图**（可用 draw.io / Miro / Mermaid）
 3. 识别至少 2 个**聚合根**，标注聚合边界
 4. 用代码写出至少 1 个实体、1 个值对象、1 个聚合根示例
 5. 确认技术方案（含 AI 算法模型如何融入领域模型）
+6. 规划新技术学习
 
 
+🎤 本周汇报：系统设计技术方案
 
-
-🎤 本周汇报：系统设计技术方案（含限界上下文图 + 核心聚合设计）
-
-# 第6周：实践
-
-- 确认技术方案（包括人工智能算法模型等）
-- 制定新技术学习方法
-
-
-🎤 汇报：系统设计技术方案
