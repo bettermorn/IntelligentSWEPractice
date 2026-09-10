@@ -5,7 +5,7 @@ class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## 智能软件工程课程
+  ## 智能软件工程实践课程
   基于模型的系统工程 + AI 驱动的软件开发全流程
 drawings:
   persist: false
@@ -21,7 +21,7 @@ fonts:
 
 
 
-# 智能软件工程
+# 智能软件工程实践
 
   系统分析 · 设计 · 开发 · 测试 · 发布
 
