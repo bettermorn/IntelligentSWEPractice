@@ -1,3 +1,10 @@
+---
+layout: cover
+class: text-center
+background: '#3a1e5f'
+---
+
+
 # 第一部分
 ## 系统分析
 
@@ -6,8 +13,7 @@
 ---
 layout: two-cols
 ---
-
-# 第1周：基于模型的系统工程与工业软件定义
+# 第1周：理论
 
 - NASA 系统工程引擎 (NASA Systems Engineering Engine)
 - 基于模型的系统工程 (MBSE) 核心思想
@@ -16,6 +22,14 @@ layout: two-cols
 - **实践指南**：协同仓库构建与问题定义
 
 ::right::
+
+# 第1周：实践
+
+- 分组
+- 定义要解决的工程问题
+- 在协作平台上建立小组项目仓库
+
+📋 检查：确认定义的工程问题
 
 ---
 layout: two-cols
@@ -68,7 +82,7 @@ flowchart TD
 
 传统的系统工程基于**文档 (Document-Centric)**，而现代系统工程转向**基于模型 (Model-Centric)**。
 
-```mermaid
+```mermaid{scale: 0.5}
 flowchart LR
     subgraph D[文档中心的系统工程
 Document-Centric Systems Engineering]
@@ -164,7 +178,7 @@ bool isManifold(const std::vector& edges) {
 # 技术的创新路径：颠覆性 vs 渐进式
 ### Research and Engineering Innovation Paths
 
-```mermaid
+```mermaid{scale: 0.5}
 flowchart LR
     A["理论创新<br/>Theoretical / Algorithmic"] --> A1["新的数学模型<br/>算法或物理引擎"]
     A1 --> A2["示例：算子分裂法<br/>将复杂度从 O(N²) 降至 O(N log N)"]
