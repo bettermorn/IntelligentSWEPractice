@@ -9,6 +9,7 @@ background: '#1e5f3a'
 
 第 7-10 周
 
+使架构变成可执行的软件，也使工程规范最终体现为软件质量
 
 ---
 layout: two-cols
