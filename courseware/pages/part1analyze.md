@@ -320,7 +320,7 @@ OOAD 的核心在于**控制复杂度**。
 
 
 
-```mermaid
+```mermaid{scale:0.8}
 classDiagram
     class CADDocument {
         -String documentId
