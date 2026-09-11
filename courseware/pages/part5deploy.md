@@ -1,5 +1,5 @@
 ---
-layout: cover
+layout: section
 class: text-center
 background: '#1e5f3a'
 ---
