@@ -1,7 +1,7 @@
 ---
 layout: cover
 class: text-center
-background: '#5f3a1e'
+background: '#1e5f3a'
 ---
 
 # 第五部分
@@ -11,7 +11,7 @@ background: '#5f3a1e'
 
 ---
 
-# 学习目标
+# 系统发布 学习目标
 
 - 选择适合项目的 Web 应用部署方式
 - 建立从代码提交到生产发布的标准流程
@@ -72,7 +72,7 @@ layout: two-cols
 
 ## 典型 Web 应用组成
 
-```mermaid
+```mermaid{scale:0.8}
 flowchart LR
     U[用户浏览器] --> DNS[DNS]
     DNS --> CDN[CDN / WAF]
@@ -160,10 +160,10 @@ find dist -maxdepth 2 -type f | sort
 ```
 
 ---
+layout: two-cols
+---
 
-## 静态托管方式
-
-常见方案：
+## 静态托管方式常见方案
 
 - 云对象存储：S3、OSS、COS、OBS
 - CDN 静态站点托管
@@ -172,7 +172,9 @@ find dist -maxdepth 2 -type f | sort
 - Vercel、Netlify、Cloudflare Pages
 - Nginx 或 Caddy 静态文件服务
 
-选择时重点关注：
+::right::
+
+## 选择时重点关注
 
 - 是否支持 HTTPS
 - 是否支持自定义域名
@@ -180,6 +182,9 @@ find dist -maxdepth 2 -type f | sort
 - 是否支持 CDN 缓存刷新
 - 是否支持访问日志和错误监控
 - 是否支持预览环境和回滚
+
+---
+layout: two-cols
 
 ---
 
@@ -210,8 +215,9 @@ server {
     }
 }
 ```
+::right::
 
-注意：
+## 注意
 
 - 使用前端路由时必须配置 `try_files`
 - 带内容哈希的静态资源可以长期缓存
@@ -264,7 +270,7 @@ VITE_SENTRY_DSN=https://example@sentry.io/project
 
 典型架构：
 
-```mermaid
+```mermaid{scale:0.9}
 flowchart LR
     U[用户] --> DNS[DNS]
     DNS --> NGINX[Nginx]
@@ -574,7 +580,7 @@ Serverless 常用于：
 
 典型流程：
 
-```mermaid
+```mermaid{scale:0.6}
 flowchart LR
     A[HTTP 请求] --> B[API Gateway]
     B --> C[函数实例]
