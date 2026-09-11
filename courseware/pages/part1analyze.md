@@ -1,7 +1,7 @@
 ---
-layout: cover
+layout: section
 class: text-center
-background: '#3a1e5f'
+background: '#1e5f3a'
 ---
 
 
@@ -52,7 +52,7 @@ NASA SP-2016-6105 标准定义了一个高度结构化的系统工程流程：
 
 ::right::
 
-```mermaid
+```mermaid{scale:0.6}
 flowchart TD
     A["利益相关者需求<br/>Stakeholder Needs"] --> B["技术需求<br/>Technical Requirements"]
     B --> C["逻辑分解<br/>Logical Decomposition"]
