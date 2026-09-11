@@ -1,5 +1,5 @@
 ---
-layout: cover
+layout: section
 class: text-center
 background: '#1e5f3a'
 ---
@@ -103,6 +103,8 @@ flowchart LR
 - 通过 CI Pipeline 验证变更
 
 ---
+layout：two-cols
+---
 
 # 3 开发任务的拆分
 
@@ -114,7 +116,9 @@ flowchart LR
 - 具有明确的完成标准
 - 尽量在较短周期内完成
 
-## 示例：实现订单创建功能
+::right::
+
+# 示例：实现订单创建功能
 
 可以拆分为：
 
@@ -128,16 +132,17 @@ flowchart LR
 8. 更新 API 文档
 
 
-
 任务拆分的目标不是增加任务数量，而是降低复杂度和协作风险。
 
 
 
 ---
+layout：two-cols
+---
 
-# 4 编码实现：将设计落实为代码
 
-## 编码关注点
+
+# 4 编码关注点
 
 - 模块职责是否清晰
 - 接口设计是否稳定
@@ -147,7 +152,9 @@ flowchart LR
 - 并发和资源释放是否安全
 - 日志是否足以支持问题定位
 
-## 常见技术原则
+::right::
+
+# 编码常见技术原则
 
 - 高内聚、低耦合
 - 单一职责原则
@@ -158,22 +165,26 @@ flowchart LR
 - 避免过早优化
 
 
-
 代码首先应当正确，其次应当清晰，最后才是针对真实瓶颈进行优化。
 
 
 
 ---
+layout：two-cols
+---
 
-# 5 编码规范与工具
-
-编码规范的作用：
+# 5 编码规范的作用
 
 - 降低代码阅读成本
 - 减少常见错误
 - 统一团队协作方式
 - 支持自动化检查
 - 提高长期可维护性
+
+::right::
+
+
+# 编码常用工具
 
 | 场景 | 常用工具 |
 |---|---|
@@ -182,6 +193,7 @@ flowchart LR
 | Python | Ruff、Black、mypy、Pylint |
 | Go | gofmt、go vet、golangci-lint |
 | 多语言质量分析 | SonarQube、Semgrep |
+
 
 ## 推荐实践
 
@@ -217,9 +229,7 @@ flowchart LR
 
 ## 常用工具
 
-- Git
-- GitHub
-- GitLab
+- Git GitHub GitLab
 - Bitbucket
 - Gerrit
 
@@ -253,12 +263,10 @@ chore: 升级项目依赖
 
 
 ---
+layout：two-cols
+---
 
-# 8 代码评审（Code Review）
-
-代码评审的目标不是寻找个人错误，而是改善代码和共享知识。
-
-## 评审内容
+# 8 代码评审（Code Review）内容
 
 - 是否正确实现需求和验收标准
 - 是否符合架构和模块边界
@@ -268,7 +276,9 @@ chore: 升级项目依赖
 - 是否引入不必要的复杂度
 - 是否影响性能和可维护性
 
-## 评审原则
+::right::
+
+# Code Review 评审原则
 
 - 小型 Pull Request 更容易高质量评审
 - 评论代码，不针对个人
@@ -276,20 +286,20 @@ chore: 升级项目依赖
 - 对重要设计问题进行讨论
 - 评审意见应当可执行
 
+
+代码评审的目标不是寻找个人错误，而是改善代码和共享知识。
+
+---
+layout:two-cols
 ---
 
 # 9 自动化测试策略
 
-实现阶段应尽可能让测试与代码同步开发。
+实现阶段应尽可能让测试与代码同步进行。
 
-```mermaid {scale: 0.72}
-flowchart TB
-    A[单元测试] --> B[集成测试]
-    B --> C[接口测试]
-    C --> D[端到端测试]
-```
 
-## 测试层次
+
+## 单元和集成测试
 
 ### 单元测试
 
@@ -302,6 +312,11 @@ flowchart TB
 - 验证模块之间的协作
 - 检查数据库、缓存和消息系统交互
 
+::right::
+
+
+## 接口和端到端测试
+
 ### 接口测试
 
 - 验证 API 输入、输出和错误处理
@@ -312,6 +327,8 @@ flowchart TB
 - 验证完整业务流程
 - 成本较高，应覆盖关键路径
 
+---
+layout:two-cols
 ---
 
 # 10 测试技术与工具
@@ -327,6 +344,8 @@ flowchart TB
 - 契约测试
 - 属性测试
 - 变异测试
+
+::right::
 
 ## 常用工具
 
@@ -346,10 +365,12 @@ flowchart TB
 
 
 ---
+layout:two-cols
+---
 
 # 11 构建与依赖管理
 
-构建过程通常包括：
+### 构建过程
 
 1. 获取依赖
 2. 编译源代码
@@ -358,7 +379,7 @@ flowchart TB
 5. 生成构件
 6. 记录版本和构建信息
 
-## 常用工具
+### 常用工具
 
 - Java：Maven、Gradle
 - JavaScript：npm、pnpm、Yarn
@@ -367,7 +388,9 @@ flowchart TB
 - .NET：NuGet、dotnet CLI
 - 通用构建：Make、Bazel、Buck
 
-## 构建工程实践
+::right::
+
+### 构建工程实践
 
 - 锁定依赖版本
 - 使用统一构建命令
@@ -376,6 +399,8 @@ flowchart TB
 - 生成可追踪的构件版本
 - 定期更新和审计第三方依赖
 
+---
+layout:two-cols
 ---
 
 # 12 持续集成（CI）
@@ -402,6 +427,8 @@ flowchart LR
 - Buildkite
 - CircleCI
 
+::right::
+
 ## CI 设计原则
 
 - 快速反馈
@@ -411,6 +438,8 @@ flowchart LR
 - 不允许失败代码进入主干
 - Pipeline 配置也应纳入版本控制
 
+---
+layout:two-cols
 ---
 
 # 13 实现阶段的软件安全
@@ -427,6 +456,8 @@ flowchart LR
 - 防止跨站脚本攻击
 - 避免硬编码密钥
 
+::right::
+
 ## 工具支持
 
 - SAST：SonarQube、Semgrep、CodeQL
@@ -442,6 +473,8 @@ flowchart LR
 
 
 ---
+layout:two-cols
+---
 
 # 14 重构与技术债务
 
@@ -453,6 +486,8 @@ flowchart LR
 - 测试难以编写
 - 缺陷频繁出现
 - 新功能开发速度持续下降
+
+::right::
 
 ## 常见重构方式
 
@@ -473,7 +508,8 @@ flowchart LR
 5. 记录技术债务及其影响
 
 ---
-
+layout:two-cols
+---
 # 15 AI 辅助软件实现
 
 ## AI 适合辅助的任务
@@ -487,6 +523,8 @@ flowchart LR
 - 生成 SQL、脚本和正则表达式
 - 总结 Pull Request
 
+::right::
+
 ## 工程师必须负责
 
 - 验证业务逻辑
@@ -496,7 +534,6 @@ flowchart LR
 - 运行测试和静态检查
 - 避免泄露敏感信息
 - 确认第三方代码许可
-
 
 
 **AI 可以生成代码，但不能替代工程判断。**
@@ -528,6 +565,8 @@ flowchart LR
 - 通过测试、评审和 CI 建立质量保障
 
 ---
+layout:two-cols
+---
 
 # 17 实现阶段的质量门禁
 
@@ -544,6 +583,8 @@ flowchart LR
 - 变更说明完整
 - 必要的文档已更新
 
+::right::
+
 ## 质量门禁示例
 
 ```text
@@ -555,6 +596,8 @@ Security Scan      PASS
 Code Review        APPROVED
 ```
 
+---
+layout:two-cols
 ---
 
 # 18 实现阶段的工程度量
@@ -576,6 +619,8 @@ Code Review        APPROVED
 - 代码复杂度
 - 技术债务规模
 
+::right::
+
 ## 流程稳定性
 
 - 构建失败率
@@ -591,10 +636,10 @@ Code Review        APPROVED
 
 
 ---
+layout：two-cols
+---
 
-# 19 一个典型实现任务
-
-## 任务：实现用户注册接口
+# 19 一个典型任务：实现用户注册接口
 
 ### 开发步骤
 
@@ -610,6 +655,8 @@ Code Review        APPROVED
 10. 提交 Pull Request
 11. 根据评审意见修改
 12. 通过 CI 后合并主干
+
+::right::
 
 ### 需要验证的场景
 
@@ -678,14 +725,9 @@ Code Review        APPROVED
 
 
 
-
-
 ### 清晰任务
 
 将复杂需求拆分为可执行任务
-
-
-
 
 
 ### 高质量代码
@@ -702,15 +744,9 @@ Code Review        APPROVED
 
 
 
-
-
 ### 协作交付
 
 通过 Git、评审和反馈持续集成
-
-
-
-
 
 
 
@@ -719,7 +755,7 @@ Code Review        APPROVED
 
 ---
 
-# 讨论题
+# 软件开发方法讨论
 
 1. 为什么代码评审不能完全由自动化工具替代？
 2. 测试金字塔是否适用于所有类型的软件系统？
@@ -730,7 +766,7 @@ Code Review        APPROVED
 7. 代码覆盖率、缺陷密度和变更失败率之间有什么关系？
 
 
-
+---
 # 第8周
 
 
@@ -739,7 +775,7 @@ Code Review        APPROVED
 
 
 
-## 实践
+# 第8周实践
 用各种技术和工具开发系统功能
 
 
@@ -762,13 +798,9 @@ layout: two-cols
 🛠️ 检查：代码质量
 
 ---
-layout: cover
-class: text-center
-background: '#1e5f3a'
----
 
-# 第9周 如何编写卓越的代码：软件代码质量
-## 本周学习目标
+
+# 第9周如何编写卓越的代码 学习目标
 
 - 理解代码质量的**可度量维度**：可读性、可维护性、复杂度、重复度、安全性
 - 掌握 **SOLID 原则**及常见反例
@@ -931,7 +963,7 @@ class Customer {
 
 ---
 
-# SOLID 原则速览（附反例/正例）
+# SOLID 原则速览
 
 
 
@@ -994,6 +1026,7 @@ layout: two-cols
 ---
 
 # 静态代码分析工具选型
+
 
 **多语言通用**
 - SonarQube / SonarLint（IDE 插件）
@@ -1159,8 +1192,7 @@ Extract Method / Replace Conditional]
 # 课堂练习：现场重构
 
 
-
-```java
+```java{scale:0.7}
 // 请找出至少3个坏味道并重构
 public class OrderProcessor {
     public String process(int type, double amount, String user, int status, boolean flag) {
@@ -1187,9 +1219,6 @@ public class OrderProcessor {
 ```
 
 
-
-
-
 - 提示1：魔法数字（`1`, `2`, `1000`, `0`）应替换为枚举/常量
 - 提示2：嵌套 if 圈复杂度过高，考虑提取方法或使用策略模式
 - 提示3：布尔参数 `flag` 是"标志参数"坏味道，应拆成两个方法
@@ -1197,10 +1226,9 @@ public class OrderProcessor {
 
 
 ---
-layout: center
----
 
-# 本周实践任务
+
+# 第9周实践任务
 
 
 
@@ -1215,13 +1243,6 @@ layout: center
 ✅ 本周检查：检查代码质量（提交扫描报告截图 + 重构前后对比）
 
 
-# 第9周：实践
-
-- 使用软件代码质量工具检查代码质量
-- 并修改代码
-
-
-✅ 检查：检查代码质量
 
 
 ---
