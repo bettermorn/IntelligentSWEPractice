@@ -584,6 +584,8 @@ layout: two-cols
 |   |   |   |   |   |   |   |   |
 
 ---
+layout: two-cols
+---
 
 # 第6周：理论
 - 领域驱动设计方法 Domain-Driven Design (DDD)
