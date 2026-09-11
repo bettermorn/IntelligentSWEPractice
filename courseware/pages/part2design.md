@@ -1,7 +1,7 @@
 ---
-layout: cover
+layout: section
 class: text-center
-background: '#3a1e5f'
+background: '#1e5f3a'
 ---
 
 # 第二部分
@@ -249,21 +249,20 @@ export const SimulationViewport: React.FC = () => {
 ### Practice: User Story Mapping & Tech Stack Investigation
 本周各组要将前期的软件定义转化为具体的研发路线，并完成原型设计。
 
-### 第 3 周汇报要求：
+#### 第 3 周汇报要求：
 
 1. **用户故事清单 (docs/requirements/user_stories.md)**：
    * 至少编写 5 个符合 INVEST 规范的用户故事。
    * 每个故事需配有详细的 验收条件 (Acceptance Criteria)。
 
-2. **原型展示**：
-   * 提交利用 AI (如 v0.dev / Figma) 生成的交互式原型页面，上台 Demo 交互流程。
+2. **原型展示**：提交利用 AI (如 v0.dev / Figma) 生成的交互式原型页面，上台 Demo 交互流程。
 
 3. **技术方案调研报告 (docs/architecture/tech_stack.md)**：
    * 论证核心技术选型。例如：为什么选用 WebAssembly 还是 C++ 原生运行？
    * 列出团队在未来 2 周内需要学习的新技术（制定自学计划与 Milestone）。
 
 
-* **检查点**：助教和导师将严格评估**原型的可行性**以及**技术选型的科学性**，确认后方可进入系统开发（第四阶段）。
+* **检查点**：教师将严格评估**原型的可行性**以及**技术选型的科学性**，确认后方可进入系统开发（第四阶段）。
 
 ---
 # 课后思考与阅读建议
@@ -367,7 +366,9 @@ flowchart LR
 | **GitHub Copilot / CodeRabbit** | 代码评审 | 自动 PR 审查、找 Bug |
 
 ---
+
 # 中文主流 AI 编码工具一览
+
 
 | 工具 | 定位 | 典型能力 |
 |---|---|---|
@@ -386,7 +387,7 @@ flowchart LR
 - **通义灵码**、**文心快码**、**MarsCode** 等属于国内大厂推出的“行内补全类”工具，功能上与 GitHub Copilot 类似，且深度适配国内开发者常用工具链（如飞书、钉钉集成、Gitee 等）。
 - **CodeGeeX**、**DeepSeek Coder** 属于**开源代码大模型**，可自部署或通过 API 调用，在国际评测榜（如 HumanEval、MBPP）中表现优异，是中国开源社区的重要贡献。
 - **CodeFuse** 更偏向企业级场景，强调代码知识库检索和内部研发效能提升。
-- 这些工具大多具备**中文语境优化**优势，例如更好理解中文注释、中文需求描述转代码等，在本土化开发场景中体验更佳。
+- 大多具备**中文语境优化**优势，例如更好理解中文注释、中文需求描述转代码等，在本土化开发场景中体验更佳。
 
 ---
 # 能力边界：AI 能做什么，不能做什么
@@ -482,8 +483,7 @@ layout: two-cols
 - 如何在作品中体现"人机协作"而非"AI 替代人"
 
 ---
-layout: center
----
+
 
 # 本周汇报题目
 ## 智能软件工程文献阅读
@@ -512,6 +512,7 @@ layout: two-cols
 
 
 ---
+
 # 项目管理的沟通管理
 
 - 沟通:交换信息
@@ -583,6 +584,7 @@ layout: two-cols
 |   |   |   |   |   |   |   |   |
 
 ---
+
 # 第6周：理论
 - 领域驱动设计方法 Domain-Driven Design (DDD)
 
