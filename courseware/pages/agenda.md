@@ -11,10 +11,8 @@ layout: section
 | 第四部分 系统测试 | 11-13 | 测试方法、交叉测试 |
 | 第五部分 发布 | 14-17 | 部署、迭代、答辩 |
 ---
-layout: cover
-class: text-center
-background: '#1e3a5f'
----
+
+
 # 课程进度总览
 
 ```mermaid
