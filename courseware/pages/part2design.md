@@ -783,7 +783,7 @@ public class PaymentAntiCorruptionLayer {
 layout: two-cols
 ---
 
-# 实体 Entity
+# 4 实体 Entity
 - 有唯一标识（ID）
 - 有生命周期，属性可变
 - 两个实体即使属性相同，ID 不同也不相等
@@ -889,7 +889,7 @@ public class Order {
 - 聚合尽量设计得小，避免锁竞争
 
 
-🎯 课堂练习：在你们的系统中找出 2-3 个聚合根，画出聚合边界图
+🎯 练习：在你们的系统中找出 2-3 个聚合根，画出聚合边界图
 
 
 ---
@@ -980,8 +980,7 @@ public class OrderAppService {
 
 
 ---
-layout: center
----
+
 
 # 本周实践任务
 
