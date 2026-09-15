@@ -51,8 +51,9 @@ gantt
 ### 基础设施
 - 云服务器使用：阿里云，学生认证领取代金券，可抵扣云服务器费用。
 - AI token使用：阿里云（百炼），学生代金券可抵扣AI Token费用。[国家超算互联网平台](https://www.scnet.cn/home/internet/index.html)也面向新用户提供免费Token与算力资源，并推出了普惠型算力定价。
+- DeepSeek开发者平台 https://platform.deepseek.com/
 ### 作品完成要求
-- 某些作品会根据等保三级要求完成，参考国标[信息安全技术 网络安全等级保护基本要求](https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=BAFB47E8874764186BDB7865E8344DAF)
+- 作品需要满足软件行业标准。某些作品会根据等保三级要求完成，参考国标[信息安全技术 网络安全等级保护基本要求](https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=BAFB47E8874764186BDB7865E8344DAF)
 
 
 
