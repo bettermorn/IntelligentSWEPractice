@@ -150,7 +150,7 @@ layout: two-cols
 ---
 # 工业软件类别
 
-![工业软件类别](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/docs/imgs/iswtype.png)
+![工业软件类别](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/docs/imgs/ISWType.png)
 
 ---
 layout: two-cols
@@ -225,8 +225,8 @@ bool isManifold(const std::vector& edges) {
 layout: two-cols
 ---
 
-### 技术的创新路径
-
+# 技术的创新路径
+::left::
 ```mermaid{scale: 0.5}
 flowchart LR
     A["理论创新<br/>Theoretical / Algorithmic"] --> A1["新的数学模型<br/>算法或物理引擎"]
@@ -245,7 +245,7 @@ flowchart LR
 ```
 
 ::right::
-### 理论创新和架构/工程创新
+
 1. 理论创新 (Theoretical / Algorithmic)
 
 引入新的数学模型、算法或物理引擎。
