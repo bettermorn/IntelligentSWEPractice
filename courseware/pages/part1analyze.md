@@ -38,6 +38,7 @@ layout: two-cols
 # NASA 系统工程引擎
 ### NASA Systems Engineering Engine
 
+[NASA系统工程手册](https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf)
 NASA SP-2016-6105 标准定义了一个高度结构化的系统工程流程：
 
 1. **系统设计流程 (System Design)**:
@@ -52,7 +53,7 @@ NASA SP-2016-6105 标准定义了一个高度结构化的系统工程流程：
 
 ::right::
 
-```mermaid{scale:0.6}
+```mermaid{scale:0.5}
 flowchart TD
     A["利益相关者需求<br/>Stakeholder Needs"] --> B["技术需求<br/>Technical Requirements"]
     B --> C["逻辑分解<br/>Logical Decomposition"]
@@ -70,10 +71,21 @@ flowchart TD
     class E,F endNode;
 ```
 
-
-
 核心思想：
 系统工程不是单一线性过程，而是递归 (Recursive) 和 迭代 (Iterative) 的过程。每一次物理分解都伴随着需求的下发与验证。
+
+---
+layout: image-center
+image: https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASA%E7%B3%BB%E7%BB%9F%E5%B7%A5%E7%A8%8B%E5%BC%95%E6%93%8E.png
+---
+# NASA 系统工程引擎
+
+---
+layout: image-center
+image: https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASAprojectlifecycle.png
+---
+# NASA 项目生命周期
+
 
 ---
 
