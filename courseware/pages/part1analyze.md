@@ -78,12 +78,25 @@ flowchart TD
 
 # NASA 系统工程引擎
 
-![NASA系统工程引擎](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/docs/imgs/NASA%E7%B3%BB%E7%BB%9F%E5%B7%A5%E7%A8%8B%E5%BC%95%E6%93%8E.png)
+
+
+```html
+  src="/imgs/NASASystemEngine.png" 
+  style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" 
+/>
+```
 
 ---
+
 # NASA项目生命周期
 
-![NASA项目生命周期](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/docs/imgs/NASAprojectlifecycle.png)
+
+
+```html
+  src="/imgs/NASAprojectlifecycle.png" 
+  style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" 
+/>
+```
 
 ---
 layout:two-cols
@@ -156,13 +169,19 @@ layout: two-cols
 
 # 工业软件类别
 
-![工业软件类别](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/docs/imgs/ISWType.png)
+
+```html
+  src="/imgs/ISWType.png" 
+  style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" 
+/>
+```
 
 ---
 layout: two-cols
 ---
 
 ::left::
+
 ## 工业软件例子
 * **CAD** (计算机辅助设计)：几何建模内核、拓扑关系。
 * **CAE** (计算机辅助工程)：偏微分方程求解、网格剖分。
@@ -286,7 +305,13 @@ layout: two-cols
 
 ## 设计思维流程
 
-![设计思维流程](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/docs/imgs/designthinking-circle.png)
+
+
+```html
+  src="/imgs/designthinking-circle.png" 
+  style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" 
+/>
+```
 
 图片来源：Fred Estes. Design Thinking: A Guide to Innovation. 2025. Twenty-First Century Books™
 参考 [设计思维](https://github.com/bettermorn/IntelligentSWEPractice/wiki/%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4)
