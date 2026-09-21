@@ -75,15 +75,15 @@ flowchart TD
 系统工程不是单一线性过程，而是递归 (Recursive) 和 迭代 (Iterative) 的过程。每一次物理分解都伴随着需求的下发与验证。
 
 ---
-layout: image
-image：https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASA%E7%B3%BB%E7%BB%9F%E5%B7%A5%E7%A8%8B%E5%BC%95%E6%93%8E.png
+layout: center
 ---
 
+![NASA系统工程引擎](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASA%E7%B3%BB%E7%BB%9F%E5%B7%A5%E7%A8%8B%E5%BC%95%E6%93%8E.png)
 
 ---
-layout: image
-image：https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASAprojectlifecycle.png
----
+
+background: https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/docs/imgs/NASAprojectlifecycle.png
+
 ---
 layout:two-cols
 ---
@@ -273,10 +273,10 @@ layout: two-cols
 
 ## 工业软件分类
 * 研发设计工具：**CAD** (计算机辅助设计)：几何建模内核、拓扑关系。
-* 生产控制和管理系统：**CAE** (计算机辅助工程)：偏微分方程求解、网格剖分。  * **CAM** (计算机辅助制造)：数控轨迹规划。
+* 生产控制和管理系统：**CAE** (计算机辅助工程)：偏微分方程求解、网格剖分。 **CAM** (计算机辅助制造)：数控轨迹规划。
 * 产品运行系统：MES/PLM 流程与产品生命周期管理
 
-### **技术壁垒**：
+**技术壁垒**：
   * 数值计算的精度与稳定性（如：Double precision 溢出控制）。
   * 实时性与高并发事务处理。
   * 领域知识（物理、材料、力学）的深度融合。
@@ -311,7 +311,6 @@ bool isManifold(const std::vector& edges) {
 
 # 科学地定义工程问题：5W1H 与 痛点映射
 ### How to Define an Engineering Problem
-
 研究生阶段的创新应避免“造轮子”，而应致力于“解决真实问题”。
 
 | 维度 (5W1H) | 核心追问 | 本质分析 |
@@ -324,6 +323,7 @@ bool isManifold(const std::vector& edges) {
 | **How (如何度量)** | 如何定量评估“问题被成功解决”？ | **关键指标 (KPI)**：吞吐量提高30%，内存降低50%等。 |
 
 ---
+
 # 产品描述
 
 ```text
@@ -339,7 +339,7 @@ bool isManifold(const std::vector& edges) {
 layout: two-cols
 ---
 
-### 技术的创新路径：Research and Engineering Innovation Paths
+### 技术的创新路径
 
 ```mermaid{scale: 0.5}
 flowchart LR
@@ -379,8 +379,9 @@ flowchart LR
 💡 给研究生的建议： 硕士阶段更推荐“场景驱动的工程架构创新”或“先进算法在垂直工业领域的应用创新”，既有学术发表度，又有工程落地性。
 
 ---
-layout:two-cols
+layout: two-cols
 ---
+
 ## 设计思维
 
 - 一种以人为中心（Human-Centered）的创新方法论，最初源自设计师解决问题的方式，后被斯坦福大学 d.school、IDEO 等机构系统化，广泛应用于产品设计、服务设计、商业创新、教育、社会问题解决等领域。
@@ -397,29 +398,9 @@ layout:two-cols
 ::right::
 
 ## 设计思维流程
-```mermaid
-flowchart LR
-    A["🧠 共情 Empathize
-理解用户需求与痛点"] --> B["🎯 定义 Define
-明确核心问题"]
-    B --> C["💡 构思 Ideate
-发散产生创意方案"]
-    C --> D["🛠️ 原型 Prototype
-快速制作可验证方案"]
-    D --> E["✅ 测试 Test
-收集用户反馈"]
 
-    E -. 反馈迭代 .-> A
-    E -. 反馈迭代 .-> B
-    E -. 反馈迭代 .-> C
-    D -. 反馈迭代 .-> C
+![设计思维流程](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/docs/imgs/designthinking-circle.png)
 
-    style A fill:#FFD6A5,stroke:#333,stroke-width:1px
-    style B fill:#FDFFB6,stroke:#333,stroke-width:1px
-    style C fill:#CAFFBF,stroke:#333,stroke-width:1px
-    style D fill:#9BF6FF,stroke:#333,stroke-width:1px
-    style E fill:#A0C4FF,stroke:#333,stroke-width:1px
-```
 参考 [设计思维](https://github.com/bettermorn/IntelligentSWEPractice/wiki/%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4)
 
 ---
