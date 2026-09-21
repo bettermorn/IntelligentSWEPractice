@@ -79,18 +79,18 @@ flowchart TD
 # NASA 系统工程引擎
 
 
+![NASA系统工程引擎](imgs/NASASystemEngine.png)
 
 
-
-<img src="imgs/NASASystemEngine.png" style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" />
 
 
 ---
 
 # NASA项目生命周期
 
+![NASA项目生命周期](imgs/NASAprojectlifecycle.png)
 
-<img src="imgs/NASAprojectlifecycle.png" style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" />
+
 
 
 ---
@@ -164,9 +164,9 @@ layout: two-cols
 
 # 工业软件类别
 
+![工业软件类别](imgs/ISWType.png)
 
 
-<img src="imgs/ISWType.png" style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" />
 
 
 ---
@@ -297,11 +297,8 @@ layout: two-cols
 
 ## 设计思维流程
 
+![设计思维流程](imgs/designthinking-circle.png)
 
-
-<img src="imgs/designthinking-circle.png" 
-  style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" 
-/>
 
 
 - IDEO 三阶段模型：灵感（Inspiration）→ 构思（Ideation）→ 实施（Implementation）。
