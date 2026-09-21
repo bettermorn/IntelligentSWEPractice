@@ -80,23 +80,20 @@ flowchart TD
 
 
 
-```html
-<img src="/imgs/NASASystemEngine.png" 
+
+
+<img src="imgs/NASASystemEngine.png" 
   style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" 
 />
-```
+
 
 ---
 
 # NASA项目生命周期
 
 
+<img src="imgs/NASAprojectlifecycle.png" style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" />
 
-```html
-  <img src="/imgs/NASAprojectlifecycle.png" 
-  style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" 
-/>
-```
 
 ---
 layout:two-cols
@@ -170,11 +167,9 @@ layout: two-cols
 # 工业软件类别
 
 
-```html
-<img src="/imgs/ISWType.png" 
-  style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" 
-/>
-```
+
+<img src="imgs/ISWType.png" style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" />
+
 
 ---
 layout: two-cols
@@ -305,11 +300,11 @@ layout: two-cols
 ## 设计思维流程
 
 
-```html
-<img src="/imgs/designthinking-circle.png" 
+
+<img src="imgs/designthinking-circle.png" 
   style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" 
 />
-```
+
 
 - IDEO 三阶段模型：灵感（Inspiration）→ 构思（Ideation）→ 实施（Implementation）。
 - 双钻石模型（Double Diamond）（英国设计协会提出）：发现（Discover，发散）→ 定义（Define，收敛）→ 发展（Develop，发散）→ 交付（Deliver，收敛）。
