@@ -101,9 +101,6 @@ layout:two-cols
 
 ::left::
 
-- 传统的系统工程基于**文档 (Document-Centric)**
-- 现代系统工程转向**基于模型 (Model-Centric)**
-
 ```mermaid{scale: 0.5}
 flowchart LR
     subgraph D[文档中心的系统工程
@@ -131,6 +128,7 @@ SysML / SysML v2))
     class Doc1,Doc2,Doc3 document;
     class Model,View1,View2,View3,View4 model;
 ```
+
 ::right::
 
 ** SysML (System Modeling Language)**：MBSE 的事实标准，涵盖四根支柱：
