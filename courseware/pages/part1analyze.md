@@ -76,19 +76,22 @@ flowchart TD
 
 ---
 
+# NASA 系统工程引擎
+
 ![NASA系统工程引擎](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/docs/imgs/NASA%E7%B3%BB%E7%BB%9F%E5%B7%A5%E7%A8%8B%E5%BC%95%E6%93%8E.png)
 
 ---
+# NASA项目生命周期
 
 ![NASA项目生命周期](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/docs/imgs/NASAprojectlifecycle.png)
 
 ---
 layout:two-cols
 ---
-### 基于模型的系统工程 (Model-Based Systems Engineering, MBSE)
-
-传统的系统工程基于**文档 (Document-Centric)**，
-现代系统工程转向**基于模型 (Model-Centric)**。
+# 基于模型的系统工程 (Model-Based Systems Engineering, MBSE)
+::left::
+- 传统的系统工程基于**文档 (Document-Centric)**
+- 现代系统工程转向**基于模型 (Model-Centric)**
 
 ```mermaid{scale: 0.5}
 flowchart LR
@@ -118,13 +121,15 @@ SysML / SysML v2))
     class Model,View1,View2,View3,View4 model;
 ```
 ::right::
-### MBSE的事实标准和优势
-- **SysML (System Modeling Language)**：MBSE 的事实标准，涵盖四根支柱：
+
+** SysML (System Modeling Language)**：MBSE 的事实标准，涵盖四根支柱：
 - **结构 (Structure)**
 - **行为 (Behavior)**
 - **需求 (Requirements)**
 - **参数 (Parametrics)**
-- **优势**：消除歧义、保持设计一致性、支持早期仿真与验证。
+
+
+**MBSE的优势**：消除歧义、保持设计一致性、支持早期仿真与验证。
 
 
 
@@ -148,6 +153,7 @@ layout: two-cols
 - 二者结合，推动工业知识沉淀复用，提升研发效率、生产质量和管理水平，并促进工业能力规模化传播。
 
 ---
+
 # 工业软件类别
 
 ![工业软件类别](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/docs/imgs/ISWType.png)
@@ -156,6 +162,7 @@ layout: two-cols
 layout: two-cols
 ---
 
+::left::
 ## 工业软件例子
 * **CAD** (计算机辅助设计)：几何建模内核、拓扑关系。
 * **CAE** (计算机辅助工程)：偏微分方程求解、网格剖分。
