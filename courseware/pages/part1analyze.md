@@ -75,19 +75,16 @@ flowchart TD
 系统工程不是单一线性过程，而是递归 (Recursive) 和 迭代 (Iterative) 的过程。每一次物理分解都伴随着需求的下发与验证。
 
 ---
-layout: center
+layout: image
+image：https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASA%E7%B3%BB%E7%BB%9F%E5%B7%A5%E7%A8%8B%E5%BC%95%E6%93%8E.png
 ---
-# NASA 系统工程引擎
-![NASA 系统工程引擎](https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASA%E7%B3%BB%E7%BB%9F%E5%B7%A5%E7%A8%8B%E5%BC%95%E6%93%8E.png)
-
----
-layout: center
----
-# NASA 项目生命周期
-![NASA 项目生命周期](https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASAprojectlifecycle.png)
 
 
 ---
+layout: image
+image：https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASAprojectlifecycle.png
+---
+
 
 # 基于模型的系统工程 (MBSE)
 ### Model-Based Systems Engineering (MBSE)
