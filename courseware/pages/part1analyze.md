@@ -81,7 +81,7 @@ flowchart TD
 
 
 ```html
-  src="/imgs/NASASystemEngine.png" 
+<img src="/imgs/NASASystemEngine.png" 
   style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" 
 />
 ```
@@ -93,7 +93,7 @@ flowchart TD
 
 
 ```html
-  src="/imgs/NASAprojectlifecycle.png" 
+  <img src="/imgs/NASAprojectlifecycle.png" 
   style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" 
 />
 ```
@@ -171,7 +171,7 @@ layout: two-cols
 
 
 ```html
-  src="/imgs/ISWType.png" 
+<img src="/imgs/ISWType.png" 
   style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" 
 />
 ```
@@ -298,20 +298,21 @@ layout: two-cols
 
 - 一种以人为中心（Human-Centered）的创新方法论，源自设计师解决问题的方式，后被斯坦福大学 d.school、IDEO 等机构系统化，广泛应用于产品设计、服务设计、商业创新、教育、社会问题解决等领域。先理解"人们真正需要什么"，通过不断地共情、定义、构思、原型、测试的循环过程，找到既满足用户需求、又技术可行、又商业可持续的解决方案。
 - 斯坦福 d.school 的可以反复循环、跳跃迭代的设计思维模型：1. 共情：深入理解用户的真实需求、痛点、情境和情感，而非停留在表面需求。2. 定义：把收集到的信息综合、提炼，形成清晰的问题陈述。3. 构思：不做评判地大量产生解决方案创意，追求数量而非一开始就追求质量。4. 原型：把想法快速具象化，成本低、速度快，目的是"让想法可以被测试"，而非做出完美产品。5. 测试：让真实用户体验原型，收集反馈，验证或推翻假设，然后返回前面任意阶段进行迭代。
-- IDEO 三阶段模型：灵感（Inspiration）→ 构思（Ideation）→ 实施（Implementation）。
-- 双钻石模型（Double Diamond）（英国设计协会提出）：发现（Discover，发散）→ 定义（Define，收敛）→ 发展（Develop，发散）→ 交付（Deliver，收敛）。
+
 
 ::right::
 
 ## 设计思维流程
 
 
-
 ```html
-  src="/imgs/designthinking-circle.png" 
+<img src="/imgs/designthinking-circle.png" 
   style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" 
 />
 ```
+
+- IDEO 三阶段模型：灵感（Inspiration）→ 构思（Ideation）→ 实施（Implementation）。
+- 双钻石模型（Double Diamond）（英国设计协会提出）：发现（Discover，发散）→ 定义（Define，收敛）→ 发展（Develop，发散）→ 交付（Deliver，收敛）。
 
 图片来源：Fred Estes. Design Thinking: A Guide to Innovation. 2025. Twenty-First Century Books™
 参考 [设计思维](https://github.com/bettermorn/IntelligentSWEPractice/wiki/%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4)
@@ -390,8 +391,8 @@ graph TD
 * **非功能需求 (NFRs)**：系统必须**如何表现**（URPS：可用性 Usability, 可靠性 Reliability, 性能 Performance, 支持性 Supportability）。
 
 
-坏的需求样例： "系统界面要好看，速度要快。"
-好的需求样例 (可测量的)： "系统在加载 100MB 以上的 CAD 模型时，首屏渲染时间（LCP）需小于 3.0s，且 CPU 利用率不高于 60%。"
+- 坏的需求样例： "系统界面要好看，速度要快。"
+- 好的需求样例 (可测量的)： "系统在加载 100MB 以上的 CAD 模型时，首屏渲染时间（LCP）需小于 3.0s，且 CPU 利用率不高于 60%。"
 
 
 ---
