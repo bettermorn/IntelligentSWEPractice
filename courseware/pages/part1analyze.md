@@ -79,18 +79,18 @@ flowchart TD
 # NASA 系统工程引擎
 
 
-![NASA系统工程引擎](imgs/NASASystemEngine.png)
 
 
+![NASA系统工程引擎](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/courseware/pages/imgs/NASASystemEngine.png)
 
 
 ---
 
 # NASA项目生命周期
 
-![NASA项目生命周期](imgs/NASAprojectlifecycle.png)
 
 
+![NASA项目生命周期](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/courseware/pages/imgs/NASAprojectlifecycle.png)
 
 
 ---
@@ -164,9 +164,8 @@ layout: two-cols
 
 # 工业软件类别
 
-![工业软件类别](imgs/ISWType.png)
 
-
+![工业软件类别](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/courseware/pages/imgs/ISWType.png)
 
 
 ---
@@ -297,9 +296,8 @@ layout: two-cols
 
 ## 设计思维流程
 
-![设计思维流程](imgs/designthinking-circle.png)
 
-
+![设计思维流程](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/courseware/pages/imgs/designthinking-circle.png)
 
 - IDEO 三阶段模型：灵感（Inspiration）→ 构思（Ideation）→ 实施（Implementation）。
 - 双钻石模型（Double Diamond）（英国设计协会提出）：发现（Discover，发散）→ 定义（Define，收敛）→ 发展（Develop，发散）→ 交付（Deliver，收敛）。
