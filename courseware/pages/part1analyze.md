@@ -75,13 +75,13 @@ flowchart TD
 系统工程不是单一线性过程，而是递归 (Recursive) 和 迭代 (Iterative) 的过程。每一次物理分解都伴随着需求的下发与验证。
 
 ---
-layout: image-center
-image: https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASA%E7%B3%BB%E7%BB%9F%E5%B7%A5%E7%A8%8B%E5%BC%95%E6%93%8E.png
+layout: center
 ---
 # NASA 系统工程引擎
+![NASA 系统工程引擎](https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASA%E7%B3%BB%E7%BB%9F%E5%B7%A5%E7%A8%8B%E5%BC%95%E6%93%8E.png)
 
 ---
-layout: image-center
+layout: image
 image: https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASAprojectlifecycle.png
 ---
 # NASA 项目生命周期
@@ -125,20 +125,174 @@ SysML / SysML v2))
 * **SysML (System Modeling Language)**：MBSE 的事实标准，涵盖四根支柱：**结构 (Structure)**、**行为 (Behavior)**、**需求 (Requirements)** 和 **参数 (Parametrics)**。
 * **优势**：消除歧义、保持设计一致性、支持早期仿真与验证。
 
+
+
+
+
+
+---
+layout: two-cols
+---
+# 工业软件
+
+#### 工业软件 = 软件+工业知识
+#### 系统工程
+#### 工业技术软件化
+#### 软件知识工业化
+#### 基于模型的开发
+
+::right::
+
+- 工业软件是工业知识的**数字化、模型化与软件化**载体。
+- 工业软件需要用系统工程方法和基于模型的开发方法来实现。
+- “工业技术软件化”是把设计、生产、控制、运维等领域的机理、经验、规范和工艺流程，转化为算法、模型、代码及数字化工具，使隐性经验可计算、可视化、可复制。
+- “软件知识工业化”是将软件开发形成的知识、方法和工具，按照工业需求进行标准化、模块化、平台化和工程化，形成稳定可靠、可持续迭代的软件产品。
+- 二者结合，推动工业知识沉淀复用，提升研发效率、生产质量和管理水平，并促进工业能力规模化传播。
+
+---
+# 工业软件类别
+
+```mermaid
+
+flowchart TB
+  classDef cat fill:#67c97a,stroke:#333,stroke-width:2px,color:#000
+  classDef sub fill:#6daedb,stroke:#333,color:#fff
+  classDef sys fill:#f0ad4e,stroke:#333,color:#000
+  classDef group fill:#f4faff,stroke:#6daedb,stroke-width:2px,stroke-dasharray:5 5
+
+  subgraph RD[" "]
+    direction LR
+    RD_CAT[研发设计软件]:::cat
+    subgraph RD_ITEMS[" "]
+      direction TB
+      RD_A1[CAD CorelDraw]:::sys
+      RD_F1[设计绘图]:::sub
+      RD_A2[CAM CAE]:::sys
+      RD_F2[仿真测试]:::sub
+      RD_A3[PLM PDM]:::sys
+      RD_F3[产品数据]:::sub
+      RD_A1 ~~~ RD_F1
+      RD_A2 ~~~ RD_F2
+      RD_A3 ~~~ RD_F3
+    end
+    RD_CAT --- RD_F1
+    RD_CAT --- RD_F2
+    RD_CAT --- RD_F3
+  end
+
+  subgraph PC[" "]
+    direction LR
+    subgraph PC_ITEMS[" "]
+      direction TB
+      PC_F1[现场控制]:::sub
+      PC_S1[DCS SCADA]:::sys
+      PC_F2[流程管理]:::sub
+      PC_S2[MES]:::sys
+      PC_F3[能效管理]:::sub
+      PC_S3[EMS]:::sys
+      PC_F1 ~~~ PC_S1
+      PC_F2 ~~~ PC_S2
+      PC_F3 ~~~ PC_S3
+    end
+    PC_CAT[生产控制软件]:::cat
+    PC_CAT --- PC_F1
+    PC_CAT --- PC_F2
+    PC_CAT --- PC_F3
+    PC_CAT --- PC_S1
+    PC_CAT --- PC_S2
+    PC_CAT --- PC_S3
+  end
+
+  subgraph IM[" "]
+    direction LR
+    IM_CAT[信息管理软件]:::cat
+    subgraph IM_ITEMS[" "]
+      direction TB
+      IM_A1[ERP]:::sys
+      IM_F1[企业资源管理]:::sub
+      IM_A2[FM]:::sys
+      IM_F2[财务管理]:::sub
+      IM_A3[HRM HCM]:::sys
+      IM_F3[人力资源管理]:::sub
+      IM_A4[EAM]:::sys
+      IM_F4[资产管理]:::sub
+      IM_A5[CRM]:::sys
+      IM_F5[营销管理]:::sub
+      IM_A6[SCM]:::sys
+      IM_F6[供应链管理]:::sub
+      IM_A7[BI]:::sys
+      IM_F7[商业智能]:::sub
+      IM_A8[OA]:::sys
+      IM_F8[办公协同]:::sub
+      IM_A1 ~~~ IM_F1
+      IM_A2 ~~~ IM_F2
+      IM_A3 ~~~ IM_F3
+      IM_A4 ~~~ IM_F4
+      IM_A5 ~~~ IM_F5
+      IM_A6 ~~~ IM_F6
+      IM_A7 ~~~ IM_F7
+      IM_A8 ~~~ IM_F8
+    end
+    IM_CAT --- IM_F1
+    IM_CAT --- IM_F2
+    IM_CAT --- IM_F3
+    IM_CAT --- IM_F4
+    IM_CAT --- IM_F5
+    IM_CAT --- IM_F6
+    IM_CAT --- IM_F7
+    IM_CAT --- IM_F8
+  end
+
+  subgraph ES[" "]
+    direction LR
+    ES_CAT[嵌入式软件]:::cat
+    subgraph ES_ITEMS[" "]
+      direction TB
+      ES_F1[工业通信]:::sub
+      ES_F2[能源电子]:::sub
+      ES_F3[汽车电子]:::sub
+      ES_F4[安防电子]:::sub
+      ES_F5[数控系统]:::sub
+    end
+    ES_CAT --- ES_F1
+    ES_CAT --- ES_F2
+    ES_CAT --- ES_F3
+    ES_CAT --- ES_F4
+    ES_CAT --- ES_F5
+  end
+
+  RD_CAT -->|数据反馈| PC_CAT
+  PC_CAT -->|流程设计| RD_CAT
+  RD_CAT -->|数据建模| IM_CAT
+  IM_CAT -->|数据反馈| RD_CAT
+  PC_CAT -->|信号控制| ES_CAT
+  ES_CAT -->|数据反馈| PC_CAT
+  IM_CAT -->|数据反馈| ES_CAT
+  ES_CAT -->|管理指令| IM_CAT
+
+  class RD,PC,IM,ES group
+
+
 ---
 layout: two-cols
 ---
 
 # 什么是工业软件？
-工业软件是工业知识的**数字化、模型化与软件化**载体。
 
-* **分类**：
-  * **CAD** (计算机辅助设计)：几何建模内核、拓扑关系。
+
+## 分类
+
+
+* 研发设计工具：**CAD** (计算机辅助设计)：几何建模内核、拓扑关系。
+* 生产控制和管理系统：**CAE** (计算机辅助工程)：偏微分方程求解、网格剖分。
+* 产品运行系统
+* 
+  * 
   * **CAE** (计算机辅助工程)：偏微分方程求解、网格剖分。
   * **CAM** (计算机辅助制造)：数控轨迹规划。
   * **MES/PLM**：流程与生命周期管理。
 
-* **技术壁垒**：
+### **技术壁垒**：
   * 数值计算的精度与稳定性（如：Double precision 溢出控制）。
   * 实时性与高并发事务处理。
   * 领域知识（物理、材料、力学）的深度融合。
@@ -229,6 +383,52 @@ flowchart LR
 利用 C++ 与 WebAssembly 混合编译，实现浏览器端百万级网格渲染。
 
 💡 给研究生的建议： 硕士阶段更推荐“场景驱动的工程架构创新”或“先进算法在垂直工业领域的应用创新”，既有学术发表度，又有工程落地性。
+
+---
+layout:two-cols
+---
+# 设计思维
+
+- 设计思维是一种以人为中心（Human-Centered）的创新方法论，最初源自设计师解决问题的方式，后被斯坦福大学 d.school、IDEO 等机构系统化，广泛应用于产品设计、服务设计、商业创新、教育、社会问题解决等领域。
+- 设计思维先理解"人们真正需要什么"，通过不断地共情、定义、构思、原型、测试的循环过程，找到既满足用户需求、又技术可行、又商业可持续的解决方案。
+- 斯坦福 d.school 的设计思维模型：
+1. 共情（Empathize）：深入理解用户的真实需求、痛点、情境和情感，而非停留在表面需求。
+2. 定义（Define）：把收集到的信息综合、提炼，形成清晰的问题陈述（Point of View, POV）。
+3. 构思（Ideate）：不做评判地大量产生解决方案创意，追求数量而非一开始就追求质量。
+4. 原型（Prototype）：把想法快速具象化，成本低、速度快，目的是"让想法可以被测试"，而非做出完美产品。
+5. 测试（Test）：让真实用户体验原型，收集反馈，验证或推翻假设，然后返回前面任意阶段进行迭代。
+这五个阶段不是线性流程，而是一个可以反复循环、跳跃迭代的过程。
+- IDEO 三阶段模型：灵感（Inspiration）→ 构思（Ideation）→ 实施（Implementation）。
+- 双钻石模型（Double Diamond）（英国设计协会提出）：
+发现（Discover，发散）→ 定义（Define，收敛）→ 发展（Develop，发散）→ 交付（Deliver，收敛）。
+
+
+
+::right::
+
+```mermaid
+flowchart LR
+    A["🧠 共情 Empathize
+理解用户需求与痛点"] --> B["🎯 定义 Define
+明确核心问题"]
+    B --> C["💡 构思 Ideate
+发散产生创意方案"]
+    C --> D["🛠️ 原型 Prototype
+快速制作可验证方案"]
+    D --> E["✅ 测试 Test
+收集用户反馈"]
+
+    E -. 反馈迭代 .-> A
+    E -. 反馈迭代 .-> B
+    E -. 反馈迭代 .-> C
+    D -. 反馈迭代 .-> C
+
+    style A fill:#FFD6A5,stroke:#333,stroke-width:1px
+    style B fill:#FDFFB6,stroke:#333,stroke-width:1px
+    style C fill:#CAFFBF,stroke:#333,stroke-width:1px
+    style D fill:#9BF6FF,stroke:#333,stroke-width:1px
+    style E fill:#A0C4FF,stroke:#333,stroke-width:1px
+```
 
 ---
 # 第1周：实践
