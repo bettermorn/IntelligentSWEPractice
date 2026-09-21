@@ -599,7 +599,7 @@ gantt
 * **Sprint Backlog**：本周期（通常2周）承诺完成的任务。
 * **定义完成 (Definition of Done, DoD)**：例如“代码通过单元测试，分支合并入 `develop` 且文档已更新”才算完成。
 
---
+---
 # 第 2 周实践：软件功能规范书撰写
 ### Practice: Functional Specification & UML Domain Modeling
 本周各组必须在协作仓库中提交 `docs/requirements/functional_spec.md`。
