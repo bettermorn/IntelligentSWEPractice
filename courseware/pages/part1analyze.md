@@ -84,10 +84,10 @@ image：https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs
 layout: image
 image：https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASAprojectlifecycle.png
 ---
-
-
-# 基于模型的系统工程 (MBSE)
-### Model-Based Systems Engineering (MBSE)
+---
+layout:two-cols
+---
+### 基于模型的系统工程 (Model-Based Systems Engineering, MBSE)
 
 传统的系统工程基于**文档 (Document-Centric)**，而现代系统工程转向**基于模型 (Model-Centric)**。
 
@@ -118,12 +118,10 @@ SysML / SysML v2))
     class Doc1,Doc2,Doc3 document;
     class Model,View1,View2,View3,View4 model;
 ```
-
-* **SysML (System Modeling Language)**：MBSE 的事实标准，涵盖四根支柱：**结构 (Structure)**、**行为 (Behavior)**、**需求 (Requirements)** 和 **参数 (Parametrics)**。
-* **优势**：消除歧义、保持设计一致性、支持早期仿真与验证。
-
-
-
+::right::
+### MBSE的事实标准和优势
+- **SysML (System Modeling Language)**：MBSE 的事实标准，涵盖四根支柱：**结构 (Structure)**、**行为 (Behavior)**、**需求 (Requirements)** 和 **参数 (Parametrics)**。
+- **优势**：消除歧义、保持设计一致性、支持早期仿真与验证。
 
 
 
@@ -150,7 +148,6 @@ layout: two-cols
 # 工业软件类别
 
 ```mermaid
-
 flowchart TB
   classDef cat fill:#67c97a,stroke:#333,stroke-width:2px,color:#000
   classDef sub fill:#6daedb,stroke:#333,color:#fff
@@ -274,20 +271,10 @@ flowchart TB
 layout: two-cols
 ---
 
-# 什么是工业软件？
-
-
-## 分类
-
-
+## 工业软件分类
 * 研发设计工具：**CAD** (计算机辅助设计)：几何建模内核、拓扑关系。
-* 生产控制和管理系统：**CAE** (计算机辅助工程)：偏微分方程求解、网格剖分。
-* 产品运行系统
-* 
-  * 
-  * **CAE** (计算机辅助工程)：偏微分方程求解、网格剖分。
-  * **CAM** (计算机辅助制造)：数控轨迹规划。
-  * **MES/PLM**：流程与生命周期管理。
+* 生产控制和管理系统：**CAE** (计算机辅助工程)：偏微分方程求解、网格剖分。  * **CAM** (计算机辅助制造)：数控轨迹规划。
+* 产品运行系统：MES/PLM 流程与产品生命周期管理
 
 ### **技术壁垒**：
   * 数值计算的精度与稳定性（如：Double precision 溢出控制）。
@@ -296,7 +283,7 @@ layout: two-cols
 
 ::right::
 
-
+## 参考代码
 ```cpp
 #include 
 
@@ -337,6 +324,20 @@ bool isManifold(const std::vector& edges) {
 | **How (如何度量)** | 如何定量评估“问题被成功解决”？ | **关键指标 (KPI)**：吞吐量提高30%，内存降低50%等。 |
 
 ---
+# 产品描述
+
+```text
+对于                 （目标用户）
+他们                 （诉求和机会）
+产品/项目             是一个（产品/项目）类别
+它能够               （关键特性，优势和客户为什么选择的理由）
+不同于               （竞争对手的产品）
+我们的产品/项目      （关键的差异化特性）
+```
+
+---
+layout: two-cols
+---
 
 # 技术的创新路径：颠覆性 vs 渐进式
 ### Research and Engineering Innovation Paths
@@ -358,7 +359,8 @@ flowchart LR
     class B,B1,B2,B3,B4 engineering;
 ```
 
-
+::right::
+### 
 1. 理论创新 (Theoretical / Algorithmic)
 
 引入新的数学模型、算法或物理引擎。
@@ -384,7 +386,7 @@ flowchart LR
 ---
 layout:two-cols
 ---
-# 设计思维
+## 设计思维
 
 - 设计思维是一种以人为中心（Human-Centered）的创新方法论，最初源自设计师解决问题的方式，后被斯坦福大学 d.school、IDEO 等机构系统化，广泛应用于产品设计、服务设计、商业创新、教育、社会问题解决等领域。
 - 设计思维先理解"人们真正需要什么"，通过不断地共情、定义、构思、原型、测试的循环过程，找到既满足用户需求、又技术可行、又商业可持续的解决方案。
@@ -399,10 +401,9 @@ layout:two-cols
 - 双钻石模型（Double Diamond）（英国设计协会提出）：
 发现（Discover，发散）→ 定义（Define，收敛）→ 发展（Develop，发散）→ 交付（Deliver，收敛）。
 
-
-
 ::right::
 
+## 设计思维流程
 ```mermaid
 flowchart LR
     A["🧠 共情 Empathize
@@ -491,7 +492,7 @@ layout: default
 
 需求分析是软件工程中最容易导致失败的环节。我们必须将含糊的用户期望转化为精确的系统需求。
 
-```mermaid
+```mermaid{scale:0.7}
 graph TD
     UserVision[用户愿景: 想要一个快速的三维查看器] -->|精细化分析| FunctionalReq[功能需求: 支持 STEP 格式解析与 60FPS 帧率渲染]
     UserVision -->|约束性分析| NonFunctionalReq[非功能需求: 运行内存限制在 512MB 内]
@@ -502,7 +503,6 @@ graph TD
 
 
 坏的需求样例： "系统界面要好看，速度要快。"
-
 好的需求样例 (可测量的)： "系统在加载 100MB 以上的 CAD 模型时，首屏渲染时间（LCP）需小于 3.0s，且 CPU 利用率不高于 60%。"
 
 
@@ -511,25 +511,24 @@ layout: two-cols
 ---
 
 # 面向对象分析与设计 (OOAD)
-### Object-Oriented Analysis & Design
+#### Object-Oriented Analysis & Design
 
 OOAD 的核心在于**控制复杂度**。
 
 1. **OOA (分析)**：在问题域中寻找对象，构建**领域模型 (Domain Model)**。
 2. **OOD (设计)**：将分析模型转化为设计类，应用**设计原则 (SOLID)** 和**设计模式**。
 
-**关键原则：SOLID**
-* **S**ingle Responsibility (单一职责)
-* **O**pen/Closed (开闭原则)
-* **L**iskov Substitution (里氏替换)
-* **I**nterface Segregation (接口隔离)
-* **D**ependency Inversion (依赖倒置)
+#### 关键原则：SOLID
+- **S**ingle Responsibility (单一职责)
+- **O**pen/Closed (开闭原则)
+- **L**iskov Substitution (里氏替换)
+- **I**nterface Segregation (接口隔离)
+- **D**ependency Inversion (依赖倒置)
 
 ::right::
 
 
-
-```mermaid{scale:0.8}
+```mermaid{scale:0.6}
 classDiagram
     class CADDocument {
         -String documentId
@@ -592,11 +591,13 @@ gantt
     测试与文档完善 :testing, 2026-10-18, 3d
 ```
 
-* **Product Backlog**：所有想做的功能池。
-* **Sprint Backlog**：本周期（通常2周）承诺完成的任务。
-* **定义完成 (Definition of Done, DoD)**：例如“代码通过单元测试，分支合并入 `develop` 且文档已更新”才算完成。
+- **Product Backlog**：所有想做的功能池。
+- **Sprint Backlog**：本周期（通常2周）承诺完成的任务。
+- **定义完成 (Definition of Done, DoD)**：例如“代码通过单元测试，分支合并入 `develop` 且文档已更新”才算完成。
+- 参考 [敏捷开发](https://github.com/bettermorn/IntelligentSWEPractice/wiki/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91) 
 
 ---
+
 # 第 2 周实践：软件功能规范书撰写
 ### Practice: Functional Specification & UML Domain Modeling
 本周各组必须在协作仓库中提交 `docs/requirements/functional_spec.md`。
@@ -619,4 +620,4 @@ gantt
 [在此处插入 Mermaid 类图]
 ```
 
-* **汇报要求**：第二周课上，每组用 3 分钟展示其领域类图与功能分解，教师确认后方能进入系统原型设计。
+- **汇报要求**：第二周课上，每组用 3 分钟展示其领域类图与功能分解，教师确认后方能进入系统原型设计。
