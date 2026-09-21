@@ -82,9 +82,7 @@ flowchart TD
 
 
 
-<img src="imgs/NASASystemEngine.png" 
-  style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" 
-/>
+<img src="imgs/NASASystemEngine.png" style="max-width: 100%; max-height: 500px; object-fit: contain; margin: auto;" />
 
 
 ---
