@@ -339,8 +339,7 @@ bool isManifold(const std::vector& edges) {
 layout: two-cols
 ---
 
-# 技术的创新路径：颠覆性 vs 渐进式
-### Research and Engineering Innovation Paths
+### 技术的创新路径：Research and Engineering Innovation Paths
 
 ```mermaid{scale: 0.5}
 flowchart LR
@@ -360,22 +359,18 @@ flowchart LR
 ```
 
 ::right::
-### 
+### 理论创新和架构/工程创新
 1. 理论创新 (Theoretical / Algorithmic)
 
 引入新的数学模型、算法或物理引擎。
 
 例如：在流体仿真中引入算子分裂法，将时间复杂度从 O(N^2) 降至 O(N log N)。
 
-  
 在工业控制中引入强化学习实现自适应调节。
-
 
 2. 架构/工程创新 (Architectural / Engineering)
 
-
 重构系统拓扑结构，提升吞吐、容错或可扩展性。
-
   
 例如：将单体桌面版 CAD 重构为基于 WebGPU 的云原生协同 CAD 架构。
   
@@ -388,18 +383,16 @@ layout:two-cols
 ---
 ## 设计思维
 
-- 设计思维是一种以人为中心（Human-Centered）的创新方法论，最初源自设计师解决问题的方式，后被斯坦福大学 d.school、IDEO 等机构系统化，广泛应用于产品设计、服务设计、商业创新、教育、社会问题解决等领域。
-- 设计思维先理解"人们真正需要什么"，通过不断地共情、定义、构思、原型、测试的循环过程，找到既满足用户需求、又技术可行、又商业可持续的解决方案。
-- 斯坦福 d.school 的设计思维模型：
+- 一种以人为中心（Human-Centered）的创新方法论，最初源自设计师解决问题的方式，后被斯坦福大学 d.school、IDEO 等机构系统化，广泛应用于产品设计、服务设计、商业创新、教育、社会问题解决等领域。
+- 先理解"人们真正需要什么"，通过不断地共情、定义、构思、原型、测试的循环过程，找到既满足用户需求、又技术可行、又商业可持续的解决方案。
+- 斯坦福 d.school 的可以反复循环、跳跃迭代的设计思维模型：
 1. 共情（Empathize）：深入理解用户的真实需求、痛点、情境和情感，而非停留在表面需求。
 2. 定义（Define）：把收集到的信息综合、提炼，形成清晰的问题陈述（Point of View, POV）。
 3. 构思（Ideate）：不做评判地大量产生解决方案创意，追求数量而非一开始就追求质量。
 4. 原型（Prototype）：把想法快速具象化，成本低、速度快，目的是"让想法可以被测试"，而非做出完美产品。
 5. 测试（Test）：让真实用户体验原型，收集反馈，验证或推翻假设，然后返回前面任意阶段进行迭代。
-这五个阶段不是线性流程，而是一个可以反复循环、跳跃迭代的过程。
 - IDEO 三阶段模型：灵感（Inspiration）→ 构思（Ideation）→ 实施（Implementation）。
-- 双钻石模型（Double Diamond）（英国设计协会提出）：
-发现（Discover，发散）→ 定义（Define，收敛）→ 发展（Develop，发散）→ 交付（Deliver，收敛）。
+- 双钻石模型（Double Diamond）（英国设计协会提出）：发现（Discover，发散）→ 定义（Define，收敛）→ 发展（Develop，发散）→ 交付（Deliver，收敛）。
 
 ::right::
 
@@ -427,6 +420,7 @@ flowchart LR
     style D fill:#9BF6FF,stroke:#333,stroke-width:1px
     style E fill:#A0C4FF,stroke:#333,stroke-width:1px
 ```
+参考 [设计思维](https://github.com/bettermorn/IntelligentSWEPractice/wiki/%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4)
 
 ---
 # 第1周：实践
