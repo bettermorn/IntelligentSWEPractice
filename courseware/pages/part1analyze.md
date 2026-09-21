@@ -96,8 +96,11 @@ flowchart TD
 ---
 layout:two-cols
 ---
+
 # 基于模型的系统工程 (Model-Based Systems Engineering, MBSE)
+
 ::left::
+
 - 传统的系统工程基于**文档 (Document-Centric)**
 - 现代系统工程转向**基于模型 (Model-Centric)**
 
@@ -138,7 +141,6 @@ SysML / SysML v2))
 
 
 **MBSE的优势**：消除歧义、保持设计一致性、支持早期仿真与验证。
-
 
 
 ---
