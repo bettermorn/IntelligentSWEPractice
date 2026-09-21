@@ -463,8 +463,8 @@ mkdir -p docs/{architecture,requirements} \
          .github/workflows
 ```
 
-* **任务要求**：在 `docs/requirements/problem_definition.md` 中编写 5W1H 报告。
-* **检查点**：第一周结束前，各组向助教提交仓库链接，通过 GitHub Issues 获得第一轮反馈。
+- **任务要求**：在 `docs/requirements/problem_definition.md` 中编写 5W1H 报告。
+- **检查点**：第一周结束前，各组提交仓库链接，通过 GitHub Issues 获得第一轮反馈。
 
 ---
 layout: two-cols
