@@ -94,7 +94,7 @@ flowchart TD
 
 
 ---
-layout:two-cols
+layout: two-cols
 ---
 
 # 基于模型的系统工程 (Model-Based Systems Engineering, MBSE)
@@ -131,7 +131,7 @@ SysML / SysML v2))
 
 ::right::
 
-** SysML (System Modeling Language)**：MBSE 的事实标准，涵盖四根支柱：
+**SysML (System Modeling Language)**：MBSE 的事实标准，涵盖四根支柱：
 - **结构 (Structure)**
 - **行为 (Behavior)**
 - **需求 (Requirements)**
