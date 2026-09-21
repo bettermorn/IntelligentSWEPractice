@@ -81,10 +81,10 @@ layout: center
 ![NASA 系统工程引擎](https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASA%E7%B3%BB%E7%BB%9F%E5%B7%A5%E7%A8%8B%E5%BC%95%E6%93%8E.png)
 
 ---
-layout: image
-image: https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASAprojectlifecycle.png
+layout: center
 ---
 # NASA 项目生命周期
+![NASA 项目生命周期](https://github.com/bettermorn/IntelligentSWEPractice/blob/main/docs/imgs/NASAprojectlifecycle.png)
 
 
 ---
@@ -271,7 +271,7 @@ flowchart TB
   ES_CAT -->|管理指令| IM_CAT
 
   class RD,PC,IM,ES group
-
+```
 
 ---
 layout: two-cols
