@@ -263,16 +263,11 @@ chore: 升级项目依赖
 
 提交历史不仅用于回滚，也是团队理解系统演进过程的重要工程资产。
 
-
-
 ---
-layout：two-cols
+layout: two-cols
 ---
-
-
 
 # 8 代码评审（Code Review）
-
 
 ::left::
 
@@ -295,7 +290,6 @@ layout：two-cols
 - 解释问题和风险，而不是只给结论
 - 对重要设计问题进行讨论
 - 评审意见应当可执行
-
 代码评审的目标是改善代码和共享知识,不是寻找个人错误.
 
 ---
@@ -303,8 +297,6 @@ layout: two-cols
 ---
 
 # 9 自动化测试策略
-
-
 
 ::left::
 
@@ -418,9 +410,10 @@ class: text-sm
 # 12 持续集成（CI）
 
 ::left::
+
 持续集成要求开发者频繁将代码合并到共享代码库，并通过自动化流程验证变更。
 
-```mermaid {scale: 0.62}
+```mermaid {scale: 0.4}
 flowchart TD
     A[代码提交] --> B[编译构建]
     B --> C[格式检查]
@@ -562,7 +555,7 @@ layout: two-cols
 
 ::left::
 
-```mermaid {scale: 0.8}
+```mermaid {scale: 0.6}
 flowchart TD
     A[明确任务和约束] --> B[提供必要上下文]
     B --> C[生成或修改代码]
@@ -656,8 +649,6 @@ class: text-sm
 - 回滚次数
 
 度量指标应服务于改进，而不是简单用于评价个人绩效。
-
-
 
 ---
 layout：two-cols
