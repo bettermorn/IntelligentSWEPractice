@@ -555,7 +555,7 @@ layout: two-cols
 
 ::left::
 
-```mermaid {scale: 0.6}
+```mermaid {scale: 0.5}
 flowchart TD
     A[明确任务和约束] --> B[提供必要上下文]
     B --> C[生成或修改代码]
@@ -655,7 +655,7 @@ layout: two-cols
 class: text-sm
 ---
 
-# 19 一个典型任务：实现用户注册接口
+# 19 典型任务：实现用户注册接口
 
 ::left::
 
@@ -685,6 +685,7 @@ class: text-sm
 - 数据库异常
 - 重复请求
 - 敏感信息不能出现在日志中
+
 
 ---
 
