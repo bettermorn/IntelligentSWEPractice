@@ -597,10 +597,14 @@ Code Review        APPROVED
 ```
 
 ---
-layout:two-cols
+layout: two-cols
+class: text-sm
 ---
 
+
 # 18 实现阶段的工程度量
+
+::left::
 
 ## 交付效率
 
@@ -628,8 +632,6 @@ layout:two-cols
 - 变更失败率
 - 缺陷逃逸率
 - 回滚次数
-
-
 
 度量指标应服务于改进，而不是简单用于评价个人绩效。
 
