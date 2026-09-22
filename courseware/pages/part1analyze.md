@@ -101,7 +101,7 @@ layout: two-cols
 
 ::left::
 
-```mermaid{scale: 0.5}
+```mermaid{scale: 0.4}
 flowchart LR
     subgraph D[文档中心的系统工程
 Document-Centric Systems Engineering]
