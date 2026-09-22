@@ -266,6 +266,16 @@ export const SimulationViewport: React.FC = () => {
 
 ---
 
+# 用户故事地图
+
+
+![用户故事地图](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/courseware/pages/imgs/UserStoryMap.png)
+
+
+
+
+---
+
 # 课后思考与阅读建议
 
 为第4周学术文献阅读汇报做准备，各组需选择多篇 IEEE/ACM 顶级会议/期刊论文进行研读
