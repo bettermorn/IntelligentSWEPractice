@@ -293,6 +293,7 @@ flowchart LR
 
 ---
 layout: two-cols
+class: text-sm
 ---
 
 ## 设计思维
@@ -494,6 +495,7 @@ gantt
 
 
 ---
+
 # 第 2 周实践：软件功能规范书撰写
 ### Practice: Functional Specification & UML Domain Modeling
 本周各组必须在协作仓库中提交 `docs/requirements/functional_spec.md`。
