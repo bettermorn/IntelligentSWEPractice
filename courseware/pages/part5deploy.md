@@ -558,7 +558,7 @@ docker compose logs -f web
 
 1. PaaS 部署
 2. Serverless 部署
-3. 
+   
 ---
 
 ## PaaS 部署
@@ -1067,7 +1067,6 @@ echo "Environment variables are valid."
 
 1. 数据库发布原则
 2. 数据库迁移检查
-3. 
 
 ---
 
