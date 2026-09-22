@@ -32,6 +32,7 @@ layout: two-cols
 ---
 layout: two-cols
 ---
+
 # 第7周：软件开发方法的过程
 ```text
 任务拆分
@@ -65,8 +66,8 @@ CI 自动化验证
 
 
 ---
-# 1 软件开发方法的目标
 
+# 1 软件开发方法的目标
 
 - 将需求和架构设计转化为可运行的软件
 - 通过协作开发持续增加系统功能
@@ -204,6 +205,8 @@ layout：two-cols
 - 将规范写入项目文档
 
 ---
+class: text-sm
+---
 
 # 6 Git 分支与协作开发
 
@@ -229,7 +232,7 @@ flowchart LR
 
 ## 常用工具
 
-- Git GitHub GitLab
+- Git, GitHub, GitLab
 - Bitbucket
 - Gerrit
 
@@ -266,6 +269,8 @@ chore: 升级项目依赖
 layout：two-cols
 ---
 
+::left::
+
 # 8 代码评审（Code Review）内容
 
 - 是否正确实现需求和验收标准
@@ -286,23 +291,22 @@ layout：two-cols
 - 对重要设计问题进行讨论
 - 评审意见应当可执行
 
-
-代码评审的目标不是寻找个人错误，而是改善代码和共享知识。
+代码评审的目标是改善代码和共享知识,不是寻找个人错误.
 
 ---
-layout:two-cols
+layout: two-cols
 ---
 
 # 9 自动化测试策略
 
-实现阶段应尽可能让测试与代码同步进行。
 
 
+::left::
 
 ## 单元和集成测试
+实现阶段应尽可能让测试与代码同步进行。
 
 ### 单元测试
-
 - 验证独立函数或模块
 - 执行速度快
 - 定位问题准确
@@ -313,7 +317,6 @@ layout:two-cols
 - 检查数据库、缓存和消息系统交互
 
 ::right::
-
 
 ## 接口和端到端测试
 
@@ -333,6 +336,7 @@ layout:two-cols
 
 # 10 测试技术与工具
 
+::left::
 ## 常用测试技术
 
 - 等价类划分
@@ -359,16 +363,17 @@ layout:two-cols
 | 性能 | JMeter、k6、Gatling、Locust |
 
 
-
 测试覆盖率是辅助指标，不等于软件质量。关键是测试是否覆盖重要行为、边界条件和失败场景。
 
 
 
 ---
-layout:two-cols
+layout: two-cols
 ---
 
 # 11 构建与依赖管理
+
+::left::
 
 ### 构建过程
 
@@ -400,11 +405,12 @@ layout:two-cols
 - 定期更新和审计第三方依赖
 
 ---
-layout:two-cols
+layout: two-cols
 ---
 
 # 12 持续集成（CI）
 
+::left::
 持续集成要求开发者频繁将代码合并到共享代码库，并通过自动化流程验证变更。
 
 ```mermaid {scale: 0.62}
@@ -439,13 +445,13 @@ flowchart LR
 - Pipeline 配置也应纳入版本控制
 
 ---
-layout:two-cols
+layout: two-cols
 ---
 
 # 13 实现阶段的软件安全
 
+::left::
 安全检查应当尽早进入开发流程，即 DevSecOps。
-
 ## 编码阶段
 
 - 输入校验
@@ -466,17 +472,17 @@ layout:two-cols
 - DAST：OWASP ZAP
 - 密钥管理：Vault、云平台 Secret Manager
 
-
-
-绝不能将密码、API Key、Token 或用户隐私数据直接提交到代码仓库。
-
+⚠️：绝不能将密码、API Key、Token 或用户隐私数据直接提交到代码仓库。
 
 
 ---
-layout:two-cols
+layout: two-cols
+class: text-sm
 ---
 
 # 14 重构与技术债务
+
+::left::
 
 ## 什么时候需要重构？
 
@@ -510,7 +516,10 @@ layout:two-cols
 ---
 layout:two-cols
 ---
+
 # 15 AI 辅助软件实现
+
+::left::
 
 ## AI 适合辅助的任务
 
@@ -536,9 +545,7 @@ layout:two-cols
 - 确认第三方代码许可
 
 
-**AI 可以生成代码，但不能替代工程判断。**
-
-
+⚠️ **AI 可以生成代码，但不能替代工程判断。**
 
 ---
 
@@ -565,12 +572,14 @@ flowchart LR
 - 通过测试、评审和 CI 建立质量保障
 
 ---
-layout:two-cols
+layout: two-cols
 ---
 
 # 17 实现阶段的质量门禁
 
-代码进入主干前至少应满足：
+::left::
+
+## 代码进入主干前至少应满足
 
 - 编译或构建成功
 - 格式检查通过
@@ -642,6 +651,8 @@ layout：two-cols
 ---
 
 # 19 一个典型任务：实现用户注册接口
+
+::left::
 
 ### 开发步骤
 
@@ -737,13 +748,9 @@ layout：two-cols
 保持清晰、可维护、可测试
 
 
-
-
-
 ### 自动化验证
 
 用测试、检查和 CI 尽早发现问题
-
 
 
 ### 协作交付
@@ -751,9 +758,7 @@ layout：two-cols
 通过 Git、评审和反馈持续集成
 
 
-
-**实现阶段的核心不是写出更多代码，  
-而是持续交付可信赖的软件变更。**
+**实现阶段的核心不是写出更多代码，  而是持续交付可信赖的软件变更。**
 
 ---
 
@@ -1193,11 +1198,13 @@ Extract Method / Replace Conditional]
 
 
 ---
+class: text-sm
+---
 
 # 课堂练习：现场重构
 
 
-```java{scale:0.7}
+```java{scale:0.6}
 // 请找出至少3个坏味道并重构
 public class OrderProcessor {
     public String process(int type, double amount, String user, int status, boolean flag) {
@@ -1246,8 +1253,6 @@ public class OrderProcessor {
 
 
 ✅ 本周检查：检查代码质量（提交扫描报告截图 + 重构前后对比）
-
-
 
 
 ---
