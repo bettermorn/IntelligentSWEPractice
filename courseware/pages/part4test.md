@@ -347,6 +347,8 @@ Content-Type: application/json
 | 接口 | Postman / REST | — | — |
 
 ---
+class: text-sm
+---
 
 # AI 在软件测试中的主要应用
 
@@ -368,6 +370,7 @@ Content-Type: application/json
 - **自愈测试脚本（Self-Healing Tests）**：当元素定位器失效时，AI 自动寻找最相似的替代元素，修复测试脚本，降低维护成本。
 
 ---
+
 # AI 在软件测试中的主要应用（续）
 
 ### 5. 探索性测试与智能爬虫（AI-driven Exploratory Testing）
