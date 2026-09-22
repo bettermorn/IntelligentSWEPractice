@@ -239,6 +239,15 @@ bool isManifold(const std::vector& edges) {
 我们的产品/项目      （关键的差异化特性）
 ```
 
+- 产品名称
+- 发布时间
+- 目标客户+数量有多少
+- 解决了什么问题+这个问题对于目标客户来说有多大价值
+- 解决方案+类似产品，如何差异化
+- 何时交付+主要的里程碑：根据生命周期如分析、设计、开发、测试、发布、迭代
+- 团队背景
+
+
 ---
 layout: two-cols
 ---
@@ -320,7 +329,8 @@ layout: two-cols
 # 第 1 周实践：定义你的工程项目与仓库构建
 ### Practice: Repository Setup & Problem Definition
 
-各小组需要在协作平台（GitHub / GitLab）上建立项目，并提交规范的 `README.md`。
+- 各小组需要在协作平台（GitHub / Gitee）上建立项目仓库，并提交规范的 `README.md`。
+- 各小组在协作平台（GitHub） 上建立Kanban，Team planning，Bug tracker 等项目。
 
 ```bash
 # 1. 初始化项目仓库结构
@@ -475,6 +485,15 @@ gantt
 
 ---
 
+# Scrum的精髓
+
+- SCRUM使得我们能够专注于如何在**最短**的时间内实现**最有价值**的部分。
+- SCRUM使得我们能够快速的经常的监督实际产品发展的状况.（每两周或一个月）
+- 团队按照**商业价值**的高低先完成高优先级的产品功能，并自主管理，凝结了团队智慧创造出最好的方法因而提高效率。
+- 每隔一两周或者一个月，我们就可以看到实实在在的可以上线的产品。此时，就可以下一步的决定是继续完善功能实现更多需求或者直接发布了。
+
+
+---
 # 第 2 周实践：软件功能规范书撰写
 ### Practice: Functional Specification & UML Domain Modeling
 本周各组必须在协作仓库中提交 `docs/requirements/functional_spec.md`。
