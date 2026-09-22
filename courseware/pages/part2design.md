@@ -633,7 +633,7 @@ class: text-sm
 # AI Agent 技术栈
 
 |层级|主要职责|推荐技术|
-|--｜--｜--｜
+|---|---|---|
 |前端交互层|对话、文件上传、结果展示|React、Next.js、Vue、Nuxt|
 |API 层|鉴权、限流、接口管理|FastAPI、NestJS、Spring Boot、Kong|
 |Agent 层|Prompt、工具调用、状态和流程编排|LangGraph、LangChain、LlamaIndex|
