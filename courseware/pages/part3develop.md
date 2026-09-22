@@ -269,9 +269,14 @@ chore: 升级项目依赖
 layout：two-cols
 ---
 
+
+
+# 8 代码评审（Code Review）
+
+
 ::left::
 
-# 8 代码评审（Code Review）内容
+## Code Review 评审方面
 
 - 是否正确实现需求和验收标准
 - 是否符合架构和模块边界
@@ -283,7 +288,7 @@ layout：two-cols
 
 ::right::
 
-# Code Review 评审原则
+## Code Review 评审原则
 
 - 小型 Pull Request 更容易高质量评审
 - 评论代码，不针对个人
@@ -331,12 +336,13 @@ layout: two-cols
 - 成本较高，应覆盖关键路径
 
 ---
-layout:two-cols
+layout: two-cols
 ---
 
 # 10 测试技术与工具
 
 ::left::
+
 ## 常用测试技术
 
 - 等价类划分
@@ -406,6 +412,7 @@ layout: two-cols
 
 ---
 layout: two-cols
+class: text-sm
 ---
 
 # 12 持续集成（CI）
@@ -414,7 +421,7 @@ layout: two-cols
 持续集成要求开发者频繁将代码合并到共享代码库，并通过自动化流程验证变更。
 
 ```mermaid {scale: 0.62}
-flowchart LR
+flowchart TD
     A[代码提交] --> B[编译构建]
     B --> C[格式检查]
     C --> D[静态分析]
@@ -424,6 +431,8 @@ flowchart LR
     G --> H[反馈结果]
 ```
 
+::right::
+
 ## CI 工具
 
 - GitHub Actions
@@ -432,8 +441,6 @@ flowchart LR
 - Azure Pipelines
 - Buildkite
 - CircleCI
-
-::right::
 
 ## CI 设计原则
 
@@ -514,7 +521,7 @@ class: text-sm
 5. 记录技术债务及其影响
 
 ---
-layout:two-cols
+layout: two-cols
 ---
 
 # 15 AI 辅助软件实现
@@ -548,11 +555,15 @@ layout:two-cols
 ⚠️ **AI 可以生成代码，但不能替代工程判断。**
 
 ---
+layout: two-cols
+---
 
 # 16 AI 辅助编码的推荐流程
 
-```mermaid {scale: 0.66}
-flowchart LR
+::left::
+
+```mermaid {scale: 0.8}
+flowchart TD
     A[明确任务和约束] --> B[提供必要上下文]
     B --> C[生成或修改代码]
     C --> D[人工审查]
@@ -561,6 +572,8 @@ flowchart LR
     F --> G[代码评审]
     G --> H[合并代码]
 ```
+
+::right::
 
 ## 使用原则
 
@@ -654,7 +667,7 @@ layout：two-cols
 
 ::left::
 
-### 开发步骤
+## 开发步骤
 
 1. 创建 `feature/user-register` 分支
 2. 定义请求对象和响应对象
@@ -671,7 +684,7 @@ layout：two-cols
 
 ::right::
 
-### 需要验证的场景
+## 需要验证的场景
 
 - 正常注册
 - 邮箱格式错误
