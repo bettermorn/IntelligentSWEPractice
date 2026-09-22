@@ -556,7 +556,7 @@ class: text-sm
 class: text-sm
 ---
 
-# AI 工程比较
+# AI 工程比较（续）
 
 |维度|提示词工程|上下文工程|驾驭层工程|循环工程|
 |--|--|--|--|--|
@@ -570,6 +570,7 @@ class: text-sm
 
 
 ---
+
 # AI Agent架构
 
 ```mermaid
@@ -608,6 +609,7 @@ flowchart TB
 
 参考[AI Agent常见工作流模式](https://github.com/bettermorn/AIAgent/blob/main/docs/AIAgentConcept.md#%E5%B8%B8%E8%A7%81agent%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%A8%A1%E5%BC%8F)
 
+
 ---
 class: text-sm
 ---
@@ -631,7 +633,7 @@ class: text-sm
 # AI Agent 技术栈
 
 |层级|主要职责|推荐技术|
-｜--｜--｜--｜
+|--｜--｜--｜
 |前端交互层|对话、文件上传、结果展示|React、Next.js、Vue、Nuxt|
 |API 层|鉴权、限流、接口管理|FastAPI、NestJS、Spring Boot、Kong|
 |Agent 层|Prompt、工具调用、状态和流程编排|LangGraph、LangChain、LlamaIndex|
@@ -640,7 +642,7 @@ class: text-sm
 |基础设施层|部署、监控、日志和安全|Docker、Kubernetes、Prometheus、Vault|
 
 
-参考 [AI Agent](https://github.com/bettermorn/AIAgent/blob/main/docs/)
+更多内容，可参考 [AI Agent](https://github.com/bettermorn/AIAgent/blob/main/docs/)
 
 
 
