@@ -147,7 +147,10 @@ def test_calculate_divide_by_zero(calc):
 
 ---
 layout: two-cols
+class: text-sm
 ---
+
+::left::
 
 # 测试用例设计方法 1：等价类划分
 
@@ -164,6 +167,8 @@ layout: two-cols
 | 无效等价类-空值 | "" | 提示"必填" |
 
 ::right::
+
+# 参考代码
 
 ```python
 import pytest
@@ -190,8 +195,10 @@ def test_validate_age(age, expected):
 ```
 
 ---
+class: text-sm
+---
 
-# 测试用例设计方法 2：边界值分析 To do
+# 测试用例设计方法 2：边界值分析 
 
 **原理**：程序错误最容易发生在**边界附近**，所以对边界值及边界两侧的值都要测
 
@@ -211,8 +218,13 @@ def test_validate_age(age, expected):
 
 
 ---
+layout: two-cols
+class: text-sm
+---
 
-# 测试用例设计方法 3：判定表 To do
+::left::
+
+# 测试用例设计方法 3：判定表 
 
 适合**多条件组合**的场景，列出所有条件组合及对应动作
 
@@ -229,6 +241,9 @@ def test_validate_age(age, expected):
 | 7 | Y | N | N | ❌ 不允许 |
 | 8 | Y | Y | N | ❌ 不允许 |
 
+::right::
+
+# 参考代码
 ```java
 // 对应代码逻辑
 public boolean canRenew(Loan loan) {
@@ -255,8 +270,6 @@ public boolean canRenew(Loan loan) {
 - 找"原因"（输入条件）与"结果"（输出动作）的依赖关系
 - 用逻辑符（与/或/非）组合
 - 适合输入条件相互影响的情况
-
-
 
 
 
