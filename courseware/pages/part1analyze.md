@@ -238,6 +238,9 @@ class: text-sm
 - [教育智能体](https://github.com/bettermorn/AIAgent/blob/main/docs/AIAgentType.md#%E6%95%99%E8%82%B2%E5%85%B8%E5%9E%8B%E6%99%BA%E8%83%BD%E4%BD%93)
 - AI for SE：代码智能基础模型类,代码生成与补全类,自动化测试与修复类,代码审查与质量保障类,需求工程与文档生成类,Agent化软件工程类
 - SE for AI: AI/ML 系统测试类,MLOps 与工程实践类,AI系统可解释性与可靠性类,大模型工程化类,AI系统安全与合规类,需求与架构方法论类
+- 益智游戏智能体
+- 能源智能体，电力交易等
+- 。。。。。。
   
 
 
