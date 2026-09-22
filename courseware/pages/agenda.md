@@ -49,7 +49,7 @@ gantt
 - “软件设计”先行，代码后行。
 
 ---
-class:text-sm
+class: text-sm
 ---
 
 # 学习说明
