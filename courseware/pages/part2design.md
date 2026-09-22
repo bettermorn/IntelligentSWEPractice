@@ -704,7 +704,7 @@ layout: two-cols
 
 # 第6周：实践
 
-- 参考[创新工程实践课程：技术参考](https://github.com/bettermorn/ACMWDevHubPPT/wiki/%E5%88%9B%E6%96%B0%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5%E8%AF%BE%E7%A8%8B%EF%BC%9A%E6%8A%80%E6%9C%AF%E5%8F%82%E8%80%83), 确认技术方案（语言、平台、框架、架构图；数据分析技术、人工智能算法模型、区块链、虚拟现实技术等）
+- 参考[技术参考](https://github.com/bettermorn/IntelligentSWEPractice/wiki/%E6%8A%80%E6%9C%AF%E5%8F%82%E8%80%83), 确认技术方案（语言、平台、框架、架构图；数据分析技术、人工智能算法模型、区块链、虚拟现实技术等）
 - 规划新技术学习
 
 📋 检查：确认软件作品原型设计
@@ -718,6 +718,7 @@ layout: two-cols
 - 掌握**战术设计**：实体、值对象、聚合、领域服务、仓储
 - 能够为自己的项目画出限界上下文图
 - 能够将一个业务场景转化为领域模型代码
+- 理解如何设计AI Agent
 
 ---
 layout: two-cols
