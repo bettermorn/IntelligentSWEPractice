@@ -651,7 +651,7 @@ class: text-sm
 度量指标应服务于改进，而不是简单用于评价个人绩效。
 
 ---
-layout：two-cols
+layout: two-cols
 class: text-sm
 ---
 
