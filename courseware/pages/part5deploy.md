@@ -49,6 +49,12 @@ layout: two-cols
 
 # 1. Web 应用部署模型
 
+1. 什么是部署
+2. 典型 Web 应用组成
+3. 部署方式总览
+
+
+
 ---
 
 ## 什么是部署
@@ -109,6 +115,12 @@ flowchart LR
 ---
 
 # 2. 静态 Web 应用部署
+
+1. 适合静态部署的应用
+2. 静态部署基本流程
+3. 静态托管方式常见方案
+4. Nginx 静态站点配置
+5. 静态应用的环境变量
 
 ---
 
@@ -256,6 +268,11 @@ VITE_SENTRY_DSN=https://example@sentry.io/project
 
 # 3. 虚拟机部署
 
+1. 适用场景
+2. 虚拟机部署步骤
+3. systemd 服务示例
+4. 虚拟机发布目录建议
+
 ---
 
 ## 适用场景
@@ -387,6 +404,10 @@ sudo systemctl restart myapp
 ---
 
 # 4. Docker 容器部署
+1. Docker 部署优势
+2. Node.js Web 应用 Dockerfile
+3. Docker 镜像构建与运行
+4. Docker Compose 示例
 
 ---
 
@@ -535,6 +556,9 @@ docker compose logs -f web
 
 # 5. PaaS 与 Serverless 部署
 
+1. PaaS 部署
+2. Serverless 部署
+3. 
 ---
 
 ## PaaS 部署
@@ -603,6 +627,9 @@ flowchart LR
 
 # 6. Kubernetes 部署
 
+1. Kubernetes 适用场景
+2. Kubernetes Deployment 示例
+3. Kubernetes Service 示例
 ---
 
 ## Kubernetes 适用场景
@@ -722,6 +749,9 @@ kubectl rollout status deployment/myapp
 ---
 
 # 7. 标准发布流程
+1. 推荐的发布生命周期
+2. 版本命名建议
+3. 制品Artifacts管理
 
 ---
 
@@ -794,7 +824,7 @@ myapp:20260910-120000
 
 ---
 
-## 制品管理
+## 制品Artifacts管理
 
 构建制品可以是：
 
@@ -818,7 +848,9 @@ myapp:20260910-120000
 ---
 
 # 8. CI/CD 自动化
-
+1. CI/CD 基本职责
+2. GitHub Actions 示例
+3. CI/CD 安全原则
 ---
 
 ## CI/CD 基本职责
@@ -935,6 +967,10 @@ jobs:
 
 # 9. 环境与配置管理
 
+1. 环境划分
+2. 配置管理原则
+3. 配置检查命令
+
 ---
 
 ## 环境划分
@@ -1029,6 +1065,10 @@ echo "Environment variables are valid."
 
 # 10 数据库变更与数据迁移
 
+1. 数据库发布原则
+2. 数据库迁移检查
+3. 
+
 ---
 
 ## 数据库发布原则
@@ -1084,6 +1124,11 @@ npm run db:migrate:status
 
 # 11 发布策略
 
+1. 停机发布
+2. 滚动发布
+3. 蓝绿发布
+4. 灰度发布
+5. 金丝雀发布
 ---
 
 ## 1. 停机发布
@@ -1234,6 +1279,10 @@ P95 延迟 > 1000ms
 ---
 
 # 12 健康检查与可观测性
+
+1. 健康检查接口
+2. 必备监控指标
+3. 日志规范
 
 ---
 
@@ -1411,13 +1460,13 @@ sudo systemctl restart myapp
 ---
 
 # 14 Web 应用上线检查单
-A. 发布准备检查单
-B. 配置检查单
-C. 数据库检查单
-D. 基础设施检查单
-E. 发布执行检查单
-F. 发布后验证检查单
-G. 发布完成检查单
+1. 发布准备检查单
+2. 配置检查单
+3. 数据库检查单
+4. 基础设施检查单
+5. 发布执行检查单
+6. 发布后验证检查单
+7. 发布完成检查单
 
 ---
 
