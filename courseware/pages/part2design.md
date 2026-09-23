@@ -97,6 +97,8 @@ layout: two-cols
 ```
 
 ---
+class: text-sm
+---
 
 # AI 辅助原型设计：从自然语言到交互式代码
 ### AI-Assisted Prototyping
