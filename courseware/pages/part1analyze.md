@@ -502,7 +502,7 @@ gantt
 - **Product Backlog**：所有想做的功能池。
 - **Sprint Backlog**：本周期（通常2周）承诺完成的任务。
 - **定义完成 (Definition of Done, DoD)**：例如“代码通过单元测试，分支合并入 `develop` 且文档已更新”才算完成。
-- 参考 [敏捷开发](https://github.com/bettermorn/IntelligentSWEPractice/wiki/%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91) 
+- 参考 [敏捷开发](https://github.com/bettermorn/IntelligentSWEPractice/wiki/%E3%80%90%E5%B7%A5%E7%A8%8B%E6%96%B9%E6%B3%95%E8%AE%BA%E3%80%91%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91)
 
 ---
 
