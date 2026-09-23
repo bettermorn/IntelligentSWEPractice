@@ -371,7 +371,7 @@ mkdir -p docs/{requirements,algorithm,software,mgmt,retrospection} \
          .github/workflows
 ```
 
-- **任务要求**：在 `docs/requirements/problem_definition.md` 中编写 5W1H 报告。
+- **任务要求**：在 `docs/requirements/problem_definition.md` 中完成 5W1H 报告和产品描述。
 - **检查点**：第一周结束前，各组提交仓库链接，通过 GitHub Issues 获得第一轮反馈。
 
 ---
