@@ -395,7 +395,7 @@ layout: two-cols
 📋 检查：确认软件作品的功能
 
 ---
-layout: default
+class: text-sm
 ---
 # 软件功能定义：从愿景到系统需求
 ### Software Functional Definition
@@ -412,8 +412,8 @@ graph TD
 * **非功能需求 (NFRs)**：系统必须**如何表现**（URPS：可用性 Usability, 可靠性 Reliability, 性能 Performance, 支持性 Supportability）。
 
 
-- 坏的需求样例： "系统界面要好看，速度要快。"
-- 好的需求样例 (可测量的)： "系统在加载 100MB 以上的 CAD 模型时，首屏渲染时间（LCP）需小于 3.0s，且 CPU 利用率不高于 60%。"
+- ❌ 坏的需求样例： "系统界面要好看，速度要快。"
+- 👍 好的需求样例 (可测量的)： "系统在加载 100MB 以上的 CAD 模型时，首屏渲染时间（LCP）需小于 3.0s，且 CPU 利用率不高于 60%。"
 
 
 ---
