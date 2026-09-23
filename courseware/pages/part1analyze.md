@@ -240,6 +240,7 @@ class: text-sm
 - SE for AI: AI/ML 系统测试类,MLOps 与工程实践类,AI系统可解释性与可靠性类,大模型工程化类,AI系统安全与合规类,需求与架构方法论类
 - 益智游戏智能体
 - 能源智能体，电力交易等
+- 健康医药智能体
 - 。。。。。。
   
 
@@ -332,7 +333,8 @@ class: text-sm
 ![设计思维流程](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/courseware/pages/imgs/designthinking-circle.png)
 
 - 图片来源：Fred Estes. Design Thinking: A Guide to Innovation. 2025. Twenty-First Century Books™
-- 参考 [设计思维](https://github.com/bettermorn/IntelligentSWEPractice/wiki/%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4)
+- 参考 [设计思维](https://github.com/bettermorn/IntelligentSWEPractice/wiki/%E3%80%90%E4%BA%A7%E5%93%81%E6%96%B9%E6%B3%95%E8%AE%BA%E3%80%91%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4) 
+  
 
 ---
 
@@ -509,7 +511,7 @@ gantt
 # Scrum的精髓
 
 - SCRUM使得我们能够专注于如何在**最短**的时间内实现**最有价值**的部分。
-- SCRUM使得我们能够快速的经常的监督实际产品发展的状况.（每两周或一个月）
+- SCRUM使得我们能够快速地经常地监督实际产品发展的状况.（每两周或一个月）
 - 团队按照**商业价值**的高低先完成高优先级的产品功能，并自主管理，凝结了团队智慧创造出最好的方法因而提高效率。
 - 每隔一两周或者一个月，我们就可以看到实实在在的可以上线的产品。此时，就可以下一步的决定是继续完善功能实现更多需求或者直接发布了。
 
