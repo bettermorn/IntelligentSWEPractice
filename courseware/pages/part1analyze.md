@@ -388,7 +388,7 @@ class: text-sm
 # 第 1 周实践：定义你的工程项目与仓库构建
 ### Practice: Repository Setup & Problem Definition
 
-- 各小组需要在协作平台（GitHub / Gitee）上建立项目仓库，并提交规范的 `README.md`。
+- 各小组需要在协作平台（GitHub / Gitee）上建立项目仓库，并提交规范的 `README.md`。参考[README.md的内容](https://github.com/bettermorn/IntelligentSWEPractice/wiki/%E3%80%90%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E3%80%91%E5%9C%A8GitHub%E4%B8%AD%E4%BD%BF%E7%94%A8Markdown%E5%92%8CWiki#2-%E5%85%B8%E5%9E%8B%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF)
 - 各小组在协作平台（GitHub） 上建立Kanban，Team planning，Bug tracker 等项目。
 
 ```bash
