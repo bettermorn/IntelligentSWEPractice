@@ -403,7 +403,7 @@ git checkout -b develop   # 开发主分支
 
 # 3. 规范的项目目录结构
 mkdir -p docs/{requirements,algorithm,software,mgmt,retrospection} \
-         src/{backend,frontend,core_engine} \
+         code/{backend,frontend,core_engine} \
          tests/{unit,integration} \
          .github/workflows
 ```
