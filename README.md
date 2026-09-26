@@ -91,6 +91,7 @@
 - 微软推出的代码智能综合评测https://github.com/microsoft/CodeXGLUE
 - 微信公众号CodeWisdom,复旦大学智能化软件开发研究团队
 - 计算机科学教育生成式人工智能联盟GenAI in CS Education Consortium的课程 https://www.teachcswithai.org/courses 。联盟使命是支持教育工作者战略性地调整教学方法与课程体系。联盟提供整合生成式人工智能所需的资源、培训及社群支持，确保学生在恪守学术诚信的前提下，掌握未来职业所需的高阶技能。这个联盟是由UCSD教授Leo Porter牵头的。
+- Agent 在线课程， 斯坦福 2026 年秋季新增的 CS329Z《Engineering AI Agents》（AI Agent 工程），由 Diyi Yang、Michael Ryan 和 John Yang 共同主讲。课程官网：[cs329z.stanford.edu](https://cs329z.stanford.edu/)
 
 
 
