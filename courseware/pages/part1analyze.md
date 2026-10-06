@@ -468,7 +468,7 @@ FURPS 模型中，**F（功能性）对应功能需求**，其余 **URPS 四项�
 > 相较功能需求（"Agent 能做什么"），URPS 回答的是 **"Agent 做得怎样、好不好维护"** 的问题。
 
 ---
-layout: default
+layout: two-cols
 ---
 
 # 示例一：Usability 与 Reliability
@@ -499,7 +499,7 @@ layout: default
 > 对比传统软件：Agent 的可靠性不仅指系统不崩溃，还包括**输出内容的事实正确性与行为一致性**。
 
 ---
-layout: default
+layout: two-cols
 ---
 
 # 示例二：Performance 与 Supportability
@@ -592,6 +592,80 @@ classDiagram
 
 设计说明：`CADDocument` 与 `Geometry` 之间是聚合关系。渲染引擎只依赖抽象的 `Geometry` 类型，新增几何类型时不需要修改 `CADDocument`，符合开闭原则（OCP）。
 
+
+---
+# Python 项目逆向工程生成UML
+
+## `pyreverse` + PlantUML 或 Graphviz
+
+`pyreverse` 是 Pylint 提供的工具，可以从 Python 项目生成 UML 类图，适合分析类、继承关系和模块关系。
+
+安装：
+
+```bash
+pip install pylint graphviz
+```
+
+在项目根目录执行：
+
+```bash
+pyreverse -o png -p MyProject your_package/
+```
+
+例如：
+```bash
+pyreverse -o png -p RAG_QA app/
+```
+
+
+---
+layout: two-cols
+---
+
+# AI Agent UML 例子
+
+
+::left::
+
+
+```mermaid
+flowchart BT
+    config["app.config"]
+    chains["app.chains"] --> config
+    main["app.main"] --> config
+    main --> chains
+    main --> memory["app.memory"]
+    main --> schemas["app.router_schemas"]
+    main --> tools["app.tools"]
+    app["app"]
+```
+
+箭头方向为「依赖 → 被依赖」：`app.main` 依赖其余全部模块，`app.chains` 与 `app.main` 都依赖 `app.config` 读取配置。
+
+::right::
+
+```mermaid
+classDiagram
+    class ChatRequest {
+        +str query
+        +str session_id
+        +str user_id
+    }
+
+    class ChatResponse {
+        +Optional[str] answer
+        +str intent
+        +Dict[str, Any] meta
+        +Optional[str] ticket_id
+    }
+
+    class FeedbackRequest {
+        +Optional[str] comment
+        +int score
+        +str session_id
+    }
+
+三个类均为 `app/router_schemas.py` 中的 Pydantic 模型：`ChatRequest` / `ChatResponse` 用于 `/chat` 接口，`FeedbackRequest` 用于 `/feedback` 接口（`meta` 中携带回答的来源列表 `sources`）。
 
 
 ---
