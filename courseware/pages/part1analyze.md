@@ -465,7 +465,7 @@ FURPS 模型中，**F（功能性）对应功能需求**，其余 **URPS 四项�
 | **P**erformance 性能 | 响应时间、吞吐量、资源占用 | 首 token 延迟（TTFT）、并发会话吞吐量 |
 | **S**upportability 支持性 | 可维护性、可配置性、可测试性、可扩展性 | 新增工具/插件的接入成本、日志可观测性 |
 
-> 相较功能需求（"Agent 能做什么"），URPS 回答的是 **"Agent 做得怎样、好不好维护"** 的问题[2]。
+> 相较功能需求（"Agent 能做什么"），URPS 回答的是 **"Agent 做得怎样、好不好维护"** 的问题。
 
 ---
 layout: default
@@ -476,7 +476,7 @@ layout: default
 ::left::
 ### 🧑‍💻 Usability（可用性）需求示例
 
-```yaml
+```text
 需求ID: NFR-U-01
 描述: 用户首次与 Agent 对话时，无需阅读文档即可完成一次任务（如订机票）
 验收标准:
@@ -487,7 +487,7 @@ layout: default
 
 ### 🔁 Reliability（可靠性）需求示例
 
-```yaml
+```text
 需求ID: NFR-R-01
 描述: Agent 在工具调用失败时应具备自我纠错与重试能力
 验收标准:
@@ -507,7 +507,7 @@ layout: default
 ::left::
 ### ⚡ Performance（性能）需求示例
 
-```yaml
+```text
 需求ID: NFR-P-01
 描述: Agent 响应速度满足实时交互体验
 验收标准:
@@ -520,7 +520,7 @@ layout: default
 
 ### 🛠️ Supportability（支持性）需求示例
 
-```yaml
+```text
 需求ID: NFR-S-01
 描述: Agent 工具链/插件应可低成本扩展与维护
 验收标准:
