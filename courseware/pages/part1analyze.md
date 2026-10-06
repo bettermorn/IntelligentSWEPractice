@@ -963,6 +963,9 @@ Scrum 需要三类支撑：**可视化流程 / 迭代计划 / 缺陷追踪**
 
 - Scrum 的"计划—执行—追踪—复盘"全部在同一平台完成
 
+* GitHub Projects 官方文档首页：https://docs.github.com/en/issues/planning-and-tracking-with-projects
+* Projects 快速上手指南：https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects
+* Projects 自动化设置：https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project
 
 ---
 
