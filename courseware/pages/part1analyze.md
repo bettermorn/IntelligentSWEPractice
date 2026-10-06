@@ -528,6 +528,7 @@ classDiagram
 > 遵循 SOLID 可让多智能体系统（Multi-Agent System）更易测试、扩展与维护。
 
 ---
+
 # 引言：为什么 Agent 设计需要 SOLID？
 
 现代 AI Agent 系统通常包含：**感知（Perception）、记忆（Memory）、规划（Planner）、工具调用（Tool）、执行（Executor）** 等模块。
@@ -548,6 +549,8 @@ flowchart LR
 > SOLID 原则最初用于面向对象设计，同样适用于指导 Agent 系统的模块化架构。
 
 ---
+layout: two-cols
+---
 # 1️⃣ Single Responsibility Principle（单一职责）
 
 **一个类/模块只负责一件事，只有一个引起变化的原因。**
@@ -563,6 +566,7 @@ class MonolithicAgent:
     def execute(self): ...
 ```
 
+::right::
 ✅ 拆分为职责单一的组件：
 
 ```python
@@ -579,13 +583,176 @@ class Planner:
 class ToolExecutor:
     def run(self, tool_name, args): ...
 ```
-
 > 好处：Planner 逻辑变化（换规划算法）不会影响 Memory 或 ToolExecutor。
+
+---
+layout: two-cols
+---
+# 2️⃣ Open/Closed Principle（开闭原则）
+
+**对扩展开放，对修改关闭** —— 新增工具/策略时无需改动已有代码。
+
+✅ 用抽象基类 + 插件化工具注册实现：
+
+```python{scale: 0.6}
+from abc import ABC, abstractmethod
+
+class Tool(ABC):
+    @abstractmethod
+    def run(self, args: dict) -> str: ...
+
+class SearchTool(Tool):
+    def run(self, args): return f"搜索结果: {args['query']}"
+
+class CalculatorTool(Tool):
+    def run(self, args): return str(eval(args['expr']))
+
+class ToolRegistry:
+    def __init__(self):
+        self._tools: dict[str, Tool] = {}
+    def register(self, name: str, tool: Tool):
+        self._tools[name] = tool
+    def call(self, name, args):
+        return self._tools[name].run(args)
+```
+
+> 新增 `WeatherTool`、`CodeExecTool` 只需实现 `Tool` 接口并注册，
+> **不需要修改 `ToolRegistry` 或 `Agent` 核心代码**。
+
+---
+layout: two-cols
+---
+
+# 3️⃣ Liskov Substitution Principle（里氏替换）
+
+**子类必须能够替换其父类而不破坏程序正确性。**
+
+场景：Agent 需要支持多种 LLM 后端（OpenAI、Claude、本地模型）。
+
+```python{scale: 0.6}
+class LLMClient(ABC):
+    @abstractmethod
+    def generate(self, prompt: str) -> str: ...
+
+class OpenAIClient(LLMClient):
+    def generate(self, prompt):
+        return call_openai_api(prompt)
+
+class ClaudeClient(LLMClient):
+    def generate(self, prompt):
+        return call_claude_api(prompt)
+
+class LocalLlamaClient(LLMClient):
+    def generate(self, prompt):
+        return run_local_model(prompt)
+```
+
+```python
+def run_agent(llm: LLMClient, prompt: str):
+    return llm.generate(prompt)   # 任意子类都可安全替换
+```
+
+> ⚠️ 违反示例：若某个子类 `generate()` 抛出未声明的异常或返回不同语义的结果（如要求额外鉴权参数），则破坏了可替换性。
+
+---
+layout: two-cols
+---
+# 4️⃣ Interface Segregation Principle（接口隔离）
+
+::left::
+**不应强迫客户端依赖它不需要的接口** —— 拆分"胖接口"为多个小接口。
+
+❌ 反例：一个臃肿的 `IAgentCapability` 接口
+
+```python
+class IAgentCapability(ABC):
+    def perceive(self): ...
+    def plan(self): ...
+    def remember(self): ...
+    def speak(self): ...
+    def move(self): ...   # 并非所有 Agent 都需要
+```
+
+
+::right::
+✅ 按能力拆分为细粒度接口：
+
+```python
+class IPerceivable(ABC):
+    def perceive(self, input): ...
+
+class IPlannable(ABC):
+    def plan(self, goal): ...
+
+class IMemorizable(ABC):
+    def remember(self, data): ...
+
+class ChatAgent(IPerceivable, IPlannable, IMemorizable):
+    ...   # 无需实现 IMovable 等无关接口
+
+class RoboticAgent(IPerceivable, IPlannable, IMovable):
+    ...
+```
+
+> 对话型 Agent 不被迫实现 `move()`，机器人 Agent 不被迫实现无关的对话能力。
+
+
 
 
 
 ---
+layout: two-cols
+---
 
+# 5️⃣ Dependency Inversion Principle（依赖倒置）
+
+**高层模块不应依赖低层模块，二者都应依赖抽象；抽象不应依赖细节。**
+
+❌ 反例：Agent 直接依赖具体实现（硬编码 OpenAI、具体数据库）
+
+```python
+class Agent:
+    def __init__(self):
+        self.llm = OpenAIClient()        # 具体依赖
+        self.memory = SQLiteMemory()      # 具体依赖
+```
+::right::
+
+✅ 依赖抽象接口，通过**依赖注入**解耦：
+
+```python
+class Agent:
+    def __init__(self, llm: LLMClient, memory: IMemory, planner: IPlannable):
+        self.llm = llm
+        self.memory = memory
+        self.planner = planner
+
+# 组装（Composition Root）
+agent = Agent(
+    llm=ClaudeClient(),
+    memory=VectorDBMemory(),
+    planner=TreeOfThoughtPlanner(),
+)
+```
+
+```mermaid
+flowchart TB
+  Agent -->|依赖| LLMClient[(LLMClient 接口)]
+  Agent -->|依赖| IMemory[(IMemory 接口)]
+  LLMClient -.实现.- OpenAIClient
+  LLMClient -.实现.- ClaudeClient
+  IMemory -.实现.- VectorDBMemory
+  IMemory -.实现.- SQLiteMemory
+```
+
+> 更换 LLM 提供商或记忆存储方案时，**只需替换注入对象**，`Agent` 核心逻辑零改动。
+
+---
+layout: two-cols
+---
+
+
+---
 # 敏捷开发方法 (Agile Methodology)
 ### 针对科学研究与不确定性项目的轻量级管理
 
