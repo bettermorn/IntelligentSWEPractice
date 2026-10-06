@@ -554,6 +554,94 @@ gantt
 
 ---
 
+# 使用GitHub做Scrum
+
+Scrum 需要三类支撑：**可视化流程 / 迭代计划 / 缺陷追踪**
+
+| Scrum 要素 | GitHub 对应功能 |实现目标|
+|---|---|---｜
+| Sprint Backlog 可视化 | **Projects (Kanban Board)** |可视化Sprint执行状态|
+| Sprint / 里程碑规划 | **Milestones + Team Planning** |支持Sprint计划与评审|
+| 缺陷与任务追踪 | **Issues (Bug Tracker)** |缺陷与任务统一入口|
+| 评审与沟通 | Pull Request + Discussions ||
+
+
+- GitHub **代码、任务、缺陷同源**，减少上下文切换
+
+- Scrum 的"计划—执行—追踪—复盘"全部在同一平台完成
+
+
+---
+
+# Kanban 看板：GitHub Projects
+
+把 Sprint Backlog 转化为可拖拽的看板，列对应 Scrum 流程：
+
+```mermaid
+flowchart LR
+  A[📋 Backlog] --> B[📝 To Do]
+  B --> C[🚧 In Progress]
+  C --> D[🔍 In Review]
+  D --> E[✅ Done]
+```
+
+**实践要点：**
+- 每张卡片 = 一个 Issue / PR，可挂 Story Points、标签（`feature`、`bug`、`chore`）
+- 使用自动化规则：PR 合并 → 卡片自动移至 *Done*
+- 燃尽图可借助 GitHub Insights 或第三方可视化插件生成，替代传统独立燃尽图工具
+
+
+---
+layout: two-cols
+---
+
+# 3. Team Planning：迭代与里程碑
+
+**Sprint Planning 对应操作：**
+- 创建 **Milestone**（如 `Sprint-5`），设定起止日期
+- 将本迭代 Issue 批量绑定到该 Milestone
+- 使用 **Assignees** 明确任务负责人
+- 结合 **GitHub Projects 视图（Table / Roadmap）** 做排期
+
+::right::
+
+**Daily / Review / Retro 支持：**
+- Daily Standup：看板 *In Progress* 列即为站会素材
+- Sprint Review：Milestone 进度条（已关闭/总数）自动统计
+- Retro：用 Discussions 或专门 Issue 记录复盘要点
+
+> GitHub Milestone 把计划与真实代码进度绑定。
+
+---
+
+# 4. Bug Tracker：Issues 管理缺陷
+
+**标准化流程：**
+
+```yaml
+# .github/ISSUE_TEMPLATE/bug_report.yml（简化示例）
+name: Bug Report
+labels: [bug]
+body:
+  - type: textarea
+    attributes:
+      label: 复现步骤
+  - type: textarea
+    attributes:
+      label: 期望 vs 实际行为
+  - type: dropdown
+    attributes:
+      label: 优先级
+      options: [P0, P1, P2]
+```
+
+- 使用 **Labels**（`bug` / `priority:P0`）+ **Milestone** 定位缺陷所属 Sprint
+- Bug 卡片同样进入 Kanban 看板，与功能任务统一排期
+- PR 中 `Fixes #123` 语法自动关闭对应 Issue，形成闭环
+
+
+
+
 # 第 2 周实践：软件功能规范书撰写
 ### Practice: Functional Specification & UML Domain Modeling
 本周各组必须在协作仓库中提交 `docs/requirements/functional_spec.md`。
