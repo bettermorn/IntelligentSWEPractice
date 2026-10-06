@@ -515,6 +515,77 @@ classDiagram
 
 ---
 
+# SOLID 驱动的 Agent 架构
+
+| 原则 | Agent 设计体现 |
+|---|---|
+| SRP | Perception / Memory / Planner / Tool 各司其职 |
+| OCP | 工具通过插件注册扩展，无需改核心代码 |
+| LSP | 多个 LLM 后端可安全互换 |
+| ISP | 按能力拆分细粒度接口（感知/规划/记忆/移动） |
+| DIP | Agent 依赖抽象接口，具体实现通过注入组装 |
+
+> 遵循 SOLID 可让多智能体系统（Multi-Agent System）更易测试、扩展与维护。
+
+---
+# 引言：为什么 Agent 设计需要 SOLID？
+
+现代 AI Agent 系统通常包含：**感知（Perception）、记忆（Memory）、规划（Planner）、工具调用（Tool）、执行（Executor）** 等模块。
+
+```mermaid
+flowchart LR
+  P[Perception] --> M[Memory]
+  M --> Pl[Planner]
+  Pl --> T[Tool Use]
+  T --> E[Executor]
+  E --> P
+```
+
+若将这些逻辑全部塞进一个 `Agent` 类，会导致：
+- 难以维护、测试、扩展
+- 模块间强耦合，替换 LLM / 工具时牵一发动全身
+
+> SOLID 原则最初用于面向对象设计，同样适用于指导 Agent 系统的模块化架构。
+
+---
+# 1️⃣ Single Responsibility Principle（单一职责）
+
+**一个类/模块只负责一件事，只有一个引起变化的原因。**
+
+❌ 反例：一个 `Agent` 类同时做感知、规划、记忆、工具调用
+
+```python
+class MonolithicAgent:
+    def perceive(self, input): ...
+    def plan(self): ...
+    def remember(self, data): ...
+    def call_tool(self, name, args): ...
+    def execute(self): ...
+```
+
+✅ 拆分为职责单一的组件：
+
+```python
+class Perception:
+    def parse(self, raw_input): ...
+
+class Memory:
+    def store(self, event): ...
+    def retrieve(self, query): ...
+
+class Planner:
+    def generate_plan(self, goal, memory): ...
+
+class ToolExecutor:
+    def run(self, tool_name, args): ...
+```
+
+> 好处：Planner 逻辑变化（换规划算法）不会影响 Memory 或 ToolExecutor。
+
+
+
+---
+
 # 敏捷开发方法 (Agile Methodology)
 ### 针对科学研究与不确定性项目的轻量级管理
 
@@ -559,11 +630,11 @@ gantt
 Scrum 需要三类支撑：**可视化流程 / 迭代计划 / 缺陷追踪**
 
 | Scrum 要素 | GitHub 对应功能 |实现目标|
-|---|---|---｜
+|---|---|---|
 | Sprint Backlog 可视化 | **Projects (Kanban Board)** |可视化Sprint执行状态|
 | Sprint / 里程碑规划 | **Milestones + Team Planning** |支持Sprint计划与评审|
 | 缺陷与任务追踪 | **Issues (Bug Tracker)** |缺陷与任务统一入口|
-| 评审与沟通 | Pull Request + Discussions ||
+
 
 
 - GitHub **代码、任务、缺陷同源**，减少上下文切换
@@ -640,7 +711,7 @@ body:
 - PR 中 `Fixes #123` 语法自动关闭对应 Issue，形成闭环
 
 
-
+---
 
 # 第 2 周实践：软件功能规范书撰写
 ### Practice: Functional Specification & UML Domain Modeling
