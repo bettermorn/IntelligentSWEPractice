@@ -1009,7 +1009,7 @@ flowchart LR
 layout: two-cols
 ---
 
-# 3. Team Planning：迭代与里程碑
+# Team Planning：迭代与里程碑
 
 ::left::
 
@@ -1030,7 +1030,7 @@ layout: two-cols
 
 ---
 
-# 4. Bug Tracker：Issues 管理缺陷
+# Bug Tracker：Issues 管理缺陷
 
 **标准化流程：**
 
@@ -1055,6 +1055,9 @@ body:
 - Bug 卡片同样进入 Kanban 看板，与功能任务统一排期
 - PR 中 `Fixes #123` 语法自动关闭对应 Issue，形成闭环
 
+
+---
+class: text-sm
 ---
 
 # 软件功能规范书
@@ -1078,9 +1081,9 @@ body:
 说明：此模板非某一部标准文件的"官方模板"，是业界在 GB/T 8567 / IEEE 830（及其后继 ISO/IEC/IEEE 29148）基础上，结合 UML 建模规范和现代产品管理术语自行整合出的实用模板。
 
 
-----
+---
 class: text-sm
-----
+---
 
 # 第 2 周实践：软件功能规范书撰写
 ### Practice: Functional Specification & UML Domain Modeling
