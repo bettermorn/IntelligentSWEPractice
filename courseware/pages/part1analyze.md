@@ -462,7 +462,7 @@ FURPS 模型中，**F（功能性）对应功能需求**，其余 **URPS 四项�
 |---|---|---|
 | **U**sability 可用性 | 易学性、操作效率、用户满意度 | 自然语言交互是否自然流畅、新手上手成本 |
 | **R**eliability 可靠性 | 故障频率、可恢复性、准确性 | Agent 幻觉率、工具调用失败后能否自我纠错 |
-| **P**erformance 性能 | 响应时间、吞吐量、资源占用 | 首 token 延迟（TTFT）、并发会话吞吐量 |
+| **P**erformance 性能 | 响应时间、吞吐量、资源占用 | 首 token 延迟（TTFTTTFT，Time To First Token）、并发会话吞吐量 |
 | **S**upportability 支持性 | 可维护性、可配置性、可测试性、可扩展性 | 新增工具/插件的接入成本、日志可观测性 |
 
 > 相较功能需求（"Agent 能做什么"），URPS 回答的是 **"Agent 做得怎样、好不好维护"** 的问题。
@@ -482,7 +482,7 @@ layout: two-cols
 验收标准:
   - 新用户任务完成率 ≥ 90%（未经培训）
   - 平均交互轮次 ≤ 5 轮
-  - 用户主观满意度评分 ≥ 4/5（SUS 量表）
+  - 用户主观满意度评分 ≥ 4/5（SUS System Usability Scale量表）
 ```
 
 
@@ -754,6 +754,8 @@ class ToolExecutor:
 > 好处：Planner 逻辑变化（换规划算法）不会影响 Memory 或 ToolExecutor。
 
 ---
+class: text-sm
+---
 
 
 # 2️⃣ Open/Closed Principle（开闭原则）
@@ -789,6 +791,7 @@ class ToolRegistry:
 
 ---
 layout: two-cols
+class: text-sm
 ---
 
 # 3️⃣ Liskov Substitution Principle（里氏替换）
@@ -872,6 +875,7 @@ class RoboticAgent(IPerceivable, IPlannable, IMovable):
 
 ---
 layout: two-cols
+class: text-sm
 ---
 
 ::left::
@@ -893,7 +897,7 @@ class Agent:
 
 ✅ 依赖抽象接口，通过**依赖注入**解耦：
 
-```python{scale:0.7}
+```python{scale:0.6}
 class Agent:
     def __init__(self, llm: LLMClient, memory: IMemory, planner: IPlannable):
         self.llm = llm
@@ -1076,7 +1080,7 @@ class: text-sm
 3. Actor 与领域模型图 → 严格遵循 **OMG UML 2.x** 规范；
 4. "功能树"命名方式 → 借用了产品管理/敏捷实践中的功能拆解思维，并非任何正式标准条文。
 
-说明：此模板非某一部标准文件的"官方模板"，是业界在 GB/T 8567 / IEEE 830（及其后继 ISO/IEC/IEEE 29148）基础上，结合 UML 建模规范和现代产品管理术语自行整合出的实用模板。
+说明：此模板是业界在 GB/T 8567 / IEEE 830（及其后继 ISO/IEC/IEEE 29148）基础上，结合 UML建模规范和现代产品管理术语自行整合出的实用模板。
 
 
 ---
