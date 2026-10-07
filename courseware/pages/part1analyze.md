@@ -716,7 +716,7 @@ layout: two-cols
 
 # 1️⃣ Single Responsibility Principle（单一职责）
 
-**一个类/模块只负责一件事，只有一个引起变化的原因。**
+一个类/模块只负责一件事，只有一个引起变化的原因。
 
 ❌ 反例：一个 `Agent` 类同时做感知、规划、记忆、工具调用
 
@@ -728,6 +728,7 @@ class MonolithicAgent:
     def call_tool(self, name, args): ...
     def execute(self): ...
 ```
+
 
 ::right::
 
