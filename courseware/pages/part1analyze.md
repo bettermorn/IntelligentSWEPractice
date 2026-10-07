@@ -711,6 +711,9 @@ flowchart LR
 ---
 layout: two-cols
 ---
+
+::left::
+
 # 1️⃣ Single Responsibility Principle（单一职责）
 
 **一个类/模块只负责一件事，只有一个引起变化的原因。**
@@ -727,6 +730,7 @@ class MonolithicAgent:
 ```
 
 ::right::
+
 ✅ 拆分为职责单一的组件：
 
 ```python
@@ -748,6 +752,7 @@ class ToolExecutor:
 ---
 layout: two-cols
 ---
+
 # 2️⃣ Open/Closed Principle（开闭原则）
 
 **对扩展开放，对修改关闭** —— 新增工具/策略时无需改动已有代码。
@@ -817,9 +822,11 @@ def run_agent(llm: LLMClient, prompt: str):
 ---
 layout: two-cols
 ---
+
 # 4️⃣ Interface Segregation Principle（接口隔离）
 
 ::left::
+
 **不应强迫客户端依赖它不需要的接口** —— 拆分"胖接口"为多个小接口。
 
 ❌ 反例：一个臃肿的 `IAgentCapability` 接口
@@ -835,6 +842,7 @@ class IAgentCapability(ABC):
 
 
 ::right::
+
 ✅ 按能力拆分为细粒度接口：
 
 ```python
@@ -894,6 +902,7 @@ agent = Agent(
     planner=TreeOfThoughtPlanner(),
 )
 ```
+
 ::right::
 
 ```mermaid
@@ -909,7 +918,7 @@ flowchart TB
 > 更换 LLM 提供商或记忆存储方案时，**只需替换注入对象**，`Agent` 核心逻辑零改动。
 
 ---
-layout: two-cols
+layout
 ---
 
 # 敏捷开发方法 (Agile Methodology)
@@ -955,12 +964,12 @@ gantt
 
 Scrum 需要三类支撑：**可视化流程 / 迭代计划 / 缺陷追踪**
 
+
 | Scrum 要素 | GitHub 对应功能 |实现目标|
 |---|---|---|
 | Sprint Backlog 可视化 | **Projects (Kanban Board)** |可视化Sprint执行状态|
 | Sprint / 里程碑规划 | **Milestones + Team Planning** |支持Sprint计划与评审|
 | 缺陷与任务追踪 | **Issues (Bug Tracker)** |缺陷与任务统一入口|
-
 
 
 - GitHub **代码、任务、缺陷同源**，减少上下文切换
@@ -996,6 +1005,8 @@ layout: two-cols
 ---
 
 # 3. Team Planning：迭代与里程碑
+
+::left::
 
 **Sprint Planning 对应操作：**
 - 创建 **Milestone**（如 `Sprint-5`），设定起止日期
@@ -1039,13 +1050,12 @@ body:
 - Bug 卡片同样进入 Kanban 看板，与功能任务统一排期
 - PR 中 `Fixes #123` 语法自动关闭对应 Issue，形成闭环
 
-
 ---
 
 # 软件功能规范书
 
 
-| 模板部分 | 真正的标准/方法来源 |
+| 模板部分 | 标准/方法来源 |
 |---|---|
 | 系统角色 (Actor) | UML（OMG 标准）中用例图的"参与者"概念，源自面向对象分析设计方法 |
 | 功能树 + FR-x.y 编号 | IEEE 830 / 现行 ISO/IEC/IEEE 29148 关于"功能性需求"条目化编写的做法，以及产品管理中的 Feature-Driven 拆解思路 |
@@ -1060,7 +1070,7 @@ body:
 3. Actor 与领域模型图 → 严格遵循 **OMG UML 2.x** 规范；
 4. "功能树"命名方式 → 借用了产品管理/敏捷实践中的功能拆解思维，并非任何正式标准条文。
 
-此模板不是某一部标准文件的"官方模板"，而是业界在 GB/T 8567 / IEEE 830（及其后继 ISO/IEC/IEEE 29148）基础上，结合 UML 建模规范和现代产品管理术语自行整合出的实用模板。
+说明：此模板非某一部标准文件的"官方模板"，是业界在 GB/T 8567 / IEEE 830（及其后继 ISO/IEC/IEEE 29148）基础上，结合 UML 建模规范和现代产品管理术语自行整合出的实用模板。
 
 
 ----
