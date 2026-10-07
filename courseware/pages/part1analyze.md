@@ -709,50 +709,9 @@ flowchart LR
 
 > SOLID 原则最初用于面向对象设计，同样适用于指导 Agent 系统的模块化架构。
 
----
-layout: two-cols
----
-
-::left::
-
-# 1️⃣ Single Responsibility Principle（单一职责）
-
-一个类/模块只负责一件事，只有一个引起变化的原因。
-
-❌ 反例：一个 `Agent` 类同时做感知、规划、记忆、工具调用
-
-```python
-class MonolithicAgent:
-    def perceive(self, input): ...
-    def plan(self): ...
-    def remember(self, data): ...
-    def call_tool(self, name, args): ...
-    def execute(self): ...
-```
-
-
-::right::
-
-✅ 拆分为职责单一的组件：
-
-```python
-class Perception:
-    def parse(self, raw_input): ...
-
-class Memory:
-    def store(self, event): ...
-    def retrieve(self, query): ...
-
-class Planner:
-    def generate_plan(self, goal, memory): ...
-
-class ToolExecutor:
-    def run(self, tool_name, args): ...
-```
-> 好处：Planner 逻辑变化（换规划算法）不会影响 Memory 或 ToolExecutor。
 
 ---
-layout: two-cols
+layout
 ---
 
 # 2️⃣ Open/Closed Principle（开闭原则）
@@ -813,6 +772,8 @@ class LocalLlamaClient(LLMClient):
     def generate(self, prompt):
         return run_local_model(prompt)
 ```
+
+::right::
 
 ```python
 def run_agent(llm: LLMClient, prompt: str):
@@ -919,8 +880,6 @@ flowchart TB
 
 > 更换 LLM 提供商或记忆存储方案时，**只需替换注入对象**，`Agent` 核心逻辑零改动。
 
----
-layout
 ---
 
 # 敏捷开发方法 (Agile Methodology)
