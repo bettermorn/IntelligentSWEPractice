@@ -857,12 +857,11 @@ class RoboticAgent(IPerceivable, IPlannable, IMovable):
 > 对话型 Agent 不被迫实现 `move()`，机器人 Agent 不被迫实现无关的对话能力。
 
 
-
-
-
 ---
 layout: two-cols
 ---
+
+::left::
 
 # 5️⃣ Dependency Inversion Principle（依赖倒置）
 
@@ -876,11 +875,12 @@ class Agent:
         self.llm = OpenAIClient()        # 具体依赖
         self.memory = SQLiteMemory()      # 具体依赖
 ```
-::right::
+
+
 
 ✅ 依赖抽象接口，通过**依赖注入**解耦：
 
-```python
+```python{scale:0.7}
 class Agent:
     def __init__(self, llm: LLMClient, memory: IMemory, planner: IPlannable):
         self.llm = llm
@@ -894,6 +894,7 @@ agent = Agent(
     planner=TreeOfThoughtPlanner(),
 )
 ```
+::right::
 
 ```mermaid
 flowchart TB
@@ -911,8 +912,6 @@ flowchart TB
 layout: two-cols
 ---
 
-
----
 # 敏捷开发方法 (Agile Methodology)
 ### 针对科学研究与不确定性项目的轻量级管理
 
