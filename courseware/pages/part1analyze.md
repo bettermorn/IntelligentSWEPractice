@@ -762,7 +762,7 @@ class ToolExecutor:
 
 ✅ 用抽象基类 + 插件化工具注册实现：
 
-```python{scale: 0.6}
+```python{scale: 0.5}
 from abc import ABC, abstractmethod
 
 class Tool(ABC):
@@ -784,8 +784,7 @@ class ToolRegistry:
         return self._tools[name].run(args)
 ```
 
-> 新增 `WeatherTool`、`CodeExecTool` 只需实现 `Tool` 接口并注册，
-> **不需要修改 `ToolRegistry` 或 `Agent` 核心代码**。
+> 新增 `WeatherTool`、`CodeExecTool` 只需实现 `Tool` 接口并注册，**不需要修改 `ToolRegistry` 或 `Agent` 核心代码**。
 
 
 ---
@@ -963,6 +962,8 @@ gantt
 - 每隔一两周或者一个月，我们就可以看到实实在在的可以上线的产品。此时，就可以下一步的决定是继续完善功能实现更多需求或者直接发布了。
 
 ---
+class: text-sm
+---
 
 # 使用GitHub做Scrum
 
@@ -1078,10 +1079,12 @@ body:
 
 
 ----
+class: text-sm
+----
 
 # 第 2 周实践：软件功能规范书撰写
 ### Practice: Functional Specification & UML Domain Modeling
-本周各组必须在协作仓库中提交 `docs/requirements/functional_spec.md`。
+本周各组必须在协作仓库中提交 `docs/requirements/functional_spec.md`和`docs/requirements/nonfunctional_spec.md`。
 
 ```markdown
 # 软件系统功能规格说明书 (示例模板)
