@@ -670,6 +670,7 @@ classDiagram
         +int score
         +str session_id
     }
+```    
 
 三个类均为 `app/router_schemas.py` 中的 Pydantic 模型：`ChatRequest` / `ChatResponse` 用于 `/chat` 接口，`FeedbackRequest` 用于 `/feedback` 接口（`meta` 中携带回答的来源列表 `sources`）。
 
@@ -711,6 +712,48 @@ flowchart LR
 
 
 ---
+layout: two-cols
+---
+
+::left::
+
+# 1️⃣ Single Responsibility Principle（单一职责）
+
+一个类/模块只负责一件事，只有一个引起变化的原因。
+
+❌ 反例：一个 `Agent` 类同时做感知、规划、记忆、工具调用
+
+```python
+class MonolithicAgent:
+    def perceive(self, input): ...
+    def plan(self): ...
+    def remember(self, data): ...
+    def call_tool(self, name, args): ...
+    def execute(self): ...
+```
+
+
+::right::
+
+✅ 拆分为职责单一的组件：
+
+```python
+class Perception:
+    def parse(self, raw_input): ...
+
+class Memory:
+    def store(self, event): ...
+    def retrieve(self, query): ...
+
+class Planner:
+    def generate_plan(self, goal, memory): ...
+
+class ToolExecutor:
+    def run(self, tool_name, args): ...
+```
+> 好处：Planner 逻辑变化（换规划算法）不会影响 Memory 或 ToolExecutor。
+
+---
 
 
 # 2️⃣ Open/Closed Principle（开闭原则）
@@ -743,6 +786,7 @@ class ToolRegistry:
 
 > 新增 `WeatherTool`、`CodeExecTool` 只需实现 `Tool` 接口并注册，
 > **不需要修改 `ToolRegistry` 或 `Agent` 核心代码**。
+
 
 ---
 layout: two-cols
