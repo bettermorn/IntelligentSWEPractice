@@ -471,10 +471,10 @@ FURPS 模型中，**F（功能性）对应功能需求**，其余 **URPS 四项�
 layout: two-cols
 ---
 
-# 示例一：Usability 与 Reliability
 
 ::left::
-### 🧑‍💻 Usability（可用性）需求示例
+
+##  Usability（可用性）需求示例
 
 ```text
 需求ID: NFR-U-01
@@ -485,7 +485,10 @@ layout: two-cols
   - 用户主观满意度评分 ≥ 4/5（SUS 量表）
 ```
 
-### 🔁 Reliability（可靠性）需求示例
+
+::right::
+
+## Reliability（可靠性）需求示例
 
 ```text
 需求ID: NFR-R-01
@@ -496,16 +499,16 @@ layout: two-cols
   - 幻觉（hallucination）导致的事实性错误率 ≤ 5%
 ```
 
-> 对比传统软件：Agent 的可靠性不仅指系统不崩溃，还包括**输出内容的事实正确性与行为一致性**。
+> Agent 的可靠性不仅指系统不崩溃，还包括**输出内容的事实正确性与行为一致性**。
 
 ---
 layout: two-cols
 ---
 
-# 示例二：Performance 与 Supportability
 
 ::left::
-### ⚡ Performance（性能）需求示例
+
+## ⚡ Performance（性能）需求示例
 
 ```text
 需求ID: NFR-P-01
@@ -516,9 +519,11 @@ layout: two-cols
   - 支持并发会话数 ≥ 1000，P99 延迟不超过均值 2 倍
   - GPU 显存占用 ≤ 24GB（单实例推理）
 ```
+
+
 ::right::
 
-### 🛠️ Supportability（支持性）需求示例
+## 🛠️ Supportability（支持性）需求示例
 
 ```text
 需求ID: NFR-S-01
@@ -530,7 +535,7 @@ layout: two-cols
   - 单元测试覆盖率 ≥ 80%
 ```
 
-> 💡 Supportability 直接决定 Agent 系统的**长期演进成本**，是工程化落地中常被低估的维度。
+💡 Supportability 直接决定 Agent 系统的**长期演进成本**，是工程化落地中常被低估的维度。
 
 
 
