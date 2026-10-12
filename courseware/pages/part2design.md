@@ -28,7 +28,7 @@ layout: two-cols
 - 使用 AI 工具及原型设计工具设计软件作品原型
 - 调研技术方案
 
-📋 检查：确认软件作品原型设计
+📋 检查：确认软件作品原型设计(docs/software/prototype)
 
 ---
 
@@ -259,8 +259,8 @@ export const SimulationViewport: React.FC = () => {
 
 2. **原型展示**：提交利用 AI (如 v0.dev / Figma) 生成的交互式原型页面，上台 Demo 交互流程。
 
-3. **技术方案调研报告 (docs/architecture/tech_stack.md)**：
-   * 论证核心技术选型。例如：为什么选用 WebAssembly 还是 C++ 原生运行？
+3. **技术方案调研报告 (docs/software/architecture.md)**：
+   * 论证核心技术选型。
    * 列出团队在未来 2 周内需要学习的新技术（制定自学计划与 Milestone）。
 
 
@@ -275,6 +275,67 @@ export const SimulationViewport: React.FC = () => {
 
 
 
+
+---
+
+# AI Agent技术选型需要思考的问题1-2
+
+## 1. 编排框架（Orchestration Framework）
+- 为什么选用 LangGraph，而不是 LangChain Agent / CrewAI / AutoGen？
+- 是否需要支持多 Agent 协作？单 Agent 场景是否也需要图式编排？
+- 是否需要显式的状态机（State Machine）来管理复杂的多步骤任务？
+- 框架是否支持人工介入（Human-in-the-loop）和中断恢复（Checkpoint/Resume）？
+- 框架的可观测性（Tracing/Debug）能力如何，是否便于排查问题？
+
+## 2. 大模型选型（LLM Provider）
+- 为什么选用 Claude / GPT / 国产模型（如通义、文心、DeepSeek）？
+- 是否需要支持多模型切换（Model Router）以平衡成本与效果？
+- 模型的上下文窗口长度是否满足业务需求？
+- 是否需要本地部署/私有化模型以满足数据合规要求？
+- 模型的 Function Calling / Tool Use 能力是否成熟稳定？
+---
+
+# AI Agent技术选型需要思考的问题3-4
+
+## 3. 记忆与上下文管理（Memory）
+- 短期记忆（对话上下文）与长期记忆（用户画像、历史知识）如何分离存储？
+- 为什么选用向量数据库（如 Milvus / Pinecone / Weaviate）而不是传统 KV 存储？
+- 是否需要摘要压缩（Summarization）来控制上下文长度？
+- 记忆的更新/遗忘机制如何设计（防止信息过期或污染）？
+
+## 4. 工具调用与集成（Tool / Function Calling）
+- 工具接口是否遵循统一的 Schema 标准（如 OpenAPI / MCP）？
+- 为什么选用 MCP（Model Context Protocol）而不是自定义工具协议？
+- 工具调用失败时的重试与降级策略是什么？
+- 是否需要工具调用的权限隔离与审计日志？
+  
+---
+
+# AI Agent技术选型需要思考的问题5-6
+## 5. 检索增强（RAG）
+- 为什么选用某种向量检索方案而不是纯关键词检索（BM25）？
+- 是否需要混合检索（Hybrid Search：向量 + 关键词）？
+- 文档切分（Chunking）策略如何选择（固定长度 vs 语义切分）？
+- 检索结果的重排序（Rerank）是否必要？
+
+## 6. 部署与运行时（Deployment / Runtime）
+- Agent 是同步阻塞执行还是异步/流式（Streaming）执行？
+- 是否需要容器化部署（Docker/K8s）以支持弹性扩缩容？
+- 单实例 vs 多实例并发下，Agent 的状态如何持久化共享？
+- 是否需要本地沙箱（Sandbox）隔离代码执行类工具的风险？
+
+---
+
+# AI Agent技术选型需要思考的问题7-8
+## 7. 成本与性能（Cost / Performance）
+- 预估的 Token 消耗量和调用频次是多少？是否在预算范围内？
+- 是否需要缓存（Prompt Caching / 结果缓存）来降低成本？
+- 延迟要求（P95/P99）是多少，所选方案能否满足？
+
+## 8. 安全与合规（Security / Compliance）
+- Agent 是否有权限访问敏感数据/执行高风险操作？如何做权限边界控制？
+- 是否需要输出内容审核（Content Moderation）？
+- 用户数据是否需要本地化存储以满足合规要求？
 
 ---
 
@@ -723,9 +784,11 @@ layout: two-cols
 
 # 第5周：实践
 
-- 制定项目管理的沟通管理计划和风险管理计划
+- 制定项目管理的沟通管理计划和风险管理计划 (docs/mgmt/communication_mgmt_plan.md 和 docs/mgmt/risk_mgmt_plan.md)
 
-🎤 汇报：智能软件工程文献阅读
+🎤 汇报：智能软件工程文献阅读 (docs/algorithm/research.md)
+
+
 
 
 ---
@@ -817,7 +880,7 @@ layout: two-cols
 - 参考[技术参考](https://github.com/bettermorn/IntelligentSWEPractice/wiki/%E6%8A%80%E6%9C%AF%E5%8F%82%E8%80%83), 确认技术方案（语言、平台、框架、架构图；数据分析技术、人工智能算法模型、区块链、虚拟现实技术等）
 - 规划新技术学习
 
-📋 检查：确认软件作品原型设计
+📋 检查：最终系统设计技术方案 docs/software/architecture.md
 
 ---
 
@@ -1232,5 +1295,5 @@ layout: two-cols
 6. 设计安全与合规
 7. 规划新技术学习
 
-🎤 本周汇报：系统设计技术方案
+🎤 本周工作：系统设计技术方案 （docs/software/architecture.md）
 
