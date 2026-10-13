@@ -166,6 +166,8 @@ class: text-sm
 
 # 案例：客服智能体用户故事地图
 
+::left::
+
 ```mermaid{scale:0.4}
 flowchart TB
 
@@ -218,6 +220,7 @@ S4_1 --> S4_2
 S1_1 --> S1_2
 S5_1 --> S5_2
 ```
+::right::
 
 ## 说明
 
