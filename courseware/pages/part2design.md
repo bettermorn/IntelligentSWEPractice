@@ -401,7 +401,7 @@ export const SimulationViewport: React.FC = () => {
 ## 理论
 ### AI 与软件工程的相互影响
 
-🎤 汇报：智能软件工程文献阅读
+🎤 汇报：智能软件工程文献阅读(docs/algorithm/research.md)
 
 ---
 
@@ -774,8 +774,9 @@ flowchart LR
 - SE for AI:  AI/ML 系统测试类,MLOps 与工程实践类,AI系统可解释性与可靠性类,大模型工程化类,AI系统安全与合规类,需求与架构方法论类
 - AI 时代软件工程师的职业发展研究
 
+阅读研究提交到 docs/algorithm/research.md
 
-🎤 **汇报要求**：2-3 分钟概述文献核心内容；结合你们自己的项目，说明从中获得的启发；指出该研究的局限性
+🎤 **汇报要求**：2-3 分钟概述文献核心内容；结合自己的项目，说明从中获得的启发；指出该研究的局限性.
 
 ---
 layout: two-cols
