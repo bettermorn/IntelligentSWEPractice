@@ -96,6 +96,9 @@ layout: two-cols
     And 系统状态栏应显示 "导入成功，包含 1420 个面"
 ```
 
+参考案例：[客服智能体用户故事与验收标准](https://github.com/bettermorn/AIAgent/blob/main/docs/CSAgent_UserStory_AcceptanceCriteria.md)
+
+
 ---
 class: text-sm
 ---
