@@ -158,6 +158,7 @@ class: text-sm
 
 # 案例：一个云服务平台用户故事地图
 
+按业务流程（横轴）与商业价值分批（纵轴）绘制。
 
 ![用户故事地图](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/courseware/pages/imgs/UserStoryMap.png)
 
@@ -165,9 +166,7 @@ class: text-sm
 
 # 案例：客服智能体用户故事地图
 
-按业务流程（横轴）与商业价值分批（纵轴）绘制。
-
-```mermaid{scale:0.5}
+```mermaid{scale:0.4}
 flowchart TB
 classDef epic fill:#CECBF6,stroke:#534AB7,color:#26215C,font-weight:bold;
 classDef mvp fill:#9FE1CB,stroke:#0F6E56,color:#04342C;
