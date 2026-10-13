@@ -120,130 +120,6 @@ class: text-sm
 
 ---
 
-# 示例代码：一个简易的三维渲染原型组件 (React)
-### Example Code: Prototype Component for Three.js Viewport
-
-```tsx{scale: 0.4}
-// src/components/SimulationViewport.tsx
-import React, { useState } from 'react';
-
-type SimulationParams = {
-  density: number;
-  viscosity: number;
-};
-
-export const SimulationViewport: React.FC = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [params, setParams] = useState({
-    density: 1.2,
-    viscosity: 0.01,
-  });
-
-  const updateParam = (
-    key: keyof SimulationParams,
-    value: number,
-  ) => {
-    setParams((current) => ({
-      ...current,
-      [key]: value,
-    }));
-  };
-
-  return (
-    
-
-      
-
-        
-
-          
-
-            3D Simulation Space
-          
-
-
-                      className={
-              isPlaying
-                ? 'text-emerald-400'
-                : 'text-slate-400'
-            }
-          >
-            {isPlaying
-              ? 'Status: Solving Navier–Stokes...'
-              : 'Status: Idle'}
-          
-        
-
-
-        
-
-          
-            Three.js / WebGPU Viewport
-          
-        
-
-      
-
-
-      
-
-        
-
-          Control Panel
-        
-
-
-        
-          Density: {params.density.toFixed(2)}
-        
-
-                  type="range"
-          min="0.1"
-          max="5"
-          step="0.1"
-          value={params.density}
-          onChange={(event) =>
-            updateParam(
-              'density',
-              Number.parseFloat(event.target.value),
-            )
-          }
-          className="mb-4 w-full"
-        />
-
-        
-          Viscosity: {params.viscosity.toFixed(3)}
-        
-
-                  type="range"
-          min="0"
-          max="1"
-          step="0.001"
-          value={params.viscosity}
-          onChange={(event) =>
-            updateParam(
-              'viscosity',
-              Number.parseFloat(event.target.value),
-            )
-          }
-          className="mb-6 w-full"
-        />
-
-                  type="button"
-          onClick={() => setIsPlaying((current) => !current)}
-          className={`w-full rounded py-2 font-semibold text-white ${
-            isPlaying
-              ? 'bg-rose-600 hover:bg-rose-500'
-              : 'bg-emerald-600 hover:bg-emerald-500'
-          }`}
-        >
-          {isPlaying
-            ? 'Pause Simulation'
-            : 'Run Simulation'}
-  );
-};
-```
----
 
 # 第 3 周实践：用户故事地图与技术方案调研
 ### Practice: User Story Mapping & Tech Stack Investigation
@@ -266,81 +142,79 @@ export const SimulationViewport: React.FC = () => {
 
 ---
 
-# 案例：一个云平台用户故事地图
+# MVP：最小可用产品
+
+**用最少的功能，让用户完成核心任务，并验证产品是否有价值。**
+
+以 Helpdesk AI 为例：
+
+- 用户提问，AI 回答常见问题
+- 无法解决时，用户可以创建工单
+- 用户评分，团队收集反馈
+
+**先验证“能否解决问题”，再增加投诉分级、数据看板等功能。**
+
+---
+
+# 案例：一个云服务平台用户故事地图
 
 
 ![用户故事地图](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/courseware/pages/imgs/UserStoryMap.png)
-
-
-
 
 ---
 
 # 案例：客服智能体用户故事地图
 
-**阅读方式：**从左到右是用户旅程；每列从上到下依次为业务活动、**MVP（现有能力）**、**增强版（建议）**、**增长版（建议）**。同一行的故事构成一个交付切片。
+按业务流程（横轴）与商业价值分批（纵轴）绘制。
 
-```mermaid{scale:0.7}
-flowchart LR
-    subgraph S1["① 进入服务"]
-        direction TB
-        H1["业务活动：发起咨询"]
-        M1["MVP｜打开 Web 聊天页<br/>输入问题或使用快捷提问"]
-        E1["增强｜优化移动端入口<br/>完善常见问题引导"]
-        G1["增长｜按用户场景推荐入口"]
-        H1 --> M1 --> E1 --> G1
-    end
-
-    subgraph S2["② 理解问题"]
-        direction TB
-        H2["业务活动：识别意图与上下文"]
-        M2["MVP｜识别 FAQ、工单、投诉、闲聊<br/>结合会话 ID 进行多轮对话"]
-        E2["增强｜意图不明确时追问<br/>提升上下文连续性"]
-        G2["增长｜识别高风险或紧急问题"]
-        H2 --> M2 --> E2 --> G2
-    end
-
-    subgraph S3["③ 获取答案"]
-        direction TB
-        H3["业务活动：自助解决"]
-        M3["MVP｜检索知识库并回答 FAQ<br/>未命中时说明无法确认"]
-        E3["增强｜明确展示答案依据<br/>提示继续提问或创建工单"]
-        G3["增长｜识别知识缺口<br/>推动知识库更新"]
-        H3 --> M3 --> E3 --> G3
-    end
-
-    subgraph S4["④ 升级处理"]
-        direction TB
-        H4["业务活动：提交待处理问题"]
-        M4["MVP｜按用户请求创建工单<br/>展示工单号及初始状态"]
-        E4["增强｜为无答案问题提供便捷转工单<br/>补充必要的问题信息"]
-        G4["增长｜投诉分级、自动分派<br/>工单进度查询与通知"]
-        H4 --> M4 --> E4 --> G4
-    end
-
-    subgraph S5["⑤ 评价服务"]
-        direction TB
-        H5["业务活动：反馈体验"]
-        M5["MVP｜对回复进行 1—5 星评分<br/>提交文字评论"]
-        E5["增强｜收集未解决原因<br/>区分答案与处理体验"]
-        G5["增长｜按反馈闭环优化<br/>评估满意度变化"]
-        H5 --> M5 --> E5 --> G5
-    end
-
-    H1 --> H2 --> H3 --> H4 --> H5
-
-    classDef header fill:#E7F0FF,stroke:#3973B9,color:#123A63;
-    classDef mvp fill:#E5F5E9,stroke:#378A50,color:#184E2A;
-    classDef enhance fill:#FFF3D9,stroke:#C58A19,color:#6B4700;
-    classDef growth fill:#F3E9FA,stroke:#9565B5,color:#4B2467;
-
-    class H1,H2,H3,H4,H5 header;
-    class M1,M2,M3,M4,M5 mvp;
-    class E1,E2,E3,E4,E5 enhance;
-    class G1,G2,G3,G4,G5 growth;
+```mermaid{scale:0.5}
+flowchart TB
+classDef epic fill:#CECBF6,stroke:#534AB7,color:#26215C,font-weight:bold;
+classDef mvp fill:#9FE1CB,stroke:#0F6E56,color:#04342C;
+classDef r2 fill:#B5D4F4,stroke:#185FA5,color:#042C53;
+classDef r3 fill:#F5C4B3,stroke:#993C1D,color:#4A1B0C;
+subgraph Backbone["业务流程（用户旅程主干）"]
+direction LR
+E1(["① 发起会话"]):::epic --> E2(["② 提出诉求"]):::epic --> E3(["③ 获得响应"]):::epic --> E4(["④ 工单跟踪"]):::epic --> E5(["⑤ 反馈评价"]):::epic
+end
+subgraph R1["Release 1 · 核心闭环（必须价值）"]
+direction LR
+S1_1["创建会话<br/>填写session_id/user_id"]:::mvp
+S2_1["描述问题<br/>自动识别意图"]:::mvp
+S3_1["知识库命中<br/>返回带引用的答案"]:::mvp
+S4_1["自动创建工单<br/>返回工单号/状态"]:::mvp
+S5_1["星级评分+评论<br/>提交反馈"]:::mvp
+end
+subgraph R2plus["Release 2 · 体验与覆盖面（重要价值）"]
+direction LR
+S2_2["多轮记忆<br/>无需重复背景信息"]:::r2
+S3_2["知识库未命中<br/>降级提示并转人工"]:::r2
+S3_3["识别投诉情绪<br/>安抚式回应"]:::r2
+S4_2["同会话补充信息<br/>更新已有工单"]:::r2
+end
+subgraph R3plus["Release 3 · 效率与易用性（增值）"]
+direction LR
+S1_2["快捷问题<br/>一键发起提问"]:::r3
+S5_2["响应式布局<br/>移动端随时评价"]:::r3
+end
+E1 --> S1_1
+E2 --> S2_1
+E3 --> S3_1
+E4 --> S4_1
+E5 --> S5_1
+S2_1 --> S2_2
+S3_1 --> S3_2 --> S3_3
+S4_1 --> S4_2
+S1_1 --> S1_2
+S5_1 --> S5_2
 ```
 
-> **业务分支说明：**“获取答案”与“升级处理”不一定依次发生。普通咨询优先走 FAQ 自助解决；用户明确要求创建工单时可直接进入工单分支；FAQ 未命中时，附件中的示例是**建议转工单或联系支持部门**，并非自动创建工单。
+## 说明
+
+- **业务流程主干**：发起会话 → 提出诉求 → 获得响应 → 工单跟踪 → 反馈评价，对应 README 中 `/chat`、`/feedback` 接口及会话管理能力。
+- **Release 1（核心闭环，必须价值）**：创建会话、意图识别、知识库命中答案、自动建单、提交评分，构成最小可用闭环。
+- **Release 2（体验与覆盖面，重要价值）**：多轮记忆、知识库未命中降级、投诉情绪识别、工单追加更新。
+- **Release 3（效率与易用性，增值）**：快捷提问、移动端响应式布局。
 
 ---
 
