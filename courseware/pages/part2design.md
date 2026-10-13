@@ -168,39 +168,50 @@ class: text-sm
 
 ```mermaid{scale:0.4}
 flowchart TB
+
 classDef epic fill:#CECBF6,stroke:#534AB7,color:#26215C,font-weight:bold;
 classDef mvp fill:#9FE1CB,stroke:#0F6E56,color:#04342C;
 classDef r2 fill:#B5D4F4,stroke:#185FA5,color:#042C53;
 classDef r3 fill:#F5C4B3,stroke:#993C1D,color:#4A1B0C;
+
 subgraph Backbone["业务流程（用户旅程主干）"]
-direction LR
-E1(["① 发起会话"]):::epic --> E2(["② 提出诉求"]):::epic --> E3(["③ 获得响应"]):::epic --> E4(["④ 工单跟踪"]):::epic --> E5(["⑤ 反馈评价"]):::epic
+    direction LR
+    E1(["① 发起会话"]):::epic
+    --> E2(["② 提出诉求"]):::epic
+    --> E3(["③ 获得响应"]):::epic
+    --> E4(["④ 工单跟踪"]):::epic
+    --> E5(["⑤ 反馈评价"]):::epic
 end
+
 subgraph R1["Release 1 · 核心闭环（必须价值）"]
-direction LR
-S1_1["创建会话<br/>填写session_id/user_id"]:::mvp
-S2_1["描述问题<br/>自动识别意图"]:::mvp
-S3_1["知识库命中<br/>返回带引用的答案"]:::mvp
-S4_1["自动创建工单<br/>返回工单号/状态"]:::mvp
-S5_1["星级评分+评论<br/>提交反馈"]:::mvp
+    direction LR
+    S1_1["创建会话<br/>填写 session_id / user_id"]:::mvp
+    S2_1["描述问题<br/>自动识别意图"]:::mvp
+    S3_1["知识库命中<br/>返回带引用的答案"]:::mvp
+    S4_1["自动创建工单<br/>返回工单号 / 状态"]:::mvp
+    S5_1["星级评分 + 评论<br/>提交反馈"]:::mvp
 end
+
 subgraph R2plus["Release 2 · 体验与覆盖面（重要价值）"]
-direction LR
-S2_2["多轮记忆<br/>无需重复背景信息"]:::r2
-S3_2["知识库未命中<br/>降级提示并转人工"]:::r2
-S3_3["识别投诉情绪<br/>安抚式回应"]:::r2
-S4_2["同会话补充信息<br/>更新已有工单"]:::r2
+    direction LR
+    S2_2["多轮记忆<br/>无需重复背景信息"]:::r2
+    S3_2["知识库未命中<br/>降级提示并转人工"]:::r2
+    S3_3["识别投诉情绪<br/>安抚式回应"]:::r2
+    S4_2["同会话补充信息<br/>更新已有工单"]:::r2
 end
+
 subgraph R3plus["Release 3 · 效率与易用性（增值）"]
-direction LR
-S1_2["快捷问题<br/>一键发起提问"]:::r3
-S5_2["响应式布局<br/>移动端随时评价"]:::r3
+    direction LR
+    S1_2["快捷问题<br/>一键发起提问"]:::r3
+    S5_2["响应式布局<br/>移动端随时评价"]:::r3
 end
+
 E1 --> S1_1
 E2 --> S2_1
 E3 --> S3_1
 E4 --> S4_1
 E5 --> S5_1
+
 S2_1 --> S2_2
 S3_1 --> S3_2 --> S3_3
 S4_1 --> S4_2
