@@ -240,11 +240,6 @@ export const SimulationViewport: React.FC = () => {
           {isPlaying
             ? 'Pause Simulation'
             : 'Run Simulation'}
-        
-      
-
-    
-
   );
 };
 ```
@@ -271,13 +266,81 @@ export const SimulationViewport: React.FC = () => {
 
 ---
 
-# 用户故事地图
+# 案例：一个云平台用户故事地图
 
 
 ![用户故事地图](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/courseware/pages/imgs/UserStoryMap.png)
 
 
 
+
+---
+
+# 案例：客服智能体用户故事地图
+
+**阅读方式：**从左到右是用户旅程；每列从上到下依次为业务活动、**MVP（现有能力）**、**增强版（建议）**、**增长版（建议）**。同一行的故事构成一个交付切片。
+
+```mermaid{scale:0.7}
+flowchart LR
+    subgraph S1["① 进入服务"]
+        direction TB
+        H1["业务活动：发起咨询"]
+        M1["MVP｜打开 Web 聊天页<br/>输入问题或使用快捷提问"]
+        E1["增强｜优化移动端入口<br/>完善常见问题引导"]
+        G1["增长｜按用户场景推荐入口"]
+        H1 --> M1 --> E1 --> G1
+    end
+
+    subgraph S2["② 理解问题"]
+        direction TB
+        H2["业务活动：识别意图与上下文"]
+        M2["MVP｜识别 FAQ、工单、投诉、闲聊<br/>结合会话 ID 进行多轮对话"]
+        E2["增强｜意图不明确时追问<br/>提升上下文连续性"]
+        G2["增长｜识别高风险或紧急问题"]
+        H2 --> M2 --> E2 --> G2
+    end
+
+    subgraph S3["③ 获取答案"]
+        direction TB
+        H3["业务活动：自助解决"]
+        M3["MVP｜检索知识库并回答 FAQ<br/>未命中时说明无法确认"]
+        E3["增强｜明确展示答案依据<br/>提示继续提问或创建工单"]
+        G3["增长｜识别知识缺口<br/>推动知识库更新"]
+        H3 --> M3 --> E3 --> G3
+    end
+
+    subgraph S4["④ 升级处理"]
+        direction TB
+        H4["业务活动：提交待处理问题"]
+        M4["MVP｜按用户请求创建工单<br/>展示工单号及初始状态"]
+        E4["增强｜为无答案问题提供便捷转工单<br/>补充必要的问题信息"]
+        G4["增长｜投诉分级、自动分派<br/>工单进度查询与通知"]
+        H4 --> M4 --> E4 --> G4
+    end
+
+    subgraph S5["⑤ 评价服务"]
+        direction TB
+        H5["业务活动：反馈体验"]
+        M5["MVP｜对回复进行 1—5 星评分<br/>提交文字评论"]
+        E5["增强｜收集未解决原因<br/>区分答案与处理体验"]
+        G5["增长｜按反馈闭环优化<br/>评估满意度变化"]
+        H5 --> M5 --> E5 --> G5
+    end
+
+    H1 --> H2 --> H3 --> H4 --> H5
+
+    classDef header fill:#E7F0FF,stroke:#3973B9,color:#123A63;
+    classDef mvp fill:#E5F5E9,stroke:#378A50,color:#184E2A;
+    classDef enhance fill:#FFF3D9,stroke:#C58A19,color:#6B4700;
+    classDef growth fill:#F3E9FA,stroke:#9565B5,color:#4B2467;
+
+    class H1,H2,H3,H4,H5 header;
+    class M1,M2,M3,M4,M5 mvp;
+    class E1,E2,E3,E4,E5 enhance;
+    class G1,G2,G3,G4,G5 growth;
+```
+
+> **业务分支说明：**“获取答案”与“升级处理”不一定依次发生。普通咨询优先走 FAQ 自助解决；用户明确要求创建工单时可直接进入工单分支；FAQ 未命中时，附件中的示例是**建议转工单或联系支持部门**，并非自动创建工单。
 
 ---
 
