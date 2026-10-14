@@ -523,20 +523,23 @@ class: text-sm
 class: text-sm
 ---
 
-#  中文主流 AI 编码工具补充说明
+# 中文主流 AI 编码工具补充说明
+> 根据公共信息核实　时间：2026-10-14
 
-- **格局已从“三类”演化为“三层”**：
-  1. **一体化 Agent / AI IDE 平台**（主力战场）：CodeBuddy、TRAE、Qoder CN、文心快码、华为 CodeArts Snap；
-  2. **IDE 插件 / 行内补全类**（与 GitHub Copilot 同类）：iFlyCode、CodeFuse 插件、CodeGeeX 插件；
-  3. **开源模型底座**（可自部署 / 可 API 调用）：DeepSeek-V4、GLM-5、Kimi K2.6、CodeGeeX4-ALL-9B、CodeFuse。
-- **2026 年三条主线**：
-  - **Agent 化**：补全 → 多文件改写 → 全流程自主执行（Plan 模式、Subagent、Skills、MCP/ACP 协议成为标配）；
-  - **平台收编**：百度文心快码并入「百度搭子」、字节 TRAE 并入豆包体系、阿里整合为 Qoder CN 系列、腾讯 CodeBuddy 与 WorkBuddy 同账号同积分——独立小工具正在被大平台吸收；
-  - **开源追平闭源**：DeepSeek-V4-Pro 在 Agentic Coding 评测中达到开源最佳，GLM-5 在 SWE-bench Verified 达 77.8%，Kimi K2.6 在 SWE-Bench Pro 等评测中比肩 GPT-5.4 / Opus 4.6 一档——自部署方案已具备生产可用性。
-- **CodeGeeX、DeepSeek 属于开源代码大模型**，可自部署或通过 API 调用；如今这条路线的主角已从“专用代码模型”转移为“通用旗舰模型的编程能力”（DeepSeek-V4、GLM-5、Kimi K2.6），CodeGeeX4 仍以轻量、完全开源、数据不出厂见长。
-- **CodeFuse** 更偏企业级与金融场景，强调代码知识库检索、静态分析与内部研发效能；同时也是国内重要的开源代码大模型贡献者。
-- **CodeBuddy** 是国产工具中少见的**三端形态全覆盖**产品（插件 / 独立 IDE / CLI），已从“IDE 补全助手”演进为“覆盖设计→编码→后端→部署”的全流程 Agent 平台；与腾讯办公智能体 **WorkBuddy** 同属一套账号与积分体系，但定位严格区分：CodeBuddy 负责编码，WorkBuddy 负责通用办公。
-- **中文语境与国产化合规**成为本土差异化焦点：中文注释/需求描述转代码体验更佳，并普遍提供信创适配、等保三级、国密加密、私有化/纯离线内网部署（尤以华为 CodeArts Snap、文心快码私有化版、CodeBuddy 企业版、CodeFuse 金融版为代表）。
+**格局：由「三类」演化为「三层」**
+- ① **一体化 Agent / AI IDE 平台**（主战场）：CodeBuddy、TRAE、Qoder CN、文心快码、CodeArts Snap
+- ② **IDE 插件 / 行内补全**（类 Copilot）：iFlyCode、CodeFuse、CodeGeeX
+- ③ **开源模型底座**（可自部署 / API）：DeepSeek-V4、GLM-5、Kimi K2.6、CodeGeeX4
+
+**2026 三条主线**
+- **Agent 化**：补全 → 多文件改写 → 全流程自主执行（Plan / Subagent / Skills / MCP·ACP 成标配）
+- **平台收编**：文心快码→百度搭子、TRAE→豆包、通义灵码→Qoder CN、CodeBuddy 与 WorkBuddy 同账号同积分
+- **开源追平闭源**：DeepSeek-V4-Pro 开源 Agentic Coding 最佳、GLM-5 SWE-bench Verified 77.8%、Kimi K2.6 比肩 GPT-5.4 / Opus 4.6
+
+**三个记忆点**
+- **CodeBuddy**：国产少见的**插件 / IDE / CLI 三端全覆盖**，已演进为「设计→编码→后端→部署」全流程 Agent 平台；与 WorkBuddy 同账号同积分（CodeBuddy 编码、WorkBuddy 办公）
+- **CodeFuse**：偏企业级与金融，重代码知识库检索、静态分析与私有化，亦为开源主力贡献者
+- **本土差异**：中文注释 / 需求转代码体验更佳 + 信创适配、等保三级、国密加密、私有化 / 纯离线内网
 
 
 ---
