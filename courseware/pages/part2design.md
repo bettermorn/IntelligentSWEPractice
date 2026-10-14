@@ -14,11 +14,11 @@ layout: two-cols
 
 # 第3周：理论
 
-- 智能软件工程的研究与实践
-- 什么是智能软件工程 (Smart Software Engineering / AI4SE)？
+- 智能软件工程的研究与实践（AI for SE，SE for AI）
+- 什么是智能软件工程 ( Intelligent Software Engineering / AI4SE)？
 - 大语言模型 (LLM) 在需求、代码生成与重构中的应用
 - 如何编写符合 INVEST 原则的用户故事 (User Stories)
-- **实践指南**：利用 AI 辅助设计（v0.dev / Figma / React）构建高保真原型
+- **实践指南**：利用 AI 辅助设计构建高保真原型
 
 ::right::
 
