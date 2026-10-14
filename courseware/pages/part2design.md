@@ -492,33 +492,30 @@ class: text-sm
 ---
 
 # 中文主流 AI 编码工具一览
-
-> 根据公共信息核实 时间：2026-10-14
+> 根据公共信息核实　时间：2026-10-14
 
 | 工具（最新名称） | 定位 | 典型能力 |
 |---|---|---|
-| **Qoder CN（原通义灵码 / Lingma）** | 阿里云 AI 智能体产品系列（编码为主） | 2026-05-20 由“通义灵码”正式更名。含 Qoder CN IDE、JetBrains/VS Code 插件、Qoder CN CLI、QoderWork CN 等子产品；代码补全、Ask/Edit/Agent 三模式、Quest 2.0 任务规划、Subagent、专家团、Repowiki、MCP 工具配置；模型选择器支持 GLM / DeepSeek / Kimi / MiniMax |
-| **CodeGeeX（智谱 Z.ai）** | 开源代码大模型 + IDE 插件 | CodeGeeX4-ALL-9B（90 亿参数、128K 上下文，少数支持 Function Call 的开源代码模型）；多语言补全与生成、代码库问答、NL2SQL、本地/内网私有化部署；智谱开源旗舰已迭代至 GLM-5（2026-02）与 GLM-4.7 |
-| **文心快码（Baidu Comate）** | 插件 + 独立 AI IDE（已并入百度搭子） | 智能补全（含超级补全与行内命令）、多智能体自协同、SPEC 规范驱动（Plan→Architect→执行，降低幻觉）、Figma 转前端代码、知识增强（RAG）、MCP；**2026-09-07 并入百度通用智能体平台“百度搭子”，由独立产品转为平台能力模块** |
-| **DeepSeek-V4（Pro / Flash）** | 开源旗舰大模型（编程底座） | V4-Pro 1.6T 总参 / 49B 激活，Agentic Coding 达当前开源最佳（体验优于 Sonnet 4.5）；V4-Flash 284B / 13B 激活主打快而省；全线标配 1M 上下文并开源权重，已被 CodeBuddy、Claude Code 等官方适配（**原 DeepSeek Coder / V3 已由 V4 系列接替**，旧 chat/reasoner 接口 2026-07-24 起停用） |
-| **TRAE（原 MarsCode，字节跳动）** | AI Development 平台（IDE + 插件 + CLI） | **2026-10-09 TraeWork 与 TraeCode 合并统一更名为 TRAE**，定位从“AI Coding 工具”升级为“AI Development 平台”；Agent 模式与 IDE 模式无缝切换、SOLO 端到端开发、设计稿转代码、多模态编程；国内版 trae.cn 直连、国际版 trae.ai（原 MarsCode 已并入该品牌） |
-
+| **Qoder CN（原通义灵码）**&#8203; | 阿里云 AI 编程智能体系列 | 补全 + Ask/Edit/Agent 三模式；Quest 2.0 规划、Subagent、MCP；多模型切换 |
+| **CodeGeeX（智谱 Z.ai）**&#8203; | 开源代码大模型 + IDE 插件 | CodeGeeX4-ALL-9B（128K、支持 Function Call）；多语言补全、代码库问答；可内网私有化 |
+| **文心快码（Baidu Comate）**&#8203; | 插件 + AI IDE（已并入「百度搭子」） | 超级补全、多智能体协同、SPEC 规范驱动；Figma 转前端代码；知识增强 RAG |
+| **DeepSeek-V4（Pro / Flash）**&#8203; | 开源旗舰大模型（编程底座） | 1M 上下文；V4-Pro 为开源最佳 Agentic Coding；V4-Flash 快而省；开放权重可自部署 |
+| **TRAE（原 MarsCode，字节跳动）**&#8203; | AI Development 平台（IDE / 插件 / CLI） | Agent 与 IDE 模式无缝切换；SOLO 端到端开发、设计稿转代码、多模态编程 |
 
 ---
 class: text-sm
 ---
-
-# 中文主流 AI 编码工具一览(续）
-
-> 根据公共信息核实 时间：2026-10-14
+# 中文主流 AI 编码工具一览（续）
+> 根据公共信息核实　时间：2026-10-14
 
 | 工具（最新名称） | 定位 | 典型能力 |
 |---|---|---|
-| **CodeFuse（蚂蚁集团）** | 企业级代码大模型 + 开源生态 | 插件覆盖 10+ IDE、40+ 语言，代码补全/注释/解释/单测生成/优化与补丁；开源侧有 CodeFuse-Query 静态分析、DevOps-ChatBot、MFTCoder、MFT-VLM、ModelCache 等；金融场景专项优化（交易高并发、安全沙箱、代码脱敏）；2026 年持续产出研究（ACL 2026 FuseSearch-4B 代码定位、ECCV 2026 多模态 CLI） |
-| **CodeBuddy（腾讯云代码助手）** | 插件 + IDE + CLI 三端全覆盖的 AI 编程伙伴 | 智能补全、单元测试、代码评审、Craft/Agent 智能体、多文件生成改写、MCP 生态、Figma2Code、内置 BaaS（CloudBase/Supabase）与一键部署、CodeBuddy Code 2.0（Plan 模式、ACP、开放 SDK、隔离沙箱、Skills）；混元 + DeepSeek 双轮，**2026-08-13 全系升级 DeepSeek-V4-Pro 正式版**；与 WorkBuddy 同账号积分共享 |
-| **iFlyCode（科大讯飞）** | 智能编程助手插件（SaaS + 私有化） | 产品正式名为 iFlyCode（原称“讯飞星火代码助手”）；底座为星火 X2.5（**2026-09-07 发布**，MoE 293B-A30B，重点提升代码与智能体能力，全国产算力训练推理）；代码生成/续写/纠错/检查/解释、单测与批量单测、代码调试、SQL 生成与优化、代码预评审与评审；70+ 编程语言，VS Code / JetBrains 等主流 IDE，支持信创环境 |
-| **Kimi Code（月之暗面）** | 开源模型 + 编程工具（终端 / IDE 集成） | 已从“通用对话/长文本”升级为编程主力：Kimi K2.5（2026-01-27 开源，原生多模态、Agent 集群最多 100 子智能体）→ K2.6（2026-04-20 开源，最强编程模型，可连续编码 13 小时、Agent Swarm 并行 300 子智能体）；配套 Kimi Code 可在终端运行并集成 VS Code / Cursor / Zed / JetBrains，支持截图或录屏直接生成前端代码 |
-| **华为 CodeArts Snap** ⭐新增 | 信创 / 鸿蒙 AI 编程助手（盘古大模型） | 基于盘古研发大模型，覆盖代码生成、研发知识问答、单测生成、代码解释/注释/翻译/调试/检查八大场景；多模型路由（盘古 + GLM-5.1 + DeepSeek-V3.2 等）；Codebase 代码库索引（RAG）支持跨文件修改；**ArkTS / 鸿蒙（HarmonyOS）原生深度适配**；纯离线内网运行，与 CodeArts Pipeline 流水线联动 |
+| **CodeFuse（蚂蚁集团）**&#8203; | 企业级代码大模型 + 开源生态 | 补全 / 解释 / 单测 / 优化补丁；CodeFuse-Query 静态分析；金融级安全沙箱与脱敏 |
+| **CodeBuddy（腾讯云代码助手）**&#8203; | 插件 + IDE + CLI 三端全覆盖 | 补全、单测、评审；Craft/Agent 智能体、MCP、Figma2Code、一键部署；混元 + DeepSeek 双轮 |
+| **iFlyCode（科大讯飞）**&#8203; | 智能编程助手（SaaS / 私有化） | 生成、续写、纠错、解释、单测、调试、SQL、代码评审；70+ 语言、信创适配 |
+| **Kimi Code（月之暗面）**&#8203; | 开源模型 + 编程工具（终端 / IDE） | K2.6 开源，可连续编码 13 小时、Agent Swarm 并行；截图 / 录屏生成前端代码 |
+| **华为 CodeArts Snap** | 信创 / 鸿蒙 AI 编程助手（盘古） | 生成、问答、单测、解释、调试等八大场景；ArkTS/鸿蒙原生适配；纯离线内网 |
+
 
 
 ---
