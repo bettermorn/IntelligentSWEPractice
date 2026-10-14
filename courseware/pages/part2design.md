@@ -513,6 +513,7 @@ class: text-sm
 > 根据公共信息核实 时间：2026-10-14
 
 | 工具（最新名称） | 定位 | 典型能力 |
+|---|---|---|
 | **CodeFuse（蚂蚁集团）** | 企业级代码大模型 + 开源生态 | 插件覆盖 10+ IDE、40+ 语言，代码补全/注释/解释/单测生成/优化与补丁；开源侧有 CodeFuse-Query 静态分析、DevOps-ChatBot、MFTCoder、MFT-VLM、ModelCache 等；金融场景专项优化（交易高并发、安全沙箱、代码脱敏）；2026 年持续产出研究（ACL 2026 FuseSearch-4B 代码定位、ECCV 2026 多模态 CLI） |
 | **CodeBuddy（腾讯云代码助手）** | 插件 + IDE + CLI 三端全覆盖的 AI 编程伙伴 | 智能补全、单元测试、代码评审、Craft/Agent 智能体、多文件生成改写、MCP 生态、Figma2Code、内置 BaaS（CloudBase/Supabase）与一键部署、CodeBuddy Code 2.0（Plan 模式、ACP、开放 SDK、隔离沙箱、Skills）；混元 + DeepSeek 双轮，**2026-08-13 全系升级 DeepSeek-V4-Pro 正式版**；与 WorkBuddy 同账号积分共享 |
 | **iFlyCode（科大讯飞）** | 智能编程助手插件（SaaS + 私有化） | 产品正式名为 iFlyCode（原称“讯飞星火代码助手”）；底座为星火 X2.5（**2026-09-07 发布**，MoE 293B-A30B，重点提升代码与智能体能力，全国产算力训练推理）；代码生成/续写/纠错/检查/解释、单测与批量单测、代码调试、SQL 生成与优化、代码预评审与评审；70+ 编程语言，VS Code / JetBrains 等主流 IDE，支持信创环境 |
