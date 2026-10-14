@@ -118,6 +118,42 @@ class: text-sm
 
 "Generate a responsive Tailwind React dashboard for a Scientific Simulation Control System. It should contain an interactive 3D canvas placeholder (using Three.js icons), a left sidebar showing the simulation parameters (density, gravity, step size), a bottom panel showing a live-updated charting log for error rates, and a clear run/pause control cluster."为一个科学仿真控制系统生成一个响应式的 Tailwind React 仪表盘。该仪表盘应包含一个交互式 3D 画布占位符（使用 Three.js 图标）、一个显示仿真参数（密度、重力、步长）的左侧边栏、一个显示实时更新的误差率图表日志的底部面板，以及一个清晰的运行/暂停控制组件。
 
+
+---
+class: text-sm
+---
+
+# AI 辅助原型设计：从自然语言到交互式代码
+### AI-Assisted Prototyping（中文工具版）
+> 大规模开发前，用 AI 快速产出**高保真交互原型**，把需求偏离的风险提前暴露
+
+**工具推荐**
+- **一体化 AI 设计平台（国产主力）**：腾讯 **Ardot**、**MasterGo AI**（蓝湖）、**摹客 3 / 小摹 AI**、**即时设计 · 即时 AI**、**Pixso AI**
+- **需求 / 原型驱动（偏产品经理）**：**墨刀 AI Agent 2.0**（PRD 文档 → 可点击原型）、**UXbot**（流程画布 + 一次生成整套应用）
+- **设计稿转代码（D2C / MCP）**：**Ardot MCP**（直连 WorkBuddy / CodeBuddy / Cursor 一键还原代码）、**GemDesign MCP**、**Pixso 研发模式**（HTML / 鸿蒙 ArkUI / SwiftUI / Flutter）
+- **海外对照（需稳定国际网络）**：v0.dev、Bolt.new、Figma Make、Uizard
+- **注意**：**Motiff 妙多**已于 2026-07-31 停服，历史文件需在 2026-11-01 前导出
+
+**给 AI 的 Prompt 示例（中文，可直接粘贴）**
+
+> 为「汉语学习 Agent（AI 中文助教）」生成一个响应式的 React 学习工作台：左侧为学习档案侧边栏（HSK 等级、已学词量、待复习队列），中间为对话练习区（汉字＋拼音标注＋声调提示，含"跟读"语音按钮与实时发音评分），底部为实时更新的纠错日志面板（语法纠错、发音评分、生词自动入卡），右上角为"开始 / 暂停对话"控制组，并可一键切换「拼音 / 汉字 / 英译」显示层级。使用 Ant Design 组件规范、清新国风配色、4px 圆角，并导出可编辑设计稿 + React 代码。
+
+---
+class: text-sm
+---
+
+# 中文 AI 原型工具：三条路线，怎么选？
+
+| 你的身份 / 目标 | 首选 | 理由 |
+|---|---|---|
+| **产品经理**：需求未定稿，先要能评审的东西 | 墨刀 AI Agent、摹客 3 / 小摹 AI | 中文需求理解好，PRD → 可点击原型，公测期免费 |
+| **设计师**：要能继续精修的专业稿 | Ardot、MasterGo AI、Pixso AI | 可编辑矢量稿 + 组件库/设计系统 + 团队协作 |
+| **开发者**：要能跑起来的前端代码 | Ardot MCP、GemDesign MCP、Pixso D2C | MCP 直连 IDE，按项目技术栈生成 React / Vue 代码 |
+| **企业 / 涉密项目**：数据不能出厂 | Pixso 私有化、MasterGo 企业版、CodeArts 生态 | 支持私有化 / 纯离线内网、权限与审计 |
+
+- **一句话结论**：**生成能力看国产（中文语境 + 本土组件库），代码质量看 MCP 打通程度，长期可用性看平台合规与私有化能力。**
+- **共同注意点**：AI 出的是「草稿级资产」——生成后必须走查边框场景、自适应与异常状态，业务规则仍由人拍板。
+
 ---
 
 # 以中文学习 Agent 为例理解用户体验设计
