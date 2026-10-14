@@ -218,7 +218,7 @@ Agent：“很好！你想喝热茶还是冰茶？”
    * 至少编写 5 个符合 INVEST 规范的用户故事。
    * 每个故事需配有详细的 验收条件 (Acceptance Criteria)。
 
-2. **原型展示**：提交利用 AI (如 v0.dev / Figma) 生成的交互式原型页面，上台 Demo 交互流程。
+2. **原型展示（docs/software/prototype）**：提交利用 AI 生成的交互式原型页面。
 
 3. **技术方案调研报告 (docs/software/architecture.md)**：
    * 论证核心技术选型。
