@@ -170,7 +170,7 @@ layout: two-cols
 
 ::left::
 
-```mermaid{scale:0.4}
+```mermaid{scale:0.3}
 flowchart TB
 
 classDef epic fill:#CECBF6,stroke:#534AB7,color:#26215C,font-weight:bold;
