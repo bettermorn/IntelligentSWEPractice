@@ -163,6 +163,8 @@ class: text-sm
 ![用户故事地图](https://raw.githubusercontent.com/bettermorn/IntelligentSWEPractice/main/courseware/pages/imgs/UserStoryMap.png)
 
 ---
+layout: two-cols
+---
 
 # 案例：客服智能体用户故事地图
 
