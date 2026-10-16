@@ -8,11 +8,12 @@ background: '#1e5f3a'
 ## 系统设计
 
 第 3-6 周
-用户故事
-AI for SE SE for AI论文阅读
-原型设计
-技术设计
-项目沟通和风险管理
+
+1 用户故事
+2 AI for SE SE for AI论文阅读
+3 原型设计
+4 技术设计
+5 项目沟通和风险管理
 
 ---
 layout: two-cols
