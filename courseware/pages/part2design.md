@@ -8,6 +8,12 @@ background: '#1e5f3a'
 ## 系统设计
 
 第 3-6 周
+用户故事
+AI for SE SE for AI论文阅读
+原型设计
+技术设计
+项目沟通和风险管理
+
 ---
 layout: two-cols
 ---
@@ -957,7 +963,9 @@ layout: two-cols
 - 参考[技术参考](https://github.com/bettermorn/IntelligentSWEPractice/wiki/%E6%8A%80%E6%9C%AF%E5%8F%82%E8%80%83), 确认技术方案（语言、平台、框架、架构图；数据分析技术、人工智能算法模型、区块链、虚拟现实技术等）
 - 规划新技术学习
 
-📋 检查：最终系统设计技术方案 docs/software/architecture.md
+📋 检查：
+- 展示原型设计 docs/software/prototype
+- 介绍系统设计技术方案 docs/software/architecture.md
 
 ---
 
