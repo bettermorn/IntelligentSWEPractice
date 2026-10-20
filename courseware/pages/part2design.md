@@ -1011,7 +1011,7 @@ layout: two-cols
 layout: two-cols
 ---
 
-# 风险管理例 2：人员
+# 风险管理例 2：人员（资源）
 
 ### ❌ 不是风险
 
