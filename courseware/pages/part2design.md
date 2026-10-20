@@ -934,7 +934,9 @@ class: two-cols
 
 # 常见误解
 
-::left::
+<div class="grid grid-cols-2 gap-8 mt-6">
+
+<div class="p-4 bg-red-50 rounded">
 
 ### ❌ 误解
 
@@ -944,7 +946,9 @@ class: two-cols
 
 “风险 = 已经出现的麻烦”
 
-::right::
+</div>
+
+<div class="p-4 bg-green-50 rounded">
 
 ### ✅ 正解
 
@@ -953,6 +957,10 @@ class: two-cols
 风险可以是**威胁**，也可以是**机会**
 
 已经发生的叫**问题（Issue）**，不叫风险
+
+</div>
+
+</div>
 
 ---
 
@@ -1153,6 +1161,8 @@ layout: two-cols
 
 </div>
 
+---
+class: text-sm
 ---
 
 # 汇总对照
