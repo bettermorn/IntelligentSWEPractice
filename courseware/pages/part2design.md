@@ -1162,7 +1162,7 @@ layout: two-cols
 </div>
 
 ---
-class: text-sm
+class: text-xs
 ---
 
 # 汇总对照
