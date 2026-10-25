@@ -230,6 +230,8 @@ Agent：“很好！你想喝热茶还是冰茶？”
 3. **技术方案调研报告 (docs/software/architecture.md)**：
    * 论证核心技术选型。
    * 列出团队在未来 2 周内需要学习的新技术（制定自学计划与 Milestone）。
+   *  [AI Agent技术架构模板]( https://github.com/bettermorn/AIAgent/blob/main/docs/architecture.md)
+[参考案例 健康智能助手技术方案]( https://github.com/bettermorn/AIAgent/blob/main/code/IndustryAgent/HealthAssistant/HealthAssistant-%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88.md)
 
 
 * **检查点**：教师将严格评估**原型的可行性**以及**技术选型的科学性**，确认后方可进入系统开发（第四阶段）。
@@ -1254,8 +1256,8 @@ layout: two-cols
 
 📋 检查：
 - 展示原型设计 docs/software/prototype
-- 介绍系统设计技术方案 docs/software/architecture.md
-
+- 介绍系统设计技术方案 docs/software/architecture.md [AI Agent技术架构模板]( https://github.com/bettermorn/AIAgent/blob/main/docs/architecture.md)
+[参考案例 健康智能助手技术方案]( https://github.com/bettermorn/AIAgent/blob/main/code/IndustryAgent/HealthAssistant/HealthAssistant-%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88.md)
 ---
 
 # 第6周学习目标
