@@ -1152,6 +1152,7 @@ flowchart LR
 
 ---
 layout: two-cols
+class: text-xs
 ---
 
 # 2. 沟通的方法
@@ -1251,6 +1252,8 @@ flowchart TD
 </v-click>
 
 ---
+class: text-xs
+---
 
 # 4. 案例：智能体 Web 应用小组
 
@@ -1290,8 +1293,7 @@ flowchart TD
 </div>
 
 ---
-layout: center
----
+
 
 # 5. 小结与实践任务
 
