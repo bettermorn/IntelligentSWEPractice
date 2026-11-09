@@ -11,6 +11,10 @@ background: '#1e5f3a'
 
 使架构变成可执行的软件，也使工程规范最终体现为软件质量
 
+1 软件开发方法
+
+2 软件代码质量
+
 ---
 layout: two-cols
 ---
@@ -133,7 +137,7 @@ layout：two-cols
 8. 更新 API 文档
 
 
-任务拆分的目标不是增加任务数量，而是降低复杂度和协作风险。
+任务拆分的目标是降低复杂度和协作风险，不是增加任务数量。
 
 
 
@@ -174,7 +178,9 @@ layout：two-cols
 layout：two-cols
 ---
 
-# 5 编码规范的作用
+# 5 编码规范
+
+## 编码规范的作用
 
 - 降低代码阅读成本
 - 减少常见错误
@@ -183,6 +189,16 @@ layout：two-cols
 - 提高长期可维护性
 
 ::right::
+
+## 推荐实践
+
+- 格式化工具自动运行
+- 静态检查纳入 CI
+- 禁止提交明显的调试代码
+- 统一命名、异常处理和日志规范
+- 将规范写入项目文档
+  
+---
 
 
 # 编码常用工具
@@ -281,6 +297,8 @@ layout: two-cols
 - 是否引入不必要的复杂度
 - 是否影响性能和可维护性
 
+可参考[Code Review模板](https://github.com/bettermorn/ACMWDevHubPPT/blob/master/Methodology/CodeReviewTemplate.md)
+
 ::right::
 
 ## Code Review 评审原则
@@ -362,7 +380,6 @@ layout: two-cols
 
 
 测试覆盖率是辅助指标，不等于软件质量。关键是测试是否覆盖重要行为、边界条件和失败场景。
-
 
 
 ---
@@ -764,7 +781,7 @@ class: text-sm
 通过 Git、评审和反馈持续集成
 
 
-**实现阶段的核心不是写出更多代码，  而是持续交付可信赖的软件变更。**
+**实现阶段的核心是持续交付可信赖的软件变更，不是写出更多代码。**
 
 ---
 
@@ -811,7 +828,8 @@ layout: two-cols
 
 # 第9周：实践
 - 使用软件代码质量工具检查代码质量，并修改代码
-🛠️ 检查：代码质量
+- 代码评审 docs/software/CodeReview.md 
+- 🛠️ 检查：代码质量
 
 ---
 
@@ -936,6 +954,42 @@ public String grade(int score) {
 
 
 📏 经验值：函数圈复杂度 > 10 建议重构；> 20 属于高风险代码
+
+
+---
+class: text-xs
+---
+
+# VS Code 圈复杂度检测插件
+
+
+| 语言 | 推荐方案 | 说明 |
+|---|---|---|
+| TypeScript / JavaScript | **CodeMetrics**（`kisstkondoros.vscode-codemetrics`） | 在函数、类上方用 CodeLens 内联显示复杂度，可点击查看每个分支的贡献，阈值和权重可配置。 |
+| TS / JS（强制门禁） | **ESLint 的 `complexity` 规则** | 超标直接报错，例如 `"complexity": ["error", { "max": 10 }]`。 |
+| Java、Python、C/C++ 等多语言 | **Lizard**（相关 VS Code 封装扩展） | 覆盖语言多，同时给出圈复杂度、行数、参数个数。 |
+| Java / JS / Python | **Cyclomatic Complexity Analyzer**（SakthiVel-16） | 依赖云端后端，需联网。 |
+| 前端项目（JS/TS/Vue/HTML/CSS） | **Code Cyclomatic Complexity**（moshuying） | 在资源管理器里按文件显示，颜色为绿（≤5）、黄（≤10）、红（>10）。 |
+| Go | **Go Cyclo** | 专用于 Go。 |
+| Python | **DoraCodeLens**/Complexity Lens | 在 Python 函数上显示复杂度。 |
+| Ruby | **Flog** | 专用于 Ruby。 |
+| 团队已用 SonarQube/SonarCloud | **SonarLint** | 提示认知复杂度、嵌套过深等代码异味，与服务端规则一致。 |
+
+---
+
+# VS Code 圈复杂度（Cyclomatic Complexity）检测插件（续）
+
+## 综合建议
+
+- **只想一眼看到数字**：TS/JS 选 CodeMetrics，其他语言选 Lizard。
+- **要在团队里强制执行**：用 ESLint `complexity` 规则，或在 CI 里跑 Lizard，别只靠编辑器插件。
+- **阈值**：单函数一般取 10，宽松一点取 15。超过 20 通常建议拆分。
+
+## 注意事项
+
+- CodeMetrics 官方说明自己是“近似”标准圈复杂度，不同插件对 `&&`、`||`、`switch`、三元表达式的计法不同。因此不同工具的数值不能直接横向比较。
+- 圈复杂度和认知复杂度不是同一指标。SonarLint 偏重后者。
+- 有些扩展依赖联网或更新较慢，安装前请看下载量、最近更新时间和评分。
 
 
 ---
@@ -1207,7 +1261,7 @@ Extract Method / Replace Conditional]
 class: text-sm
 ---
 
-# 课堂练习：现场重构
+# 参考案例：重构
 
 
 ```java{scale:0.6}
