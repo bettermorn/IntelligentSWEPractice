@@ -827,8 +827,8 @@ layout: two-cols
 ::right::
 
 # 第9周：实践
-- 使用软件代码质量工具检查代码质量，并修改代码
-- 代码评审 docs/software/CodeReview.md 
+- 使用质量工具检查代码质量，并修改代码 docs/software/code_quality.md 
+- 评审代码 docs/software/code_review.md 
 - 🛠️ 检查：代码质量
 
 ---
@@ -1303,16 +1303,15 @@ public class OrderProcessor {
 # 第9周实践任务
 
 
-
 1. 为项目配置至少一个静态分析工具（SonarQube/ESLint/Pylint 任选）
 2. 运行扫描，记录当前 Bug 数、Code Smell 数、圈复杂度、重复率
 3. 选出 Top 5 最严重问题，逐一重构（先补测试，再重构）
 4. 重新扫描，对比重构前后指标变化，形成质量报告
 
 
-
-
-✅ 本周检查：检查代码质量（提交扫描报告截图 + 重构前后对比）
+✅ 本周检查：提交成果
+- docs/software/code_quality.md 检查代码质量（提交扫描报告截图 + 重构前后对比） 
+- docs/software/code_review.md 评审代码
 
 
 ---
