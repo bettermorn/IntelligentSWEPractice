@@ -199,7 +199,8 @@ layout：two-cols
 - 将规范写入项目文档
   
 ---
-
+class: text-xs
+---
 
 # 编码常用工具
 
