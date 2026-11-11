@@ -161,6 +161,8 @@ layout：two-cols
 
 # 编码常见技术原则
 
+代码首先应当正确，其次应当清晰，最后才是针对真实瓶颈进行优化。
+
 - 高内聚、低耦合
 - 单一职责原则
 - 面向接口编程
@@ -170,12 +172,10 @@ layout：two-cols
 - 避免过早优化
 
 
-代码首先应当正确，其次应当清晰，最后才是针对真实瓶颈进行优化。
-
 
 
 ---
-layout：two-cols
+layout: two-cols
 ---
 
 # 5 编码规范
@@ -212,14 +212,6 @@ class: text-xs
 | Go | gofmt、go vet、golangci-lint |
 | 多语言质量分析 | SonarQube、Semgrep |
 
-
-## 推荐实践
-
-- 格式化工具自动运行
-- 静态检查纳入 CI
-- 禁止提交明显的调试代码
-- 统一命名、异常处理和日志规范
-- 将规范写入项目文档
 
 ---
 class: text-sm
