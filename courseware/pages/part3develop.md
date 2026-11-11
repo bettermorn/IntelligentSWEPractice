@@ -842,7 +842,7 @@ layout: two-cols
 - 完成一次真实的"代码质量检查 → 重构"闭环
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 # 什么是"卓越的代码"？
 
@@ -870,7 +870,7 @@ def calc(x, y, t):
 
 ### ✅ 卓越的代码
 
-```python
+```python{scale: 0.8}
 from enum import Enum
 
 class Operation(Enum):
@@ -908,7 +908,7 @@ def calculate(x: float, y: float,
 | **安全性** | 是否存在已知漏洞模式 | SonarQube / Semgrep / Snyk |
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 圈复杂度（Cyclomatic Complexity）
@@ -992,7 +992,7 @@ class: text-xs
 
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 # 常见代码坏味道（Code Smell）
 
@@ -1047,7 +1047,7 @@ class Customer {
 
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 # 开闭原则实战：支付方式扩展
 
@@ -1091,7 +1091,7 @@ public class PaymentService {
 
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 静态代码分析工具选型
@@ -1189,7 +1189,7 @@ npx eslint src/ --ext .ts,.tsx --fix
 
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 单元测试覆盖率也是质量指标
@@ -1328,3 +1328,5 @@ public class OrderProcessor {
 
 
 🎤 汇报：系统代码质量情况
+- docs/software/code_quality.md 检查代码质量（提交扫描报告截图 + 重构前后对比） 
+- docs/software/code_review.md 评审代码
