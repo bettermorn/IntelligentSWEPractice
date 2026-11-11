@@ -224,7 +224,7 @@ class: text-sm
 
 # 6 Git 分支与协作开发
 
-```mermaid {scale: 0.68}
+```mermaid {scale: 0.5}
 flowchart LR
     A[主干分支] --> B[创建功能分支]
     B --> C[本地开发]
@@ -278,7 +278,7 @@ chore: 升级项目依赖
 提交历史不仅用于回滚，也是团队理解系统演进过程的重要工程资产。
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 8 代码评审（Code Review）
@@ -309,7 +309,7 @@ layout: two-cols
 > 代码评审的目标是改善代码和共享知识,不是寻找个人错误.
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 9 自动化测试策略
@@ -344,7 +344,8 @@ layout: two-cols
 - 成本较高，应覆盖关键路径
 
 ---
-layout: two-cols
+layout: two-cols-header
+class: text-sm
 ---
 
 # 10 测试技术与工具
@@ -381,7 +382,7 @@ layout: two-cols
 
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 11 构建与依赖管理
@@ -418,7 +419,7 @@ layout: two-cols
 - 定期更新和审计第三方依赖
 
 ---
-layout: two-cols
+layout: two-cols-header
 class: text-sm
 ---
 
@@ -460,7 +461,7 @@ flowchart TD
 - Pipeline 配置也应纳入版本控制
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 13 实现阶段的软件安全
@@ -491,7 +492,7 @@ layout: two-cols
 
 
 ---
-layout: two-cols
+layout: two-cols-header
 class: text-sm
 ---
 
@@ -529,7 +530,7 @@ class: text-sm
 5. 记录技术债务及其影响
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 15 AI 辅助软件实现
@@ -563,7 +564,7 @@ layout: two-cols
 ⚠️ **AI 可以生成代码，但不能替代工程判断。**
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 16 AI 辅助编码的推荐流程
@@ -593,7 +594,7 @@ flowchart TD
 - 通过测试、评审和 CI 建立质量保障
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 17 实现阶段的质量门禁
@@ -627,7 +628,7 @@ Code Review        APPROVED
 ```
 
 ---
-layout: two-cols
+layout: two-cols-header
 class: text-sm
 ---
 
@@ -666,7 +667,7 @@ class: text-sm
 度量指标应服务于改进，而不是简单用于评价个人绩效。
 
 ---
-layout: two-cols
+layout: two-cols-header
 class: text-sm
 ---
 
