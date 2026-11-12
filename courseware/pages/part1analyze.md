@@ -11,7 +11,9 @@ background: '#1e5f3a'
 第 1-2 周
 
 1 问题定义和产品描述
+
 2 功能需求规范
+
 3 非功能需求规范
 
 ---
@@ -98,7 +100,7 @@ flowchart TD
 
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 基于模型的系统工程 (Model-Based Systems Engineering, MBSE)
@@ -135,7 +137,7 @@ SysML / SysML v2))
 
 ::right::
 
-**SysML (System Modeling Language)**：MBSE 的事实标准，涵盖四根支柱：
+## SysML (System Modeling Language)**：MBSE 的事实标准，涵盖四根支柱
 - **结构 (Structure)**
 - **行为 (Behavior)**
 - **需求 (Requirements)**
@@ -394,6 +396,8 @@ class: text-sm
 
 📋 检查：确认学生定义的工程问题
 
+---
+class: text-sm
 ---
 
 # 第 1 周实践：定义你的工程项目与仓库构建
@@ -722,7 +726,7 @@ flowchart LR
 
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 ::left::
@@ -774,7 +778,7 @@ class: text-sm
 
 ✅ 用抽象基类 + 插件化工具注册实现：
 
-```python{scale: 0.5}
+```python{scale: 0.4}
 from abc import ABC, abstractmethod
 
 class Tool(ABC):
@@ -800,7 +804,7 @@ class ToolRegistry:
 
 
 ---
-layout: two-cols
+layout: two-cols-header
 class: text-sm
 ---
 
@@ -838,7 +842,7 @@ def run_agent(llm: LLMClient, prompt: str):
 > ⚠️ 违反示例：若某个子类 `generate()` 抛出未声明的异常或返回不同语义的结果（如要求额外鉴权参数），则破坏了可替换性。
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 4️⃣ Interface Segregation Principle（接口隔离）
@@ -884,7 +888,7 @@ class RoboticAgent(IPerceivable, IPlannable, IMovable):
 
 
 ---
-layout: two-cols
+layout: two-cols-header
 class: text-sm
 ---
 
@@ -896,18 +900,16 @@ class: text-sm
 
 ❌ 反例：Agent 直接依赖具体实现（硬编码 OpenAI、具体数据库）
 
-```python
+```python{scale:0.5}
 class Agent:
     def __init__(self):
         self.llm = OpenAIClient()        # 具体依赖
         self.memory = SQLiteMemory()      # 具体依赖
 ```
 
-
-
 ✅ 依赖抽象接口，通过**依赖注入**解耦：
 
-```python{scale:0.6}
+```python{scale:0.5}
 class Agent:
     def __init__(self, llm: LLMClient, memory: IMemory, planner: IPlannable):
         self.llm = llm
@@ -1020,7 +1022,7 @@ flowchart LR
 
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # Team Planning：迭代与里程碑
@@ -1071,7 +1073,7 @@ body:
 
 
 ---
-class: text-sm
+class: text-xs
 ---
 
 # 软件功能规范书
@@ -1094,7 +1096,7 @@ class: text-sm
 
 
 ---
-class: text-sm
+class: text-xs
 ---
 
 # 第 2 周实践：软件功能规范书撰写
