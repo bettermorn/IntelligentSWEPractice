@@ -1151,7 +1151,7 @@ flowchart LR
 -->
 
 ---
-layout: two-cols
+layout: two-cols-header
 class: text-xs
 ---
 
@@ -1159,7 +1159,7 @@ class: text-xs
 
 ### 沟通模型：信息怎么"丢"的？
 
-```mermaid {scale: 0.7}
+```mermaid {scale: 0.5}
 flowchart TD
   S[发送者] -->|编码| M[信息 + 媒介]
   M -->|解码| R[接收者]
@@ -1309,7 +1309,7 @@ class: text-xs
 
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 #  📝  制定沟通管理计划
@@ -1326,7 +1326,7 @@ layout: two-cols
 
 ::right::
 
-# 注意事项：
+## 注意事项：
 - 条目的顺序可根据生命周期：分析、设计、开发、测试、发布、运行维护
 - 沟通内容的粒度不能太粗，也不能太细，可写出每个生命周期需要沟通的主题
 - 沟通频度：即时、每天、每周、每月等
@@ -1396,7 +1396,7 @@ class: two-cols
 三个问题都回答“是”，才是**风险**。
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 风险管理例 1：工期
@@ -1428,7 +1428,7 @@ layout: two-cols
 </v-click>
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 风险管理例 2：人员（资源）
@@ -1469,7 +1469,7 @@ layout: two-cols
 </v-click>
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 风险管理例 3：采购
@@ -1500,7 +1500,7 @@ layout: two-cols
 </v-click>
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 风险管理例 4：正面风险（机会）
@@ -1531,7 +1531,7 @@ layout: two-cols
 </v-click>
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # 风险管理例 5：成本
