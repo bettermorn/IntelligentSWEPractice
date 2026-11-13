@@ -43,23 +43,30 @@
 
 | 部分 | 周 | 理论 | 实践 | 检查和汇报 |
 |------|----|------|------|------------|
-| **第一部分<br>系统分析** | 1 | 基于模型的系统工程与NASA系统工程；什么是工业软件；定义工程问题的方法；如何完成技术或实践创新 | 分组；定义要解决的工程问题；在协作平台上建立小组项目仓库 目录结构docs/{requirements,algorithm,software,mgmt,retrospection} \  code/{backend,frontend,core_engine} \ tests/{unit,integration} 在 `docs/requirements/problem_definition.md` 中完成 5W1H 报告和产品描述 | 确认学生定义的工程问题 |
-| | 2 | 如何定义软件的功能？；面向对象分析与设计；敏捷开发方法 | 定义要解决工程问题的软件作品功能 提交`docs/requirements/functional_spec.md`和`docs/requirements/nonfunctional_spec.md`| 确认软件作品的功能 |
-| **第二部分<br>系统设计** | 3 | 智能软件工程的研究与实践 | 编写用户故事；使用AI工具及原型设计工具设计软件作品原型；调研技术方案 | 确认软件作品原型设计 |
-| | 4 | AI与软件工程的相互影响 | — | 汇报智能软件工程文献阅读 |
-| | 5 | 项目管理的沟通管理和风险管理 | 制定项目管理的沟通计划和风险管理计划 | 汇报智能软件工程文献阅读 |
-| | 6 | 领域驱动设计方法 | 确认技术方案（包括人工智能算法模型等）；制定新技术学习方法 | 汇报系统设计技术方案 |
+| **第一部分<br>系统分析** | 1 | 基于模型的系统工程与NASA系统工程；什么是工业软件；<br>定义工程问题的方法；如何完成技术或实践创新 | 分组；定义要解决的工程问题；在协作平台上建立小组项目仓库<br> 目录结构<br> docs/{requirements,algorithm,software,mgmt,retrospection} \  code/{backend,frontend,core_engine} \ tests/{unit,integration} <br>在 `docs/requirements/problem_definition.md` <br>中完成 5W1H 报告和产品描述 | 确认学生定义的工程问题 |
+| | 2 | 如何定义软件的功能？；面向对象分析与设计；敏捷开发方法 | 定义要解决工程问题的软件作品功能<br> 提交`docs/requirements/functional_spec.md`<br>`docs/requirements/nonfunctional_spec.md`| 确认软件作品的功能 |
+| **第二部分<br>系统设计** | 3 | 智能软件工程的研究与实践 | 编写用户故事；使用AI工具及原型设计工具设计软件作品原型；<br>调研技术方案 <br>docs/requirements/user_stories.md<br>docs/software/prototype | 确认软件作品原型设计 |
+| | 4 | AI与软件工程的相互影响 | docs/algorithm/research.md| 汇报智能软件工程文献阅读 |
+| | 5 | 项目管理的沟通管理和风险管理 | 制定项目管理的沟通计划和风险管理计划 <br>docs/mgmt/communication_mgmt_plan.md<br>docs/mgmt/risk_mgmt_plan.md | 汇报智能软件工程文献阅读 |
+| | 6 | 领域驱动设计方法 | 确认技术方案（包括人工智能算法模型等）；制定新技术学习方法 <br> docs/software/architecture.md | 汇报系统设计技术方案 |
 | **第三部分<br>系统开发** | 7 | 软件开发方法 | 用各种技术和工具开发系统功能 | 为学生提供开发指导 |
 | | 8 | — | 用各种技术和工具开发系统功能 | 为学生提供开发指导 |
-| | 9 | 如何编写卓越的代码：软件代码质量 | 使用软件代码质量工具检查代码质量，并修改代码 | 检查代码质量 |
+| | 9 | 如何编写卓越的代码：软件代码质量 | 使用软件代码质量工具检查代码质量，并修改代码<br> docs/software/code_quality.md<br> docs/software/code_review.md | 检查代码质量 |
 | | 10 | — | 用各种工具开发系统功能 | 汇报系统代码质量情况 |
-| **第四部分<br>系统测试** | 11 | 软件测试的方法 | 编写作品的测试用例 | 确认学生的测试用例 |
-| | 12 | — | 用测试用例测试作品；修改作品缺陷 | 确认学生的测试用例 |
-| | 13 | 软件产品原型测试方法 | 小组交叉测试软件作品原型 | — |
-| **第五部分<br>发布** | 14 | 部署和发布软件的方法及检查单 | 部署作品 | — |
+| **第四部分<br>系统测试** | 11 | 软件测试的方法 | 编写作品的测试用例 docs/tests/unit<br>docs/tests/integration<br>| 确认学生的测试用例 |
+| | 12 | — | 用测试用例测试作品；修改作品缺陷 <br>Issues/Bug Tracker | 确认学生的测试用例 |
+| | 13 | 软件产品用户测试方法 | 小组交叉完成用户测试 <br>tests/XXXagent_demo_user_test.md | — |
+| **第五部分<br>发布** | 14 | 部署和发布软件的方法及检查单 | 部署作品 docs/software/deployment.md | — |
 | | 15 | — | 完善作品：优化和迭代作品 | — |
-| | 16 | — | 准备答辩材料 | — |
+| | 16 | — | 准备答辩材料 docs/report.md  ||
 | | 17 | — | — | 作品答辩 |
+
+
+
+
+
+
+
 
 
 # 课程成果
@@ -85,7 +92,8 @@ repository-root/
 │   │   └── architecture.md            # 系统架构说明文档
 │   │   └── code_quality.md            # 代码质量
 │   │   └── code_review.md             # 代码评审
-│   │   
+│   │   └── deployment.md              # 系统部署
+│   │ 
 │   ├── mgmt/                         # 项目管理（沟通管理、风险管理）
 │   │   ├── communication_mgmt_plan.md # 沟通管理计划
 │   │   └── risk_mgmt_plan.md          # 风险管理计划
