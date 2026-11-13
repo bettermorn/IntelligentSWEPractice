@@ -28,7 +28,7 @@ layout: two-cols
 
 # 第11周：实践
 
-- 编写软件作品的测试用例 docs/tests/unit, docs/tests/integration
+- 编写软件作品的测试用例 tests/unit, tests/integration
 
 📋 检查 确认测试用例
 
@@ -646,7 +646,7 @@ layout: two-cols-header
 4. 统计覆盖率，确保核心逻辑 ≥ 60%（第12周还会继续测）
 
 
-📋 本周检查：确认学生的测试用例（提交测试用例文档 + 测试代码），提交到 docs/tests/unit, docs/tests/integration 目录下。
+📋 本周检查：确认学生的测试用例（提交测试用例文档 + 测试代码），提交到 tests/unit, tests/integration 目录下。
 参考 [健康智能助手（HealthAssistant）单元测试与集成测试用例](https://github.com/bettermorn/AIAgent/blob/main/code/IndustryAgent/HealthAssistant/HealthAssistant-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B.md)
 
 
@@ -663,7 +663,7 @@ layout: two-cols-header
 - 修改作品缺陷：使用GitHub的Issues/BugTracker Project
 
 
-📋 检查：确认测试用例docs/tests/unit, docs/tests/integration，使用Issues/BugTracker Project 修复代码缺陷
+📋 检查：确认测试用例tests/unit, tests/integration，使用Issues/BugTracker Project 修复代码缺陷
 
 
 ---
@@ -818,9 +818,7 @@ class: text-sm
 
 
 
-- 完成下表
-
-[智能体Demo 用户测试表](https://github.com/bettermorn/ACMWDevHubPPT/blob/master/courseware/assignment/%E7%94%A8%E6%88%B7%E6%B5%8B%E8%AF%95%E8%A1%A8-%E5%AD%A6%E7%94%9F%E7%89%88.md)
+- 完成下表 [智能体Demo 用户测试表](https://github.com/bettermorn/ACMWDevHubPPT/blob/master/courseware/assignment/%E7%94%A8%E6%88%B7%E6%B5%8B%E8%AF%95%E8%A1%A8-%E5%AD%A6%E7%94%9F%E7%89%88.md) tests/XXXagent_demo_user_test.md
 
 - 参考 [智能体Demo · 用户测试表（教师版）](https://github.com/bettermorn/ACMWDevHubPPT/blob/master/courseware/assignment/%E7%94%A8%E6%88%B7%E6%B5%8B%E8%AF%95%E8%A1%A8-%E6%95%99%E5%B8%88%E7%89%88.md)
 
