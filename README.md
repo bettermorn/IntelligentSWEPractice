@@ -83,7 +83,9 @@ repository-root/
 │   ├── software/                    # 软件设计（架构图、接口文档、模块设计）
 │   │   ├── prototype/                 # 原型设计（线框图、交互原型、UI/UX 草稿）
 │   │   └── architecture.md            # 系统架构说明文档
-│   │
+│   │   └── code_quality.md            # 代码质量
+│   │   └── code_review.md             # 代码评审
+│   │   
 │   ├── mgmt/                         # 项目管理（沟通管理、风险管理）
 │   │   ├── communication_mgmt_plan.md # 沟通管理计划
 │   │   └── risk_mgmt_plan.md          # 风险管理计划
@@ -98,6 +100,7 @@ repository-root/
 └── tests/                           # 测试
     ├── unit/                         # 单元测试
     └── integration/                  # 集成测试
+    └── XXXagent_demo_user_test       # 用户测试
 ```
 
 ## 几点说明
