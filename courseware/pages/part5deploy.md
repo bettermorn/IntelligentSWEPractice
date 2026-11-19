@@ -76,10 +76,12 @@ layout: two-cols
 10. 必要时回滚
 
 ---
+class: text-sm
+---
 
 ## 典型 Web 应用组成
 
-```mermaid{scale:0.8}
+```mermaid{scale:0.6}
 flowchart LR
     U[用户浏览器] --> DNS[DNS]
     DNS --> CDN[CDN / WAF]
@@ -198,7 +200,6 @@ layout: two-cols
 
 ---
 layout: two-cols
-
 ---
 
 ## Nginx 静态站点配置
@@ -298,6 +299,9 @@ flowchart LR
 ```
 
 ---
+class: text-xs
+---
+
 
 ## 虚拟机部署步骤
 
@@ -322,15 +326,15 @@ npm ci --omit=dev
 
 # 6. 执行数据库迁移
 npm run db:migrate
-
 # 7. 重启应用
 sudo systemctl restart myapp
-
 # 8. 检查状态
 sudo systemctl status myapp
 curl -f http://127.0.0.1:3000/health
 ```
 
+---
+class: text-xs
 ---
 
 ## systemd 服务示例
@@ -340,7 +344,6 @@ curl -f http://127.0.0.1:3000/health
 [Unit]
 Description=My Web Application
 After=network.target
-
 [Service]
 Type=simple
 User=deploy
@@ -350,25 +353,17 @@ ExecStart=/usr/bin/node server.js
 Restart=always
 RestartSec=5
 LimitNOFILE=65535
-
 [Install]
 WantedBy=multi-user.target
 ```
-
 启用服务：
-
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable myapp
 sudo systemctl start myapp
 sudo systemctl status myapp
 ```
-
-查看日志：
-
-```bash
-journalctl -u myapp -f
-```
+查看日志：journalctl -u myapp -f
 
 ---
 
@@ -431,45 +426,55 @@ Docker 可以将应用及其运行环境封装为镜像。
 ```
 
 ---
+layout: two-cols
+class: text-xs
+zoom: 0.9
+---
 
 ## Node.js Web 应用 Dockerfile
 
+<div class="text-sm opacity-70 mb-1">构建阶段</div>
+
+<div style="--slidev-code-font-size: 11px; --slidev-code-line-height: 1.35">
+
 ```dockerfile
-# 构建阶段
 FROM node:22-alpine AS builder
-
 WORKDIR /app
-
 COPY package*.json ./
 RUN npm ci
-
 COPY . .
 RUN npm run test
 RUN npm run build
+```
 
-# 运行阶段
+</div>
+
+::right::
+
+<div class="text-sm opacity-70 mt-10 mb-1">运行阶段</div>
+
+<div style="--slidev-code-font-size: 11px; --slidev-code-line-height: 1.35">
+
+```dockerfile
 FROM node:22-alpine AS runner
-
 ENV NODE_ENV=production
 WORKDIR /app
-
 COPY package*.json ./
 RUN npm ci --omit=dev && npm cache clean --force
-
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/server.js ./server.js
-
 USER node
-
 EXPOSE 3000
-
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s \
   CMD wget --no-verbose --tries=1 --spider \
   http://127.0.0.1:3000/health || exit 1
-
 CMD ["node", "server.js"]
 ```
 
+</div>
+
+---
+class: text-xs
 ---
 
 ## Docker 镜像构建与运行
@@ -479,24 +484,19 @@ CMD ["node", "server.js"]
 docker build \
   --tag registry.example.com/myapp:20260910-120000 \
   .
-
 # 本地运行
 docker run --rm \
   --name myapp \
   --env-file .env.production \
   -p 3000:3000 \
   registry.example.com/myapp:20260910-120000
-
 # 检查容器
 docker ps
 docker logs -f myapp
-
 # 检查健康状态
 docker inspect --format='{{json .State.Health}}' myapp
 ```
-
 建议：
-
 - 使用不可变版本标签，不要只使用 `latest`
 - 使用多阶段构建减小镜像体积
 - 使用非 root 用户运行
@@ -505,8 +505,13 @@ docker inspect --format='{{json .State.Health}}' myapp
 - 定期扫描基础镜像漏洞
 
 ---
+layout: two-cols-header
+class: text-xs
+---
 
 ## Docker Compose 示例
+
+::left::
 
 ```yaml
 services:
@@ -525,7 +530,20 @@ services:
       interval: 30s
       timeout: 5s
       retries: 3
+```
 
+启动：
+
+```bash
+APP_VERSION=20260910-120000 docker compose up -d
+docker compose ps
+docker compose logs -f web
+```
+
+::right::
+
+```yaml
+services:
   db:
     image: postgres:16
     restart: unless-stopped
@@ -545,13 +563,12 @@ volumes:
   postgres_data:
 ```
 
-启动：
-
-```bash
-APP_VERSION=20260910-120000 docker compose up -d
-docker compose ps
-docker compose logs -f web
-```
+<style>
+.slidev-layout {
+  --slidev-code-font-size: 11px;
+  --slidev-code-line-height: 1.35;
+}
+</style>
 
 ---
 
@@ -561,12 +578,15 @@ docker compose logs -f web
 2. Serverless 部署
    
 ---
+layout: two-cols-header
+---
 
 ## PaaS 部署
 
+::left::
 PaaS 将服务器、运行时、部署流程等基础能力平台化。
 
-常见特征：
+### 常见特征
 
 - 连接代码仓库后自动部署
 - 自动构建和发布
@@ -576,14 +596,15 @@ PaaS 将服务器、运行时、部署流程等基础能力平台化。
 - 支持日志和监控
 - 可配置自动扩容
 
-适合：
+::right::
+### 适合
 
 - 快速验证产品
 - 中小型 Web 应用
 - 前端和全栈应用
 - 运维人员较少的团队
 
-注意：
+### 注意
 
 - 检查平台所在区域和网络延迟
 - 评估数据库、对象存储等配套服务
@@ -591,10 +612,12 @@ PaaS 将服务器、运行时、部署流程等基础能力平台化。
 - 提前确认数据迁移和退出方案
 
 ---
+layout: two-cols-header
+---
 
 ## Serverless 部署
-
-Serverless 常用于：
+::left::
+### Serverless 常用于：
 
 - API 接口
 - 定时任务
@@ -603,7 +626,7 @@ Serverless 常用于：
 - 文件上传处理
 - 事件驱动业务
 
-典型流程：
+### 典型流程
 
 ```mermaid{scale:0.6}
 flowchart LR
@@ -613,8 +636,8 @@ flowchart LR
     C --> E[对象存储]
     C --> F[消息队列]
 ```
-
-注意事项：
+::right::
+### 注意事项
 
 - 处理冷启动
 - 控制单次执行时间
@@ -631,6 +654,9 @@ flowchart LR
 1. Kubernetes 适用场景
 2. Kubernetes Deployment 示例
 3. Kubernetes Service 示例
+   
+---
+class: text-sm
 ---
 
 ## Kubernetes 适用场景
@@ -655,8 +681,12 @@ flowchart LR
 - 云平台支持情况
 
 ---
+layout: two-cols-header
+---
 
 ## Kubernetes Deployment 示例
+
+::left::
 
 ```yaml
 apiVersion: apps/v1
@@ -688,28 +718,46 @@ spec:
           envFrom:
             - secretRef:
                 name: myapp-secret
-          readinessProbe:
-            httpGet:
-              path: /ready
-              port: 3000
-            initialDelaySeconds: 10
-            periodSeconds: 5
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 3000
-            initialDelaySeconds: 30
-            periodSeconds: 10
-          resources:
-            requests:
-              cpu: "100m"
-              memory: "256Mi"
-            limits:
-              cpu: "1000m"
-              memory: "512Mi"
 ```
 
+::right::
+
+```yaml
+# 接左侧 containers[0] 的后续字段
+readinessProbe:
+  httpGet:
+    path: /ready
+    port: 3000
+  initialDelaySeconds: 10
+  periodSeconds: 5
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 3000
+  initialDelaySeconds: 30
+  periodSeconds: 10
+resources:
+  requests:
+    cpu: "100m"
+    memory: "256Mi"
+  limits:
+    cpu: "1000m"
+    memory: "512Mi"
+```
+
+<style>
+.slidev-layout {
+  --slidev-code-font-size: 11px;
+  --slidev-code-line-height: 1.35;
+}
+</style>
+
 ---
+layout: two-cols-header
+class: text-xs
+---
+
+::left::
 
 ## Kubernetes Service 示例
 
@@ -727,7 +775,10 @@ spec:
   type: ClusterIP
 ```
 
-发布和检查：
+
+::right::
+
+## 发布和检查
 
 ```bash
 kubectl apply -f deployment.yaml
@@ -739,7 +790,7 @@ kubectl describe deployment myapp
 kubectl logs deployment/myapp --tail=100
 ```
 
-回滚：
+## 回滚
 
 ```bash
 kubectl rollout history deployment/myapp
@@ -784,10 +835,15 @@ flowchart LR
 - 有发布结果记录
 
 ---
+layout: two-cols-header
+class: text-sm
+---
 
 ## 版本命名建议
 
-推荐使用：
+::left::
+
+### 推荐使用
 
 ```text
 v主版本.次版本.修订版本
@@ -805,7 +861,9 @@ v2.5.1
 - 次版本：新增向后兼容功能
 - 修订版本：问题修复和小幅改动
 
-镜像或构建制品可以使用：
+::right::
+
+### 镜像或构建制品可以使用
 
 ```text
 myapp:v2.5.1
@@ -813,7 +871,7 @@ myapp:git-a1b2c3d
 myapp:20260910-120000
 ```
 
-生产环境应记录：
+### 生产环境应记录
 
 - Git Commit SHA
 - 构建时间
@@ -824,10 +882,13 @@ myapp:20260910-120000
 - 发布批次
 
 ---
+layout: two-cols-header
+---
 
 ## 制品Artifacts管理
 
-构建制品可以是：
+::left::
+### 构建制品可以是
 
 - 前端 `dist.tar.gz`
 - Docker 镜像
@@ -837,7 +898,9 @@ myapp:20260910-120000
 - Kubernetes Manifest
 - Terraform Plan
 
-原则：
+
+::right::
+### 原则
 
 1. 构建一次，多环境复用
 2. 测试和生产使用同一个制品
@@ -852,9 +915,14 @@ myapp:20260910-120000
 1. CI/CD 基本职责
 2. GitHub Actions 示例
 3. CI/CD 安全原则
+   
+---
+layout: two-cols-header
 ---
 
 ## CI/CD 基本职责
+
+::left::
 
 ### 持续集成 CI
 
@@ -865,6 +933,8 @@ myapp:20260910-120000
 - 构建制品
 - 安全扫描
 
+::right::
+
 ### 持续交付或持续部署 CD
 
 - 部署开发环境
@@ -874,64 +944,63 @@ myapp:20260910-120000
 - 执行健康检查
 - 支持回滚
 
+
+---
+layout: two-cols-header
 ---
 
 ## GitHub Actions 示例
 
+::left::
+
 ```yaml
 name: Web Application CI/CD
-
 on:
   push:
     branches:
       - main
   pull_request:
-
 permissions:
   contents: read
   packages: write
-
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-
       - name: Install dependencies
         run: npm ci
-
       - name: Lint
         run: npm run lint
-
       - name: Unit test
         run: npm run test -- --coverage
-
       - name: Build
         run: npm run build
+```
 
+::right::
+
+```yaml
+jobs:
+  # test 任务见左侧
   build-image:
     needs: test
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
       - name: Login registry
         uses: docker/login-action@v3
         with:
           registry: registry.example.com
           username: ${{ secrets.REGISTRY_USER }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
-
       - name: Build and push image
         uses: docker/build-push-action@v6
         with:
@@ -942,11 +1011,21 @@ jobs:
             registry.example.com/myapp:latest
 ```
 
+<style>
+.slidev-layout {
+  --slidev-code-font-size: 11px;
+  --slidev-code-line-height: 1.35;
+}
+</style>
+
+---
+layout: two-cols-header
 ---
 
 ## CI/CD 安全原则
 
-不要将以下内容直接写入仓库：
+::left::
+### 不要将以下内容直接写入仓库
 
 - 数据库密码
 - 云平台 Access Key
@@ -955,7 +1034,8 @@ jobs:
 - 第三方 API Secret
 - 生产环境 Token
 
-推荐做法：
+::right::
+### 推荐做法
 
 - 使用 CI/CD Secret
 - 使用云平台 Secret Manager
@@ -966,12 +1046,15 @@ jobs:
 
 ---
 
+
 # 9. 环境与配置管理
 
 1. 环境划分
 2. 配置管理原则
 3. 配置检查命令
 
+---
+class: text-sm
 ---
 
 ## 环境划分
@@ -999,8 +1082,12 @@ production  生产环境
 - 发布权限
 
 ---
+layout: two-cols-header
+---
 
 ## 配置管理原则
+
+::left::
 
 ### 应该配置化的内容
 
@@ -1012,6 +1099,8 @@ production  生产环境
 - 功能开关
 - 限流参数
 - CORS 白名单
+
+::right::
 
 ### 不应该硬编码的内容
 
@@ -1032,6 +1121,8 @@ LOG_LEVEL=info
 ENABLE_NEW_CHECKOUT=false
 ```
 
+---
+class: text-sm
 ---
 
 ## 配置检查命令
@@ -1091,10 +1182,15 @@ Expand → Migrate → Contract
 5. 最后删除旧字段
 
 ---
+layout: two-cols-header
+---
+
 
 ## 数据库迁移检查
 
-上线前确认：
+::left::
+
+### 上线前确认
 
 - 是否有迁移脚本
 - 是否在测试环境验证过
@@ -1107,7 +1203,10 @@ Expand → Migrate → Contract
 - 是否需要低峰期执行
 - 是否需要人工审批
 
-示例：
+
+::right::
+
+### 示例
 
 ```bash
 # 备份
@@ -1129,11 +1228,16 @@ npm run db:migrate:status
 3. 蓝绿发布
 4. 灰度发布
 5. 金丝雀发布
+   
+---
+layout: two-cols-header
 ---
 
 ## 1. 停机发布
 
-流程：
+::left::
+
+### 流程
 
 ```text
 停止旧版本 → 部署新版本 → 启动新版本 → 验证
@@ -1144,14 +1248,16 @@ npm run db:migrate:status
 - 实现简单
 - 适用于小型应用
 - 资源占用较少
+  
+::right::
 
-缺点：
+### 缺点
 
 - 有服务中断
 - 不适合高可用系统
 - 发布失败会影响用户访问
 
-适用：
+### 适用
 
 - 内部系统
 - 低访问量系统
@@ -1186,10 +1292,15 @@ flowchart LR
 - 出现异常时立即停止继续发布
 
 ---
+layout: two-cols-header
+---
+
 
 ## 3. 蓝绿发布
 
-维护两套环境：
+::left::
+
+### 维护两套环境
 
 ```text
 蓝环境：当前生产版本
@@ -1204,6 +1315,9 @@ flowchart LR
 4. 持续观察
 5. 发现问题时切回蓝环境
 
+::right::
+
+### 优缺点
 优点：
 
 - 切换和回滚速度快
@@ -1220,7 +1334,7 @@ flowchart LR
 
 ## 4. 灰度发布
 
-逐步扩大新版本流量：
+### 逐步扩大新版本流量
 
 ```text
 内部用户 → 1% 用户 → 5% 用户 → 20% 用户 → 50% 用户 → 100% 用户
@@ -1235,7 +1349,8 @@ flowchart LR
 - 请求 Header
 - 随机比例
 
-灰度期间重点观察：
+::right::
+### 灰度期间重点观察
 
 - HTTP 5xx
 - 请求延迟
@@ -1285,22 +1400,28 @@ P95 延迟 > 1000ms
 3. 日志规范
 
 ---
+layout: two-cols
+class: text-xs
+---
 
 ## 健康检查接口
 
 建议提供：
 
 ```text
-GET /health
+GET /health   # 用于判断进程是否正常运行
+GET /ready    # 用于判断实例是否可以接收流量
 ```
 
-用于判断进程是否正常运行。
+区别：
 
-```text
-GET /ready
-```
+- `health`：进程是否存活
+- `ready`：是否准备好提供服务
+- 数据库不可用时，是否应该影响 `ready`，需要根据架构决定
 
-用于判断实例是否可以接收流量。
+::right::
+
+<div class="mt-12">
 
 示例响应：
 
@@ -1314,15 +1435,15 @@ GET /ready
 }
 ```
 
-区别：
+</div>
 
-- `health`：进程是否存活
-- `ready`：是否准备好提供服务
-- 数据库不可用时，是否应该影响 `ready`，需要根据架构决定
-
+---
+layout: two-cols-header
 ---
 
 ## 必备监控指标
+
+::left::
 
 ### 可用性
 
@@ -1338,6 +1459,8 @@ GET /ready
 - 吞吐量
 - 请求大小
 - 页面加载时间
+
+::right::
 
 ### 资源
 
@@ -1357,10 +1480,15 @@ GET /ready
 - 核心任务成功率
 
 ---
+layout: two-cols-header
+class: text-sm
+---
 
 ## 日志规范
 
-日志应包含：
+::left::
+
+### 日志应包含
 
 - 时间戳
 - 日志级别
@@ -1372,7 +1500,9 @@ GET /ready
 - 错误堆栈
 - 关键业务上下文
 
-示例：
+::right::
+
+### 示例
 
 ```json
 {
@@ -1469,8 +1599,12 @@ sudo systemctl restart myapp
 7. 发布完成检查单
 
 ---
+layout: two-cols-header
+---
 
 ## A. 发布准备检查单
+
+::left::
 
 ### 版本和范围
 
@@ -1482,6 +1616,8 @@ sudo systemctl restart myapp
 - [ ] 已明确验证负责人
 - [ ] 已确认发布窗口
 - [ ] 已通知相关团队和客服
+      
+::right::
 
 ### 代码和构建
 
@@ -1495,6 +1631,8 @@ sudo systemctl restart myapp
 - [ ] 已完成依赖和漏洞扫描
 - [ ] 已验证构建产物完整性
 
+---
+layout: two-cols-header
 ---
 
 ## B. 配置检查单
@@ -1566,8 +1704,13 @@ sudo systemctl restart myapp
 - [ ] 已记录每个操作和时间点
 
 ---
+layout: two-cols-header
+class: text-xs
+---
 
 ## F. 发布后验证检查单
+
+::left::
 
 ### 技术验证
 
@@ -1583,6 +1726,8 @@ sudo systemctl restart myapp
 - [ ] 定时任务运行正常
 - [ ] 前端控制台无严重错误
 - [ ] 无明显 404、500 和超时
+
+::right::
 
 ### 业务验证
 
@@ -1786,10 +1931,15 @@ docker inspect myapp
 3. 大型Web应用
 
 ---
+layout: two-cols-header
+class: text-sm
+---
 
 ## 小型 Web 应用
 
-推荐：
+::left::
+
+### 推荐
 
 ```text
 Git 仓库
@@ -1803,7 +1953,9 @@ PaaS / 静态托管 / 单台云服务器
 HTTPS + 基础监控
 ```
 
-必须具备：
+::right::
+
+### 必须具备
 
 - 自动构建
 - 唯一版本
@@ -1814,10 +1966,14 @@ HTTPS + 基础监控
 - 可执行回滚
 
 ---
+layout: two-cols-header
+---
 
 ## 中型 Web 应用
 
-推荐：
+::left::
+
+### 推荐
 
 ```text
 Git 仓库
@@ -1835,7 +1991,9 @@ CI/CD
 日志、监控、告警
 ```
 
-重点建设：
+::right::
+
+### 重点建设
 
 - 滚动发布
 - 自动扩缩容
@@ -1880,12 +2038,13 @@ CI/CD
 10. 发布完成后必须持续观察
 
 ---
-layout: two-cols
+layout: two-cols-header
+class: text-sm
 ---
 
-::left::
-# 19 最终发布检查卡
 
+# 19 最终发布检查卡
+::left::
 ## 发布前
 
 - [ ] 代码已评审
@@ -1928,6 +2087,7 @@ layout: two-cols
 ```
 
 注意： 发布不是一次操作，而是一套可重复、可验证、可回滚的工程流程。
+
 
 ---
 class: repo-slide
