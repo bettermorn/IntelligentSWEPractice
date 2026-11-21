@@ -61,7 +61,7 @@ class: text-xs
 - 敏捷开发方法
 - 人工智能应用和研究（如AI Agent， AI算法模型等）
 #### 基础设施
-- 云服务器使用：阿里云，学生认证领取代金券，可抵扣云服务器费用。
+- 云服务器使用：阿里云，学生认证领取代金券，可抵扣云服务器费用。阿里云学生优惠卷使用入口 university.aliyun.com
 - AI token使用：阿里云（百炼），学生代金券可抵扣AI Token费用。[国家超算互联网平台](https://www.scnet.cn/home/internet/index.html)也面向新用户提供免费Token与算力资源，并推出了普惠型算力定价。
 - 阿里云千问AI平台开发者文档 https://platform.qianwenai.com/docs/developer-guides
 - DeepSeek开发者平台 https://platform.deepseek.com/
